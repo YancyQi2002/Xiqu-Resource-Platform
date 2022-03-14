@@ -29,7 +29,8 @@
   "dependencies": {
     "@tauri-apps/api": "^1.0.0-rc.1",
     "husky": "^7.0.4",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",

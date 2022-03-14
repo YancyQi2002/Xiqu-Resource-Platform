@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
 // import { invoke } from '@tauri-apps/api/tauri'
 
 // // 添加监听函数，监听 DOM 内容加载完成事件
@@ -27,8 +26,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <router-view />
 </template>
 
 <style>

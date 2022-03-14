@@ -2,6 +2,7 @@
 module.exports = {
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
+    "header-max-length": () => [0, "always", 72]
   },
   prompt: {
     messages: {

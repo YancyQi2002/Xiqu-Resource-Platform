@@ -7,19 +7,14 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "tauri": "tauri dev"
+    "tauri": "tauri dev",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,vue,jsx,tsx}": [
       "prettier --write",
       "git add"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "config": {
     "commitizen": {
@@ -29,7 +24,6 @@
   "dependencies": {
     "@tauri-apps/api": "^1.0.0-rc.2",
     "axios": "^0.26.1",
-    "husky": "^7.0.4",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
@@ -42,6 +36,7 @@
     "autoprefixer": "^10.4.2",
     "commitizen": "^4.2.4",
     "cz-git": "^1.2.1",
+    "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "postcss": "^8.4.8",
     "postcss-import": "^14.0.2",

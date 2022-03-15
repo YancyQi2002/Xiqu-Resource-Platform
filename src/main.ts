@@ -1,4 +1,5 @@
 import './assets/css/index.css'
+import '@purge-icons/generated'
 
 import { createApp } from 'vue'
 

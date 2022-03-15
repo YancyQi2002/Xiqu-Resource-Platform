@@ -5,7 +5,10 @@
   refCount: {{ refCount.num }}
   <button class="w-24 bg-cyan-300 border-2 rounded-full" @click="refCount.num.value++">+1</button>
   <div class="my-2">
-    <el-button>Element-plus is OK!!</el-button>
+    <el-button>
+      <app-icon icon="emojione-monotone:ok-hand"/>
+      Element-plus & iconify is OK!!
+    </el-button>
   </div>
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
 </template>

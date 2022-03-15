@@ -3,6 +3,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
+import PurgeIcons from 'vite-plugin-purge-icons'
 
 import vue from '@vitejs/plugin-vue'
 
@@ -24,6 +25,16 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
+    }),
+    PurgeIcons({
+      content: [
+        '**/*.html',
+        '**/*.js',
+        '**/*.jsx',
+        '**/*.ts',
+        '**/*.tsx',
+        '**/*.vue'
+      ]
     })
   ]
 })

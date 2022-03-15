@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 const routes :RouteRecordRaw[] = [
     {
         path: '/admin',
-        component: () => import('../../pages/Admin.vue')
+        component: () => import('@/pages/Admin.vue')
     }
 ]
 

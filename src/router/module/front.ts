@@ -4,7 +4,7 @@ const routes :RouteRecordRaw[] = [
     {
         name: '首页',
         path: '/',
-        component: () => import('../../pages/Home.vue')
+        component: () => import('@/pages/Home.vue')
     }
 ]
 

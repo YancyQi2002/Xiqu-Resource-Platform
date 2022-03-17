@@ -18,6 +18,16 @@ export default defineConfig({
       '@': resolve('./src')
     }
   },
+  server: {
+    port: 4000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000/api',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   plugins: [
     vue(),
     AutoImport({

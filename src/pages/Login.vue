@@ -32,12 +32,13 @@
 </template>
 
 <script setup lang="ts">
-import { reqUserLogin } from '@/api/userApi'
 import useUserStore from '@/store/module/useUserStore'
 import { OK_CODE } from '@/utils/keys'
 import { ElMessage } from 'element-plus'
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { reqUserLogin } from '@/api/userApi'
+import axios from 'axios'
 
 const userInfo = reactive({
     username: '',
@@ -71,15 +72,30 @@ const handleSubmit = (e:Event) => {
     e.preventDefault()
     formEl.value!.validate().then(async (ok:boolean) => {
         if (!ok) return
-        let { code, data, msg } = await reqUserLogin(userInfo)
-        console.log(data)
-        if (code === OK_CODE) {
-            ElMessage.success(msg)
-            userStore.login(Object.assign({}, data.info, { token: data.token }))
-            router.push({ name: '控制面板' })
-            return
-        }
-        ElMessage.error(msg)
+        // let { code, data, msg } = await reqUserLogin(userInfo)
+        axios({
+            method: "POST",
+            url: "/api/users/login",
+            data: userInfo,
+            transformRequest: [(data) => {
+                let ret = ""
+                for (let i in data) {
+                    ret += encodeURIComponent(i) + "=" + encodeURIComponent(data[i]) + "&"
+                }
+                return ret
+            }],
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).then((res) => {
+            console.log(res.data)
+            if (res.data.code === OK_CODE) {
+                ElMessage.success(res.data.msg)
+                userStore.login(Object.assign({}, res.data.data.info, { token: res.data.data.token }))
+                router.push({ name: '控制面板' })
+            }
+            ElMessage.error(res.data.msg)
+        })
     })
 }
 </script>

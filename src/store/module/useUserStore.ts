@@ -26,8 +26,8 @@ const useUserStore = defineStore({
         setToken(token :string) {
             this.$state.token = token
         },
-        setId(id :number) {
-            this.$state.id = id
+        setId(_id :number) {
+            this.$state.id = _id
         },
         setJurisdiction(jurisdiction :string) {
             this.$state.jurisdiction = jurisdiction

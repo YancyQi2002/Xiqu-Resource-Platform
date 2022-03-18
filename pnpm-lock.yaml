@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/cli': ^16.2.1
   '@commitlint/config-conventional': ^16.2.1
+  '@headlessui/vue': ^1.5.0
   '@iconify/iconify': ^2.1.2
   '@iconify/json': ^2.1.15
   '@tailwindcss/forms': ^0.5.0
@@ -33,6 +34,7 @@ specifiers:
   vue-tsc: ^0.29.8
 
 dependencies:
+  '@headlessui/vue': 1.5.0_vue@3.2.31
   '@iconify/iconify': 2.1.2
   '@tauri-apps/api': 1.0.0-rc.2
   axios: 0.26.1
@@ -316,6 +318,15 @@ packages:
   /@emmetio/scanner/1.0.0:
     resolution: {integrity: sha512-8HqW8EVqjnCmWXVpqAOZf+EGESdkR27odcMMMGefgKXtar00SoYNSryGv//TELI4T3QFsECo78p+0lmalk/CFA==}
     dev: true
+
+  /@headlessui/vue/1.5.0_vue@3.2.31:
+    resolution: {integrity: sha512-jAp6XYpqdEv32xhszaj5ejvjaX5qhu20sCbxu7lplePEfZL+4ffabivJBBTZAiPWczqAXmnZWNWG5DOyqjRa4w==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.31
+    dev: false
 
   /@iconify/iconify/2.1.2:
     resolution: {integrity: sha512-QcUzFeEWkE/mW+BVtEGmcWATClcCOIJFiYUD/PiCWuTcdEA297o8D4oN6Ra44WrNOHu1wqNW4J0ioaDIiqaFOQ==}

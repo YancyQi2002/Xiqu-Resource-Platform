@@ -26,6 +26,11 @@
                         登录
                     </el-button>
                 </el-form-item>
+                <el-form-item>
+                    <el-button class="w-full" @click="toHomePage">
+                        返回平台主页
+                    </el-button>
+                </el-form-item>
             </el-form>
         </div>
     </div>
@@ -37,7 +42,6 @@ import { OK_CODE } from '@/utils/keys'
 import { ElMessage } from 'element-plus'
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { reqUserLogin } from '@/api/userApi'
 import axios from 'axios'
 
 const userInfo = reactive({
@@ -72,7 +76,6 @@ const handleSubmit = (e:Event) => {
     e.preventDefault()
     formEl.value!.validate().then(async (ok:boolean) => {
         if (!ok) return
-        // let { code, data, msg } = await reqUserLogin(userInfo)
         axios({
             method: "POST",
             url: "/api/users/login",
@@ -93,10 +96,24 @@ const handleSubmit = (e:Event) => {
                 ElMessage.success(res.data.msg)
                 userStore.login(Object.assign({}, res.data.data.info, { token: res.data.data.token }))
                 router.push({ name: '控制面板' })
+                return
             }
-            ElMessage.error(res.data.msg)
+            ElMessage({
+                message: 'Error ' + res.data.message,
+                type: 'warning',
+            })
+        }).catch((err) => {
+            console.log(err)
+            ElMessage({
+                message: 'Error ' + err,
+                type: 'warning',
+            })
         })
     })
+}
+
+const toHomePage = () => {
+    router.push({ name: '首页' })
 }
 </script>
 

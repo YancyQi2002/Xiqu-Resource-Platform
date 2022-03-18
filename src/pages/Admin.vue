@@ -158,6 +158,6 @@ const handleMenuChange = (index :string) => {
 }
 
 .right-main {
-  @apply bg-green-300;
+  @apply bg-gray-300;
 }
 </style>

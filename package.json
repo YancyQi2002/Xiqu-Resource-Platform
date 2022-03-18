@@ -26,9 +26,12 @@
     "@iconify/iconify": "^2.1.2",
     "@tauri-apps/api": "^1.0.0-rc.2",
     "axios": "^0.26.1",
+    "core-js": "^3.21.1",
     "element-plus": "^2.1.2",
     "pinia": "^2.0.12",
+    "qs": "^6.10.3",
     "vue": "^3.2.31",
+    "vue-axios": "^3.4.1",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
@@ -39,6 +42,7 @@
     "@tauri-apps/cli": "^1.0.0-rc.7",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^17.0.21",
+    "@types/qs": "^6.9.7",
     "@vitejs/plugin-vue": "^2.2.4",
     "autoprefixer": "^10.4.2",
     "commitizen": "^4.2.4",

@@ -6,7 +6,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     AboutAuthor: typeof import('./src/components/about/AboutAuthor.vue')['default']
     AboutPlatform: typeof import('./src/components/about/AboutPlatform.vue')['default']
+    AdminCardBox: typeof import('./src/components/common/AdminCardBox.vue')['default']
     AppIcon: typeof import('./src/components/common/AppIcon.vue')['default']
+    ATable: typeof import('ant-design-vue/es')['Table']
     Disclosure: typeof import('@headlessui/vue')['Disclosure']
     DisclosureButton: typeof import('@headlessui/vue')['DisclosureButton']
     DisclosurePanel: typeof import('@headlessui/vue')['DisclosurePanel']

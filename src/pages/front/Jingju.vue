@@ -26,7 +26,7 @@ const currentRow = ref()
 
 const singleTableRef = ref<InstanceType<typeof ElTable>>()
 
-const setCurrent = (row?: User) => {
+const setCurrent = (row) => {
   singleTableRef.value!.setCurrentRow(row)
 }
 

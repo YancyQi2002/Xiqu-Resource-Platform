@@ -14,6 +14,13 @@
                 <dt class="text-sm font-medium text-gray-500">What are the main techniques used?</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Vite 2 + Vue 3 + Pinia 2 + Vue-Router 4 + TailwindCSS 3 + Element-Plus + HeadlessUI + Tauri</dd>
                 </div>
+                <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">What licence does the platform use?</dt>
+                <dd class="flex items-start justify-start mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <div class="py-2 pr-2">GPL-3.0-or-later</div>
+                    <img src="https://www.gnu.org/graphics/gplv3-or-later-sm.png">
+                </dd>
+                </div>
             </dl>
         </div>
     </div>

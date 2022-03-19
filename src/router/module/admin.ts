@@ -28,6 +28,4 @@ const routes :RouteRecordRaw[] | any = [
     }
 ]
 
-console.log(routes)
-
 export default routes

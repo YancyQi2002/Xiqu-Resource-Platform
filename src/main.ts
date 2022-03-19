@@ -1,5 +1,6 @@
 import './assets/css/index.css'
 import '@purge-icons/generated'
+import 'flowbite'
 
 import { createApp } from 'vue'
 

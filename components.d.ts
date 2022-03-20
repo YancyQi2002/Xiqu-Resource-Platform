@@ -5,6 +5,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     AboutAuthor: typeof import('./src/components/about/AboutAuthor.vue')['default']
+    AboutDependence: typeof import('./src/components/about/AboutDependence.vue')['default']
+    AboutDependencies: typeof import('./src/components/about/AboutDependencies.vue')['default']
     AboutPlatform: typeof import('./src/components/about/AboutPlatform.vue')['default']
     Action: typeof import('./src/components/action/Action.vue')['default']
     ADivider: typeof import('ant-design-vue/es')['Divider']
@@ -12,6 +14,7 @@ declare module 'vue' {
     AppIcon: typeof import('./src/components/common/AppIcon.vue')['default']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATag: typeof import('ant-design-vue/es')['Tag']
+    DialogTitle: typeof import('@headlessui/vue')['DialogTitle']
     Disclosure: typeof import('@headlessui/vue')['Disclosure']
     DisclosureButton: typeof import('@headlessui/vue')['DisclosureButton']
     DisclosurePanel: typeof import('@headlessui/vue')['DisclosurePanel']

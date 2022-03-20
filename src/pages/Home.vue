@@ -46,7 +46,7 @@
                     content="注册用户"
                     placement="bottom"
                 >
-                    <el-button round>
+                    <el-button round @click="toRegisterPage">
                         注册
                     </el-button>
                 </el-tooltip>
@@ -68,7 +68,6 @@
 </template>
 
 <script setup lang="ts">
-import { isTemplateNode } from '.pnpm/@vue+compiler-core@3.2.31/node_modules/@vue/compiler-core';
 import { useRouter } from 'vue-router'
 
 const navigation = [
@@ -82,6 +81,10 @@ const router = useRouter()
 
 const toLoginPage = () => {
     router.push({ name: 'Login'})
+}
+
+const toRegisterPage = () => {
+    router.push({ name: 'Register'})
 }
 </script>
 

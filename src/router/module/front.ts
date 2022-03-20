@@ -12,6 +12,11 @@ const routes :RouteRecordRaw[] = [
                 component: () => import('@/pages/front/Jingju.vue')
             },
             {
+                name: '留言板',
+                path: 'messageboard',
+                component: () => import('@/pages/front/MessageBoard.vue')
+            },
+            {
                 name: '关于',
                 path: 'about',
                 component: () => import('@/pages/front/About.vue')

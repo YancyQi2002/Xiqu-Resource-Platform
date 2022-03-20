@@ -2,6 +2,9 @@ import axios from 'axios'
 
 const baseURL = '/api'
 
+export let getUrl = baseURL + '/notion/comments'
+export let addUrl = baseURL + '/notion/comments'
+
 // 添加请求拦截器
 axios.interceptors.request.use(
   (config) => {

@@ -94,7 +94,7 @@ let userlist = reactive([
     }
 ])
 
-fetch('/api/users/list').then((res) => res.json()).then((res) => {
+fetch('/users/list').then((res) => res.json()).then((res) => {
     console.log(res.data)
     userlist = res.data
     console.log(userlist)

@@ -74,7 +74,7 @@ import { useRouter } from 'vue-router'
 const navigation = [
   { name: '首页', href: '/', path: ''},
   { name: '京剧', href: '/jingju', path: '/jingju'},
-  { name: 'Projects', href: '#', path: ''},
+  { name: '留言板', href: '/messageboard', path: '/messageboard'},
   { name: '关于', href: '/about', path: '/about'},
 ]
 

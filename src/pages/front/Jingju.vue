@@ -172,7 +172,7 @@ function loadJingjuList() {
 
     setTimeout(() => {
 
-        axios.get('/api/dramascript/jingjulist').then((res: { data: any; }) => {
+        axios.get('/dramascript/jingjulist').then((res: { data: any; }) => {
 
             // console.log(res.data)
             let data = res.data

@@ -1,14 +1,14 @@
 import './assets/css/index.css'
 import '@purge-icons/generated'
 import 'flowbite'
+import 'bootstrap'
+import 'xe-utils'
 
 import { createApp } from 'vue'
 
 import axios from 'axios'
 import { createPinia } from 'pinia'
 import VueAxios from 'vue-axios'
-
-import 'xe-utils'
 import VXETable from 'vxe-table'
 
 import App from './App.vue'

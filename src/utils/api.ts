@@ -4,6 +4,7 @@ const baseURL = '/api'
 
 export let getUrl = baseURL + '/notion/comments'
 export let addUrl = baseURL + '/notion/comments'
+export let getUserlist = baseURL + '/users/list'
 
 // 添加请求拦截器
 axios.interceptors.request.use(
@@ -32,16 +33,3 @@ axios.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
-// 查询
-export const getUserList = () => {
-  return axios.get(
-    '/users/list'
-  )
-}
-
-export const getJingjuList = () => {
-  return axios.get(
-    '/dramascript/jingjulist'
-  )
-}

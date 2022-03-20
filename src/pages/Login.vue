@@ -78,7 +78,7 @@ const handleSubmit = (e:Event) => {
         if (!ok) return
         axios({
             method: "POST",
-            url: "/api/users/login",
+            url: "/users/login",
             data: userInfo,
             transformRequest: [(data) => {
                 let ret = ""

@@ -12,6 +12,9 @@ declare module 'vue' {
     AppIcon: typeof import('./src/components/common/AppIcon.vue')['default']
     CommentBox: typeof import('./src/components/messageboard/CommentBox.vue')['default']
     CommentItem: typeof import('./src/components/messageboard/CommentItem.vue')['default']
+    Dialog: typeof import('@headlessui/vue')['Dialog']
+    DialogOverlay: typeof import('@headlessui/vue')['DialogOverlay']
+    DialogTitle: typeof import('@headlessui/vue')['DialogTitle']
     Disclosure: typeof import('@headlessui/vue')['Disclosure']
     DisclosureButton: typeof import('@headlessui/vue')['DisclosureButton']
     DisclosurePanel: typeof import('@headlessui/vue')['DisclosurePanel']
@@ -42,6 +45,8 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     ReplyBox: typeof import('./src/components/messageboard/ReplyBox.vue')['default']
     ReplyContainer: typeof import('./src/components/messageboard/ReplyContainer.vue')['default']
+    TransitionChild: typeof import('@headlessui/vue')['TransitionChild']
+    TransitionRoot: typeof import('@headlessui/vue')['TransitionRoot']
   }
 }
 

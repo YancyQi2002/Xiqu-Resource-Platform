@@ -67,7 +67,7 @@
                 <template #dropdown>
                   <el-dropdown-menu class="text-center">
                     <el-dropdown-item>修改密码</el-dropdown-item>
-                    <el-dropdown-item>退出登录</el-dropdown-item>
+                    <el-dropdown-item @click="openModal">退出登录</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
@@ -80,6 +80,65 @@
       </el-container>
     </el-container>
   </div>
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModal">
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="min-h-screen px-4 text-center">
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+          >
+            <DialogOverlay class="fixed inset-0" />
+          </TransitionChild>
+
+          <span class="inline-block h-screen align-middle" aria-hidden="true">
+            &#8203;
+          </span>
+
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <div
+              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+            >
+              <DialogTitle
+                as="h3"
+                class="text-lg font-medium leading-6 text-gray-900"
+              >
+                提示
+              </DialogTitle>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">
+                  您确定退出吗？
+                </p>
+              </div>
+
+              <div class="mt-4">
+                <button
+                  type="button"
+                  class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  @click="logout"
+                >
+                  确定退出
+                </button>
+              </div>
+            </div>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
 </template>
 
 <script lang="ts" setup>
@@ -87,6 +146,7 @@ import { computed, ref } from 'vue'
 import AppIcon from '@/components/common/AppIcon.vue'
 import routes from '@/router/module/admin'
 import { useRouter } from 'vue-router'
+import useUserStore from '@/store/module/useUserStore'
 
 const asideWidth = ref('210px')
 
@@ -115,6 +175,24 @@ const handleMenuChange = (index :string) => {
     default:
       break;
   }
+}
+
+const isOpen = ref(false)
+
+const closeModal = () => {
+  isOpen.value = false
+}
+
+const openModal = () => {
+  isOpen.value = true
+}
+
+const userStore = useUserStore()
+
+const logout = () => {
+  closeModal()
+  localStorage.clear()
+  router.push({ name: 'Login' })
 }
 </script>
 

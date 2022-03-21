@@ -22,8 +22,8 @@
             <div class="hidden sm:block sm:ml-6">
                 <div class="flex space-x-4">
                     <!-- <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a> -->
-                    <router-link tag="span" :to="{ path: item.path }" v-for="item in navigation" :key="item.name">
-                        <a class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    <router-link tag="span" :to="{ path: item.path }" v-for="item in navigation" :key="item.name" class="no-underline">
+                        <a class="no-underline bg-gray-900 text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                             {{ item.name }}
                         </a>
                     </router-link>

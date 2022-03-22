@@ -11,7 +11,7 @@ specifiers:
   '@tauri-apps/api': 1.0.0-rc.2
   '@tauri-apps/cli': 1.0.0-rc.7
   '@types/lodash-es': 4.17.6
-  '@types/node': 17.0.21
+  '@types/node': 17.0.22
   '@types/qs': 6.9.7
   '@vitejs/plugin-vue': 2.2.4
   autoprefixer: ^10.4.4
@@ -68,7 +68,7 @@ devDependencies:
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
   '@tauri-apps/cli': 1.0.0-rc.7
   '@types/lodash-es': 4.17.6
-  '@types/node': 17.0.21
+  '@types/node': 17.0.22
   '@types/qs': 6.9.7
   '@vitejs/plugin-vue': 2.2.4_vite@2.8.6+vue@3.2.31
   autoprefixer: 10.4.4_postcss@8.4.12
@@ -314,10 +314,10 @@ packages:
       '@commitlint/execute-rule': 16.2.1
       '@commitlint/resolve-extends': 16.2.1
       '@commitlint/types': 16.2.1
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.6_e79e62fe450383fd2d418267dc75e645
+      cosmiconfig-typescript-loader: 1.0.6_5338de7ff0b33ef224ee85855d74b9f4
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.6.2
@@ -335,10 +335,10 @@ packages:
       '@commitlint/execute-rule': 16.2.1
       '@commitlint/resolve-extends': 16.2.1
       '@commitlint/types': 16.2.1
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.6_e79e62fe450383fd2d418267dc75e645
+      cosmiconfig-typescript-loader: 1.0.6_5338de7ff0b33ef224ee85855d74b9f4
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.6.2
@@ -721,8 +721,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/17.0.21:
-    resolution: {integrity: sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==}
+  /@types/node/17.0.22:
+    resolution: {integrity: sha512-8FwbVoG4fy+ykY86XCAclKZDORttqE5/s7dyWZKLXTdv3vRy5HozBEinG5IqhvPXXzIZEcTVbuHlQEI6iuwcmw==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -1457,16 +1457,16 @@ packages:
     requiresBuild: true
     dev: false
 
-  /cosmiconfig-typescript-loader/1.0.6_e79e62fe450383fd2d418267dc75e645:
+  /cosmiconfig-typescript-loader/1.0.6_5338de7ff0b33ef224ee85855d74b9f4:
     resolution: {integrity: sha512-2nEotziYJWtNtoTjKbchj9QrdTT6DBxCvqjNKoDKARw+e2yZmTQCa07uRrykLIZuvSgp69YXLH89UHc0WhdMfQ==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@types/node': '*'
       typescript: '>=3'
     dependencies:
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
       cosmiconfig: 7.0.1
-      ts-node: 10.7.0_e79e62fe450383fd2d418267dc75e645
+      ts-node: 10.7.0_5338de7ff0b33ef224ee85855d74b9f4
       typescript: 4.6.2
     transitivePeerDependencies:
       - '@swc/core'
@@ -3866,7 +3866,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-node/10.7.0_e79e62fe450383fd2d418267dc75e645:
+  /ts-node/10.7.0_5338de7ff0b33ef224ee85855d74b9f4:
     resolution: {integrity: sha512-TbIGS4xgJoX2i3do417KSaep1uRAW/Lu+WAL2doDHC0D6ummjirVOXU5/7aiZotbQ5p1Zp9tP7U6cYhA0O7M8A==}
     hasBin: true
     peerDependencies:
@@ -3885,7 +3885,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
       acorn: 8.7.0
       acorn-walk: 8.2.0
       arg: 4.1.3

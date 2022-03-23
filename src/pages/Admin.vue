@@ -57,7 +57,7 @@
                   <img
                     class="p-1 w-10 h-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
                     :src="userAvatar"
-                  >
+                  />
                 </span>
                 <template #dropdown>
                   <el-dropdown-menu class="text-center">
@@ -105,16 +105,9 @@
             <div
               class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
             >
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
-              >
-                提示
-              </DialogTitle>
+              <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">提示</DialogTitle>
               <div class="mt-2">
-                <p class="text-sm text-gray-500">
-                  您确定退出吗？
-                </p>
+                <p class="text-sm text-gray-500">您确定退出吗？</p>
               </div>
 
               <div class="mt-4">
@@ -137,16 +130,22 @@ import { computed, reactive, ref } from 'vue'
 import AppIcon from '@/components/common/AppIcon.vue'
 import routes from '@/router/module/admin'
 import { useRouter } from 'vue-router'
-import useUserStore from '@/store/module/useUserStore'
+import { ElMessage } from 'element-plus'
 
-const userInfoJSON = JSON.parse(localStorage.getItem('user'))
+const router = useRouter()
 
-let userAvatar = ref('')
+let userInfoJSON
 
-if (userInfoJSON.avatar == '') {
-  userAvatar.value = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
-} else {
-  userAvatar.value = userInfoJSON.avatar
+if (localStorage.getItem('user') == null) {
+  ElMessage({
+    message: 'Error Token',
+    type: 'warning',
+  })
+  router.push({ name: 'Login' })
+}
+
+if (JSON.parse(localStorage.getItem('user')).token !== '') {
+  userInfoJSON = JSON.parse(localStorage.getItem('user'))
 }
 
 const asideWidth = ref('210px')
@@ -158,8 +157,6 @@ const handleAsideChange = () => {
 const collapse = computed(() => {
   return asideWidth.value !== '210px'
 })
-
-const router = useRouter()
 
 const handleMenuChange = (index: string) => {
   console.log(index)
@@ -178,6 +175,14 @@ const handleMenuChange = (index: string) => {
   }
 }
 
+let userAvatar = ref('')
+
+if (userInfoJSON.avatar == '') {
+  userAvatar.value = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+} else {
+  userAvatar.value = userInfoJSON.avatar
+}
+
 const isOpen = ref(false)
 
 const closeModal = () => {
@@ -187,10 +192,6 @@ const closeModal = () => {
 const openModal = () => {
   isOpen.value = true
 }
-
-
-
-const userStore = useUserStore()
 
 const logout = () => {
   closeModal()

@@ -56,7 +56,7 @@
                 <span class="el-dropdown-link">
                   <img
                     class="p-1 w-10 h-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                    src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+                    :src="userAvatar"
                   >
                 </span>
                 <template #dropdown>
@@ -133,11 +133,21 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import AppIcon from '@/components/common/AppIcon.vue'
 import routes from '@/router/module/admin'
 import { useRouter } from 'vue-router'
 import useUserStore from '@/store/module/useUserStore'
+
+const userInfoJSON = JSON.parse(localStorage.getItem('user'))
+
+let userAvatar = ref('')
+
+if (userInfoJSON.avatar == '') {
+  userAvatar.value = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+} else {
+  userAvatar.value = userInfoJSON.avatar
+}
 
 const asideWidth = ref('210px')
 
@@ -177,6 +187,8 @@ const closeModal = () => {
 const openModal = () => {
   isOpen.value = true
 }
+
+
 
 const userStore = useUserStore()
 

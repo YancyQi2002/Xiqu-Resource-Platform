@@ -11,19 +11,20 @@
           <div class="aside-logo">
             <div class="text" v-if="asideWidth == '210px'">后台管理</div>
             <div v-else>
-              <app-icon
-                icon="healthicons:ui-menu-grid-outline"
-                class="py-1 text-4xl"
-              />
+              <app-icon icon="healthicons:ui-menu-grid-outline" class="py-1 text-4xl" />
             </div>
           </div>
           <el-menu-item index="1">
-            <el-icon><app-icon icon="ep:menu" /></el-icon>
+            <el-icon>
+              <app-icon icon="ep:menu" />
+            </el-icon>
             <span>控制面板</span>
           </el-menu-item>
           <el-sub-menu index="2">
             <template #title>
-              <el-icon><app-icon icon="ep:user-filled" /></el-icon>
+              <el-icon>
+                <app-icon icon="ep:user-filled" />
+              </el-icon>
               <span>用户管理</span>
             </template>
             <el-menu-item index="2-1">
@@ -31,7 +32,9 @@
             </el-menu-item>
           </el-sub-menu>
           <el-menu-item index="3">
-            <el-icon><app-icon icon="entypo:info" /></el-icon>
+            <el-icon>
+              <app-icon icon="entypo:info" />
+            </el-icon>
             <span>关于后台</span>
           </el-menu-item>
         </el-menu>
@@ -40,29 +43,21 @@
         <el-header class="right-header">
           <div class="header-left">
             <div @click="handleAsideChange" v-if="asideWidth == '210px'">
-              <app-icon
-                icon="icon-park:menu-unfold-one"
-                class="text-4xl cursor-pointer"
-              />
+              <app-icon icon="icon-park:menu-unfold-one" class="text-4xl cursor-pointer" />
             </div>
             <div @click="handleAsideChange" v-else>
-              <app-icon
-                icon="icon-park:menu-fold-one"
-                class="text-4xl cursor-pointer"
-              />
+              <app-icon icon="icon-park:menu-fold-one" class="text-4xl cursor-pointer" />
             </div>
-            <div class="site-title">
-              戏曲资源平台
-            </div>
+            <div class="site-title">戏曲资源平台</div>
           </div>
           <div class="header-right">
             <div class="avatar cursor-pointer">
               <el-dropdown trigger="click" size="small">
                 <span class="el-dropdown-link">
-                  <el-avatar
-                    alt="Avatar"
+                  <img
+                    class="p-1 w-10 h-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
                     src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-                  ></el-avatar>
+                  >
                 </span>
                 <template #dropdown>
                   <el-dropdown-menu class="text-center">
@@ -96,9 +91,7 @@
             <DialogOverlay class="fixed inset-0" />
           </TransitionChild>
 
-          <span class="inline-block h-screen align-middle" aria-hidden="true">
-            &#8203;
-          </span>
+          <span class="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
 
           <TransitionChild
             as="template"
@@ -129,9 +122,7 @@
                   type="button"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   @click="logout"
-                >
-                  确定退出
-                </button>
+                >确定退出</button>
               </div>
             </div>
           </TransitionChild>
@@ -160,7 +151,7 @@ const collapse = computed(() => {
 
 const router = useRouter()
 
-const handleMenuChange = (index :string) => {
+const handleMenuChange = (index: string) => {
   console.log(index)
   switch (index) {
     case '1':

@@ -182,7 +182,7 @@ const userStore = useUserStore()
 
 const logout = () => {
   closeModal()
-  localStorage.clear()
+  localStorage.removeItem('user')
   router.push({ name: 'Login' })
 }
 </script>

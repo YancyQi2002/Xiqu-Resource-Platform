@@ -90,11 +90,13 @@
                     <el-form-item label="剧本&nbsp;/&nbsp;唱词">
                         <span>
                             <a
+                                v-if="props.row.content !== '暂无唱词 / 剧本！'"
                                 class="btn btn-outline-info mt-2 no-underline"
                                 role="button"
                                 :href="props.row.content"
                                 target="_blank"
                             >点此查看</a>
+                            <span v-else>暂无唱词 / 剧本！</span>
                         </span>
                     </el-form-item>
                 </el-form>
@@ -104,10 +106,9 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-
-const axios: any = inject("axios")
+import { getJingjuList } from '@/utils/api'
 
 let tabledata = ref([])
 
@@ -127,7 +128,7 @@ async function loadJingjuList() {
         duration: 5000
     })
 
-    const res = await (await fetch('/api/dramascript/jingjulist')).json()
+    const res = await (await fetch(getJingjuList)).json()
 
     const result = res.data
 
@@ -153,9 +154,9 @@ async function loadJingjuList() {
         } else {
             result[i].createTime = createYear + "年" + createMonth + "月" + createDay + "日"
         }
-        const updateYear = res.data[i].updateTime.substr(0, 4)
-        const updateMonth = res.data[i].updateTime.substr(5, 2)
-        const updateDay = res.data[i].updateTime.substr(8, 2)
+        const updateYear = result[i].updateTime.substr(0, 4)
+        const updateMonth = result[i].updateTime.substr(5, 2)
+        const updateDay = result[i].updateTime.substr(8, 2)
         if (window.innerWidth < 1354 && window.innerWidth > 810) {
             result[i].updateTime = updateYear + "-" + updateMonth + "-" + updateDay
         } else if (window.innerWidth <= 810) {

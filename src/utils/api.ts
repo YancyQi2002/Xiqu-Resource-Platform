@@ -5,6 +5,8 @@ const baseURL = '/api'
 export let getUrl = baseURL + '/notion/comments'
 export let addUrl = baseURL + '/notion/comments'
 export let getUserlist = baseURL + '/users/list'
+export let getJingjuList = baseURL + '/dramascript/jingjulist'
+export let getPeakingOperalist = baseURL + '/dramascript/peakingoperalist'
 
 // 添加请求拦截器
 axios.interceptors.request.use(

@@ -20,7 +20,6 @@ declare module 'vue' {
     DisclosurePanel: typeof import('@headlessui/vue')['DisclosurePanel']
     DividerHorizontal: typeof import('./src/components/messageboard/DividerHorizontal.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
-    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElCard: typeof import('element-plus/es')['ElCard']

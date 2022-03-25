@@ -12,7 +12,7 @@
 
     <el-table
         :data="tabledata.filter(
-            (data) =>
+            (data :any) =>
                 !search || data.jingjuname.toLowerCase().includes(search.toLowerCase()) || data.tag.toLowerCase().includes(search.toLowerCase()) || data.actor.toLowerCase().includes(search.toLowerCase())
         )"
         border
@@ -39,7 +39,7 @@
         >
             <template #default="scope">
                 <el-tag
-                    :type="scope.row.tag === '北派' ? 'primary' : 'success'"
+                    :type="scope.row.tag === '北派' ? '' : 'success'"
                     disable-transitions
                 >{{ scope.row.tag }}</el-tag>
             </template>
@@ -54,7 +54,7 @@
         <el-table-column type="expand" width="300">
 
             <template v-slot:header="scope">
-                <el-input v-model="search" size="medium" placeholder="输入剧目/派别/演员搜索" clearable />
+                <el-input v-model="search" size="small" placeholder="输入剧目/派别/演员搜索" clearable />
             </template>
 
             <template v-slot="props">

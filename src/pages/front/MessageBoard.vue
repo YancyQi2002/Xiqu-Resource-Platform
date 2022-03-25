@@ -8,19 +8,19 @@
             <!-- 分割线 -->
             <DividerHorizontal />
 
-            <div v-for="comment in comments" :key="comment.id">
+            <div v-for="comment in comments" :key="(comment as any).id">
                 <!-- 单个留言 -->
                 <CommentItem
-                    :user="comment.user"
-                    :avatar="comment.avatar"
-                    :time="comment.time"
-                    :content="comment.content"
+                    :user="(comment as any).user"
+                    :avatar="(comment as any).avatar"
+                    :time="(comment as any).time"
+                    :content="(comment as any).content"
                 />
 
                 <!-- 回复列表 -->
-                <ReplyContainer v-if="comment.replies">
+                <ReplyContainer v-if="(comment as any).replies">
                     <CommentItem
-                        v-for="reply in comment.replies"
+                        v-for="reply in (comment as any).replies"
                         :key="reply.id"
                         :user="reply.user"
                         :avatar="reply.avatar"
@@ -29,7 +29,7 @@
                     />
                 </ReplyContainer>
 
-                <ReplyBox @submit="addNewComment($event, comment.id)"/>
+                <ReplyBox @submit="addNewComment($event, (comment as any).id)"/>
             </div>
         </div>
     </main>
@@ -46,7 +46,7 @@ import { ref, inject, onMounted } from 'vue'
 
 let rid = ref(4)
 
-const comments = ref([])
+const comments: any = ref([])
 
 async function getAllComments() {
     const res = await fetch(getUrl)
@@ -83,7 +83,7 @@ onMounted(() => {
 //     }
 // }
 
-const addNewComment = async (content, replyTo = "") => {
+const addNewComment = async (content :any, replyTo = "") => {
     const res = await fetch(`${addUrl}`, {
         method: "POST",
         headers: {
@@ -96,12 +96,12 @@ const addNewComment = async (content, replyTo = "") => {
         }),
     })
 
-    const newComment = await res.json()
+    const newComment :any = await res.json()
 
     if (!replyTo) {
         comments.value.unshift(newComment)
     } else {
-        comments.value.find(c => c.id === replyTo).replies.unshift(newComment)
+        comments.value.find((c: any) => c.id === replyTo).replies.unshift(newComment)
     }
 
     // // 新增完评论后，自动获取最新的评论列表

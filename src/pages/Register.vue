@@ -88,11 +88,11 @@ const userInfo = reactive({
     email: ''
 })
 
-const checkPhone = (rules, value, callback) => {
+const checkPhone = (rules: any, value: string, callback: any) => {
     const phoneNumber = value
     ElMessage('初始校验手机号')
     setTimeout(() => {
-        let reg = /^1\d{10}$/
+        let reg :any = /^1\d{10}$/;
         if (!reg.test(phoneNumber)) {
             console.log('手机号格式不正确')
             ElMessage.error('【初始校验】手机号格式不正确！')
@@ -172,8 +172,8 @@ const checkPhone = (rules, value, callback) => {
         }, 3500)
 
         console.log(phoneNumber)
-        reg = /^(\d{3})\d{4}(\d{4})$/
-        document.getElementById("phone").value = value.replace(reg, "$1****$2")
+        reg = /^(\d{3})\d{4}(\d{4})$/;
+        (document as any).getElementById("phone").value = value.replace(reg, "$1****$2")
         callback()
     }, 5000)
 }

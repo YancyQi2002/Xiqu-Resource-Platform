@@ -22,7 +22,7 @@ const content = ref("")
 
 const emit = defineEmits(["submit"])
 
-const handleSubmit = (e) => {
+const handleSubmit = (e :any) => {
     e.preventDefault();
     emit("submit", content.value)
     content.value = ""

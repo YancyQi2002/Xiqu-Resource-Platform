@@ -80,7 +80,7 @@ const columns = [
     },
 ]
 
-let userlist = ref([])
+let userlist :any = ref([])
 
 async function getUserListData() {
     ElMessage({

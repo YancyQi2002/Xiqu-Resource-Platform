@@ -16,7 +16,7 @@ import config from '../../../package.json'
 import { VxeGridProps } from 'vxe-table'
 import { ref, reactive } from 'vue'
 
-const xToolbar = ref({} as VxeToolbarlnstance)
+const xToolbar :any = ref({})
 
 const dloading = reactive({
     loading: false
@@ -73,22 +73,22 @@ const getDependencies = () => {
     let devDependenciesLength = 0
 
     for (let i in dependencies) {
-        dependenciesInfoArr.push(i)
-        dependenciesVerArr.push(dependencies[i]),
+        dependenciesInfoArr.push(i as any)
+        dependenciesVerArr.push((dependencies as any)[i]),
             dependenciesLength++
     }
 
     console.log(dependenciesInfoArr, dependenciesVerArr)
 
     for (let j in devDependencies) {
-        devDependenciesInfoArr.push(j)
-        devDependenciesVerArr.push(devDependencies[j]),
+        devDependenciesInfoArr.push(j as any)
+        devDependenciesVerArr.push((devDependencies as any)[j]),
             devDependenciesLength++
     }
 
     console.log(devDependenciesInfoArr, devDependenciesVerArr)
 
-    let temp = []
+    let temp :any = []
 
     if (dependenciesLength > devDependenciesLength) {
         for (let i in dependenciesInfoArr) {

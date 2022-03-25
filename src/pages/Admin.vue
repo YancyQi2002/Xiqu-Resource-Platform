@@ -144,8 +144,8 @@ if (localStorage.getItem('user') == null) {
   router.push({ name: 'Login' })
 }
 
-if (JSON.parse(localStorage.getItem('user')).token !== '') {
-  userInfoJSON = JSON.parse(localStorage.getItem('user'))
+if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
+  userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
 }
 
 const asideWidth = ref('210px')

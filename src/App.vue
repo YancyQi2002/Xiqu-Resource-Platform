@@ -7,15 +7,15 @@ import { invoke } from '@tauri-apps/api/tauri'
 // With the Tauri global script:
 // const invoke = (window as any).__TAURI__.invoke
 
-setTimeout(() => {
-  // 添加监听函数，监听 DOM 内容加载完成事件
-  document.addEventListener('DOMContentLoaded', () => {
-    // This will wait for the window to load, but you could
-    // run this function on whatever trigger you want
+// 添加监听函数，监听 DOM 内容加载完成事件
+document.addEventListener('DOMContentLoaded', () => {
+  // This will wait for the window to load, but you could
+  // run this function on whatever trigger you want
+  setTimeout(() => {
     // DOM 内容加载完成后，通过 invoke 调用 在 Rust 中已经注册的命令
     invoke('close_splashscreen')
-  })
-}, 5000)
+  }, 10000)
+})
 </script>
 
 <template>

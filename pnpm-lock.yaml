@@ -20,7 +20,7 @@ specifiers:
   commitizen: 4.2.4
   core-js: 3.21.1
   cz-git: 1.2.1
-  element-plus: 2.1.4
+  element-plus: 2.1.5
   flowbite: 1.4.1
   husky: 7.0.4
   lint-staged: 12.3.7
@@ -50,7 +50,7 @@ dependencies:
   '@tauri-apps/api': 1.0.0-rc.2
   axios: 0.26.1
   core-js: 3.21.1
-  element-plus: 2.1.4_1a412d14def5ff5ca1122000e4bee666
+  element-plus: 2.1.5_1a412d14def5ff5ca1122000e4bee666
   flowbite: 1.4.1
   pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
   qs: 6.10.3
@@ -336,6 +336,16 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.2.31
+    dev: false
+
+  /@floating-ui/core/0.6.1:
+    resolution: {integrity: sha512-Y30eVMcZva8o84c0HcXAtDO4BEzPJMvF6+B7x7urL2xbAqVsGJhojOyHLaoQHQYjb6OkqRq5kO+zeySycQwKqg==}
+    dev: false
+
+  /@floating-ui/dom/0.4.2:
+    resolution: {integrity: sha512-2/4vOhMAujkMmGqGX1Gut84phe5MNfk1kGeM+RSTJCpeR0SWR2/RR+/f1r1msOvTQa28wn7HEhxGe71CjYY/vw==}
+    dependencies:
+      '@floating-ui/core': 0.6.1
     dev: false
 
   /@headlessui/vue/1.5.0_vue@3.2.31:
@@ -1523,13 +1533,14 @@ packages:
     resolution: {integrity: sha512-ywq9Pc5Gwwpv7NG767CtoU8xF3aAUQJjH9//Wy3MBCg4w5JSLbJUq2L8IsCdzPMjvSgxuue9WcVaTOyyxCL0aQ==}
     dev: true
 
-  /element-plus/2.1.4_1a412d14def5ff5ca1122000e4bee666:
-    resolution: {integrity: sha512-pcwgDbKUrzyWbixYB/zIbLPLBQ/NPGPJnGXJ+jYozUSthPW4SuriaUGJKgbAE6PDBAtw3IodiT2E2GbiaZLxww==}
+  /element-plus/2.1.5_1a412d14def5ff5ca1122000e4bee666:
+    resolution: {integrity: sha512-QHssDDY2uIJVmfXHkPU7DOxDMqlb2UCsfpJaYRrAYpZC4YIrbtQCcw26A7uRZogDu+ampAaZzGQqioDLdKNkiA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': 3.4.0
       '@element-plus/icons-vue': 1.1.4_vue@3.2.31
+      '@floating-ui/dom': 0.4.2
       '@popperjs/core': 2.11.4
       '@vueuse/core': 8.1.2_vue@3.2.31
       async-validator: 4.0.7

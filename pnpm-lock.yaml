@@ -20,8 +20,8 @@ specifiers:
   commitizen: 4.2.4
   core-js: 3.21.1
   cz-git: 1.2.1
-  element-plus: 2.1.4
-  flowbite: 1.4.1
+  element-plus: ^2.1.5
+  flowbite: ^1.4.1
   husky: 7.0.4
   lint-staged: 12.3.7
   pinia: 2.0.12
@@ -50,7 +50,7 @@ dependencies:
   '@tauri-apps/api': 1.0.0-rc.2
   axios: 0.26.1
   core-js: 3.21.1
-  element-plus: 2.1.4_1a412d14def5ff5ca1122000e4bee666
+  element-plus: 2.1.5_1a412d14def5ff5ca1122000e4bee666
   flowbite: 1.4.1
   pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
   qs: 6.10.3
@@ -336,6 +336,16 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.2.31
+    dev: false
+
+  /@floating-ui/core/0.6.1:
+    resolution: {integrity: sha512-Y30eVMcZva8o84c0HcXAtDO4BEzPJMvF6+B7x7urL2xbAqVsGJhojOyHLaoQHQYjb6OkqRq5kO+zeySycQwKqg==}
+    dev: false
+
+  /@floating-ui/dom/0.4.2:
+    resolution: {integrity: sha512-2/4vOhMAujkMmGqGX1Gut84phe5MNfk1kGeM+RSTJCpeR0SWR2/RR+/f1r1msOvTQa28wn7HEhxGe71CjYY/vw==}
+    dependencies:
+      '@floating-ui/core': 0.6.1
     dev: false
 
   /@headlessui/vue/1.5.0_vue@3.2.31:
@@ -746,8 +756,8 @@ packages:
   /@vue/shared/3.2.31:
     resolution: {integrity: sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==}
 
-  /@vueuse/core/8.1.2_vue@3.2.31:
-    resolution: {integrity: sha512-prI2GzigBUtJNTcwRjJPzUPLFoRZM1RZFR464DFdwgU8TxRFf7dRvuvWFDNbCATzLExHFnGI3zTp9GkXTTZxgQ==}
+  /@vueuse/core/8.2.0_vue@3.2.31:
+    resolution: {integrity: sha512-89ZfKtFHz5ynfpWyFVXtK0yePJ2MZqFaOxnGeZn7cIp8KFbPRlu6Wsxi3gBkJNpjq+q9qbEh6MjV7QBvqCQ5Og==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -757,18 +767,18 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@vueuse/metadata': 8.1.2
-      '@vueuse/shared': 8.1.2_vue@3.2.31
+      '@vueuse/metadata': 8.2.0
+      '@vueuse/shared': 8.2.0_vue@3.2.31
       vue: 3.2.31
       vue-demi: 0.12.4_vue@3.2.31
     dev: false
 
-  /@vueuse/metadata/8.1.2:
-    resolution: {integrity: sha512-LrPtdiYMleygnGmz8mEmYI9h4Eyo+/igxZWNrwuPnqvL9pIO+8eUpBgPLH5GowKv3Nu0LPZSXSIuaWVJBSU1Cg==}
+  /@vueuse/metadata/8.2.0:
+    resolution: {integrity: sha512-cbaezEccNuxQC+OiudG9VjZNg9/RbAAHkyuhC6+8Gsgsc+MvDhfn1NrV6NNTaldLlZgJFgUiYOkrf3JGTTTGXQ==}
     dev: false
 
-  /@vueuse/shared/8.1.2_vue@3.2.31:
-    resolution: {integrity: sha512-4Hb9iPUhAz7ghO4hgvB2GV2FOy12qQGdhmQ+9HC6QN/J66DELhmxAvkZAtK5FBqZOSwzKszPqNqoyhRKQrrWGQ==}
+  /@vueuse/shared/8.2.0_vue@3.2.31:
+    resolution: {integrity: sha512-dTw7EJZgZCgG9DoVAiz4LtmKnIFXuE/idUFzvqRAJLjbPiVJc+qQH5kDUdKHI3W1U9t//1mdasQEKONArburiQ==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -1016,7 +1026,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001320
-      electron-to-chromium: 1.4.93
+      electron-to-chromium: 1.4.94
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
@@ -1519,19 +1529,20 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.4.93:
-    resolution: {integrity: sha512-ywq9Pc5Gwwpv7NG767CtoU8xF3aAUQJjH9//Wy3MBCg4w5JSLbJUq2L8IsCdzPMjvSgxuue9WcVaTOyyxCL0aQ==}
+  /electron-to-chromium/1.4.94:
+    resolution: {integrity: sha512-CoOKsuACoa0PAG3hQXxbh/XDiFcjGuSyGKUi09cjMHOt6RCi7/EXgXhaFF3I+aC89Omudqmkzd0YOQKxwtf/Bg==}
     dev: true
 
-  /element-plus/2.1.4_1a412d14def5ff5ca1122000e4bee666:
-    resolution: {integrity: sha512-pcwgDbKUrzyWbixYB/zIbLPLBQ/NPGPJnGXJ+jYozUSthPW4SuriaUGJKgbAE6PDBAtw3IodiT2E2GbiaZLxww==}
+  /element-plus/2.1.5_1a412d14def5ff5ca1122000e4bee666:
+    resolution: {integrity: sha512-QHssDDY2uIJVmfXHkPU7DOxDMqlb2UCsfpJaYRrAYpZC4YIrbtQCcw26A7uRZogDu+ampAaZzGQqioDLdKNkiA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
       '@ctrl/tinycolor': 3.4.0
       '@element-plus/icons-vue': 1.1.4_vue@3.2.31
+      '@floating-ui/dom': 0.4.2
       '@popperjs/core': 2.11.4
-      '@vueuse/core': 8.1.2_vue@3.2.31
+      '@vueuse/core': 8.2.0_vue@3.2.31
       async-validator: 4.0.7
       dayjs: 1.11.0
       escape-html: 1.0.3

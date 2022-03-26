@@ -8,6 +8,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri-dev": "tauri dev",
+    "tauri-build": "tauri build",
     "prepare": "husky install",
     "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
@@ -28,8 +29,8 @@
     "@tauri-apps/api": "1.0.0-rc.2",
     "axios": "0.26.1",
     "core-js": "3.21.1",
-    "element-plus": "2.1.4",
-    "flowbite": "1.4.1",
+    "element-plus": "^2.1.5",
+    "flowbite": "^1.4.1",
     "pinia": "2.0.12",
     "qs": "6.10.3",
     "vue": "3.2.31",

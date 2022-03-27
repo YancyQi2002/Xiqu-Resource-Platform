@@ -35,9 +35,11 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
+      imports: ['vue'],
       resolvers: [ElementPlusResolver(), HeadlessUiResolver()],
     }),
     Components({
+      extensions: ['vue'],
       resolvers: [ElementPlusResolver(), HeadlessUiResolver()],
     }),
     PurgeIcons({

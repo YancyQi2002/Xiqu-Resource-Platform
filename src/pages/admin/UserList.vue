@@ -54,7 +54,6 @@
 <script setup lang="ts">
 import AdminCardBoxVue from '@/components/common/AdminCardBox.vue'
 import { ElMessage } from 'element-plus'
-import { ref } from 'vue'
 import { getUserlist } from '@/utils/api'
 
 const columns = [

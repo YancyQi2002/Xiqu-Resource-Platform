@@ -42,7 +42,6 @@ import CommentItem from '@/components/messageboard/CommentItem.vue'
 import ReplyContainer from '@/components/messageboard/ReplyContainer.vue'
 import ReplyBox from '@/components/messageboard/ReplyBox.vue'
 import { getUrl, addUrl } from '@/utils/api'
-import { ref, inject, onMounted } from 'vue'
 
 let rid = ref(4)
 

@@ -39,9 +39,10 @@ specifiers:
   vite-plugin-purge-icons: ^0.8.1
   vue: 3.2.31
   vue-axios: 3.4.1
+  vue-global-api: ^0.4.1
   vue-router: 4.0.14
   vue-tsc: ^0.33.9
-  vxe-table: 4.2.0
+  vxe-table: 4.2.1
   xe-utils: 3.5.4
 
 dependencies:
@@ -57,7 +58,7 @@ dependencies:
   vue: 3.2.31
   vue-axios: 3.4.1_axios@0.26.1+vue@3.2.31
   vue-router: 4.0.14_vue@3.2.31
-  vxe-table: 4.2.0_vue@3.2.31+xe-utils@3.5.4
+  vxe-table: 4.2.1_vue@3.2.31+xe-utils@3.5.4
   xe-utils: 3.5.4
 
 devDependencies:
@@ -88,6 +89,7 @@ devDependencies:
   vite: 2.8.6
   vite-plugin-inspect: 0.4.3_vite@2.8.6
   vite-plugin-purge-icons: 0.8.1_vite@2.8.6
+  vue-global-api: 0.4.1_vue@3.2.31
   vue-tsc: 0.33.9_typescript@4.6.3
 
 packages:
@@ -1026,7 +1028,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001320
-      electron-to-chromium: 1.4.94
+      electron-to-chromium: 1.4.95
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
@@ -1529,8 +1531,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.4.94:
-    resolution: {integrity: sha512-CoOKsuACoa0PAG3hQXxbh/XDiFcjGuSyGKUi09cjMHOt6RCi7/EXgXhaFF3I+aC89Omudqmkzd0YOQKxwtf/Bg==}
+  /electron-to-chromium/1.4.95:
+    resolution: {integrity: sha512-h2VAMV/hPtmAeiDkwA8c5sjS+cWt6GlQL4ERdrOUWu7cRIG5IRk9uwR9f0utP+hPJ9ZZsADTq9HpbuT46eBYAg==}
     dev: true
 
   /element-plus/2.1.5_1a412d14def5ff5ca1122000e4bee666:
@@ -1795,6 +1797,10 @@ packages:
   /escape-string-regexp/1.0.5:
     resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
     engines: {node: '>=0.8.0'}
+    dev: true
+
+  /eslint-config-vue-global-api/0.4.1:
+    resolution: {integrity: sha512-mJTiKBGLe1FXmEifYzCQzUTBpFv8OtfYzP6PAOuVRf+3hkGLMeiDh4bVzZEaJfdExtc8mPw9vp35YSLhwTselQ==}
     dev: true
 
   /estree-walker/2.0.2:
@@ -4011,7 +4017,16 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.31
-    dev: false
+
+  /vue-global-api/0.4.1_vue@3.2.31:
+    resolution: {integrity: sha512-283vpYOhVHJCpMkjNVEwZdgaAb+Y93zFaXGAWTI378MLoNuwQydjD/BAy1e81QYEmyA+JbxqcmMZVWcM9rbriw==}
+    dependencies:
+      eslint-config-vue-global-api: 0.4.1
+      vue-demi: 0.12.4_vue@3.2.31
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
 
   /vue-router/4.0.14_vue@3.2.31:
     resolution: {integrity: sha512-wAO6zF9zxA3u+7AkMPqw9LjoUCjSxfFvINQj3E/DceTt6uEz1XZLraDhdg2EYmvVwTBSGlLYsUw8bDmx0754Mw==}
@@ -4042,8 +4057,8 @@ packages:
       '@vue/shared': 3.2.31
     dev: false
 
-  /vxe-table/4.2.0_vue@3.2.31+xe-utils@3.5.4:
-    resolution: {integrity: sha512-ddb4OdTdhjT+E+5gu+NbJuTLJa/BlzUb98O0ZsVwGYUnMWoYqHh68JRkHxFona/Dxv6ir8HBX7kZamfoWhB+NQ==}
+  /vxe-table/4.2.1_vue@3.2.31+xe-utils@3.5.4:
+    resolution: {integrity: sha512-m/oaHsr2HNeS+BM73ZGIeKQjy5qK9tB0T/3uhJ0H5V3PNcRjUgPvuDVRF0vQo4sCbyinP2aLcrR6M2Liy9N++A==}
     peerDependencies:
       vue: ^3.2.2
       xe-utils: ^3.5.0

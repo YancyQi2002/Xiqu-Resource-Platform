@@ -12,7 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import CommentBox from './CommentBox.vue'
 
 const showCommentBox = ref(false)

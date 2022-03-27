@@ -3,6 +3,7 @@ import '@purge-icons/generated'
 import 'flowbite'
 import 'bootstrap'
 import 'xe-utils'
+import 'vue-global-api'
 
 import { createApp } from 'vue'
 

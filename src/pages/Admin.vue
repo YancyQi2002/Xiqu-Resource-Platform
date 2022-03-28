@@ -51,6 +51,12 @@
             <div class="site-title">戏曲资源平台</div>
           </div>
           <div class="header-right">
+            <div @click="openFullScreen" v-if="isFullScreen == false">
+              <app-icon icon="icon-park:full-screen-one" class="mr-3 text-4xl cursor-pointer" />
+            </div>
+            <div @click="exitFullScreen" v-else>
+              <app-icon icon="icon-park:full-screen-play" class="mr-3 text-4xl cursor-pointer" />
+            </div>
             <div class="avatar cursor-pointer">
               <el-dropdown trigger="click" size="small">
                 <span class="el-dropdown-link">
@@ -196,6 +202,46 @@ const logout = () => {
   closeModal()
   localStorage.removeItem('user')
   router.push({ name: 'Login' })
+}
+
+const isFullScreen = ref(false)
+
+const openFullScreen = () => {
+  const full = (document as any).getElementById('app')
+  if (full.RequestFullScreen) {
+    full.RequestFullScreen()
+    isFullScreen.value = true
+  } else if (full.mozRequestFullScreen) {
+    full.mozRequestFullScreen()
+    isFullScreen.value = true
+  } else if (full.webkitRequestFullScreen) {
+    full.webkitRequestFullScreen()
+    isFullScreen.value = true
+  } else if (full.msRequestFullScreen) {
+    full.msRequestFullScreen()
+    isFullScreen.value = true
+  } else {
+    ElMessage({
+      message: 'Error 浏览器不支持！',
+      type: 'warning',
+    })
+  }
+}
+
+const exitFullScreen = () => {
+  if ((document as any).exitFullScreen) {
+    (document as any).exitFullScreen()
+    isFullScreen.value = false
+  } else if ((document as any).mozCancelFullScreen) {
+    (document as any).mozCancelFullscreen()
+    isFullScreen.value = false
+  } else if ((document as any).webkitExitFullscreen) {
+    (document as any).webkitExitFullscreen()
+    isFullScreen.value = false
+  } else if ((document as any).msExitFullscreen) {
+    (document as any).msExitFullscreen()
+    isFullScreen.value = false
+  }
 }
 </script>
 

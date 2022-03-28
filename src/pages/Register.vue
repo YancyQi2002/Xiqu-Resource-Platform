@@ -173,7 +173,33 @@ const checkPhone = (rules: any, value: string, callback: any) => {
         console.log(phoneNumber)
         reg = /^(\d{3})\d{4}(\d{4})$/;
         (document as any).getElementById("phone").value = value.replace(reg, "$1****$2")
-        callback()
+    }, 5000)
+}
+
+const checkEmail = (rules: any, value: string, callback: any) => {
+    const emailVal = value
+    ElMessage('校验邮箱')
+    setTimeout(() => {
+        let reg1: any = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        let reg2: any = /^[A-Za-z0-9-_\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        if (reg1.test(emailVal)) {
+            ElMessage({
+                message: '邮箱校验通过',
+                type: 'success'
+            })
+            callback()
+        } else if (reg2.test(emailVal)) {
+            ElMessage({
+                message: '邮箱校验通过',
+                type: 'success'
+            })
+            callback()
+        } else {
+            ElMessage.error('邮箱校验 未通过！')
+            console.log('邮箱校验未通过')
+            userInfo.email = ''
+            callback(new Error("Please input the current email"))
+        }
     }, 5000)
 }
 
@@ -202,6 +228,13 @@ const rules = {
     phonename: [
         {
             required: true,
+            trigger: 'blur'
+        }
+    ],
+    email: [
+        {
+            required: true,
+            validator: checkEmail,
             trigger: 'blur'
         }
     ]

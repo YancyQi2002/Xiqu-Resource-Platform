@@ -45,7 +45,7 @@
     "@iconify/json": "2.1.20",
     "@popperjs/core": "2.11.4",
     "@tailwindcss/forms": "0.5.0",
-    "@tauri-apps/cli": "1.0.0-rc.7",
+    "@tauri-apps/cli": "1.0.0-rc.8",
     "@types/lodash-es": "4.17.6",
     "@types/node": "17.0.23",
     "@types/qs": "6.9.7",

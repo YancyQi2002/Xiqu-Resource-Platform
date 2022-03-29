@@ -20,7 +20,7 @@ specifiers:
   commitizen: 4.2.4
   core-js: 3.21.1
   cz-git: 1.2.1
-  element-plus: ^2.1.6
+  element-plus: ^2.1.7
   flowbite: ^1.4.1
   husky: 7.0.4
   lint-staged: 12.3.7
@@ -51,7 +51,7 @@ dependencies:
   '@tauri-apps/api': 1.0.0-rc.3
   axios: 0.26.1
   core-js: 3.21.1
-  element-plus: 2.1.6_1a412d14def5ff5ca1122000e4bee666
+  element-plus: 2.1.7_1a412d14def5ff5ca1122000e4bee666
   flowbite: 1.4.1
   pinia: 2.0.12_typescript@4.6.3+vue@3.2.31
   qs: 6.10.3
@@ -1028,7 +1028,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001320
-      electron-to-chromium: 1.4.96
+      electron-to-chromium: 1.4.97
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
@@ -1426,7 +1426,7 @@ packages:
       ms: 2.1.2
     dev: true
 
-  /debug/4.3.4_supports-color@9.2.1:
+  /debug/4.3.4_supports-color@9.2.2:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
     peerDependencies:
@@ -1436,7 +1436,7 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
-      supports-color: 9.2.1
+      supports-color: 9.2.2
     dev: true
 
   /decamelize-keys/1.1.0:
@@ -1531,12 +1531,12 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.4.96:
-    resolution: {integrity: sha512-DPNjvNGPabv6FcyjzLAN4C0psN/GgD9rSGvMTuv81SeXG/EX3mCz0wiw9N1tUEnfQXYCJi3H8M0oFPRziZh7rw==}
+  /electron-to-chromium/1.4.97:
+    resolution: {integrity: sha512-vqSu7Qn6o5E1uAJQxmq2U69aBhBTxUAXMuT5Sm3jj8kEJciuUcKciktLuTPFSRlwSdNyeu9qah8Nzy9JyxefCw==}
     dev: true
 
-  /element-plus/2.1.6_1a412d14def5ff5ca1122000e4bee666:
-    resolution: {integrity: sha512-IqZoD7xtdfZZsPMfDDVfv/lxeHL58o/eOoaGE4T3bc+asWrOlLnG1ppRHFVyh+hVIgyhDoBlol2NOL4+h9Jfkg==}
+  /element-plus/2.1.7_1a412d14def5ff5ca1122000e4bee666:
+    resolution: {integrity: sha512-jamE9F/a2rfAQJwf3kLaDfWXxhjXuAJAvrto76SLJsJfr3iIUAzC849RHdn6h7tNJy9Yanq8GlQAsdBe5lJmrA==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -2530,7 +2530,7 @@ packages:
       cli-truncate: 3.1.0
       colorette: 2.0.16
       commander: 8.3.0
-      debug: 4.3.4_supports-color@9.2.1
+      debug: 4.3.4_supports-color@9.2.2
       execa: 5.1.1
       lilconfig: 2.0.4
       listr2: 4.0.5
@@ -2539,7 +2539,7 @@ packages:
       object-inspect: 1.12.0
       pidtree: 0.5.0
       string-argv: 0.3.1
-      supports-color: 9.2.1
+      supports-color: 9.2.2
       yaml: 1.10.2
     transitivePeerDependencies:
       - enquirer
@@ -2795,8 +2795,8 @@ packages:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
     dev: true
 
-  /nanoid/3.3.1:
-    resolution: {integrity: sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==}
+  /nanoid/3.3.2:
+    resolution: {integrity: sha512-CuHBogktKwpm5g2sRgv83jEy2ijFzBwMoYA60orPDR7ynsLijJDqgsi4RDGj3OJpy3Ieb+LYwiRmIOGyytgITA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -3124,7 +3124,7 @@ packages:
     resolution: {integrity: sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.1
+      nanoid: 3.3.2
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
@@ -3603,8 +3603,8 @@ packages:
       has-flag: 4.0.0
     dev: true
 
-  /supports-color/9.2.1:
-    resolution: {integrity: sha512-Obv7ycoCTG51N7y175StI9BlAXrmgZrFhZOb0/PyjHBher/NmsdBgbbQ1Inhq+gIhz6+7Gb+jWF2Vqi7Mf1xnQ==}
+  /supports-color/9.2.2:
+    resolution: {integrity: sha512-XC6g/Kgux+rJXmwokjm9ECpD6k/smUoS5LKlUCcsYr4IY3rW0XyAympon2RmxGrlnZURMpg5T18gWDP9CsHXFA==}
     engines: {node: '>=12'}
     dev: true
 

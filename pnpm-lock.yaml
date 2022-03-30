@@ -19,7 +19,7 @@ specifiers:
   bootstrap: ^5.1.3
   commitizen: 4.2.4
   core-js: 3.21.1
-  cz-git: 1.2.1
+  cz-git: 1.2.2
   element-plus: ^2.1.7
   flowbite: ^1.4.1
   husky: 7.0.4
@@ -75,7 +75,7 @@ devDependencies:
   autoprefixer: 10.4.4_postcss@8.4.12
   bootstrap: 5.1.3_@popperjs+core@2.11.4
   commitizen: 4.2.4
-  cz-git: 1.2.1_commitizen@4.2.4
+  cz-git: 1.2.2_commitizen@4.2.4
   husky: 7.0.4
   lint-staged: 12.3.7
   postcss: 8.4.12
@@ -322,8 +322,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /@cz-git/loader/1.2.1:
-    resolution: {integrity: sha512-Ct4h7oDjH7DllBL3TBexlD90j+2jEhycwV6CRI8fk49x/nqVivMeAAth1qQ4+NcyaxGQUOAt8LAI8aawnrb29w==}
+  /@cz-git/loader/1.2.2:
+    resolution: {integrity: sha512-LhG8KX6fIEIWdmsOvh6VgExl+pjA+m6vL+v1TI169bUryg2yG8JR6snJyLVd/yGTJxXpdlnWumuVqTEBYyUvjA==}
     dependencies:
       '@commitlint/load': 16.2.1
       strip-json-comments: 3.1.1
@@ -1384,12 +1384,12 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /cz-git/1.2.1_commitizen@4.2.4:
-    resolution: {integrity: sha512-3oojecl1aIlUf4RT74Jxi74Ri0naxbHWON2KsE/kF+HMDz3kec7+rFSz/aAkXpCsGtCn1BsXpAaebe3Abeo7+w==}
+  /cz-git/1.2.2_commitizen@4.2.4:
+    resolution: {integrity: sha512-4q97LBwyxcPMrWBf4yNIM/zpa1wBiCM6k7SPA0yHHQ4HyAN4HT8yuLNNH6PfciziWhtqOJGSI6KP87lQMIsP5Q==}
     peerDependencies:
       commitizen: '>=2'
     dependencies:
-      '@cz-git/loader': 1.2.1
+      '@cz-git/loader': 1.2.2
       commitizen: 4.2.4
       inquirer: 7.3.3
       inquirer-autocomplete-prompt: 1.4.0_inquirer@7.3.3

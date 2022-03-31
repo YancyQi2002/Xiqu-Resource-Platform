@@ -4,7 +4,7 @@ specifiers:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
   '@headlessui/vue': 1.5.0
-  '@iconify/iconify': 2.2.0
+  '@iconify/iconify': 2.2.1
   '@iconify/json': 2.1.22
   '@popperjs/core': 2.11.4
   '@tailwindcss/forms': 0.5.0
@@ -47,7 +47,7 @@ specifiers:
 
 dependencies:
   '@headlessui/vue': 1.5.0_vue@3.2.31
-  '@iconify/iconify': 2.2.0
+  '@iconify/iconify': 2.2.1
   '@tauri-apps/api': 1.0.0-rc.3
   axios: 0.26.1
   core-js: 3.21.1
@@ -367,8 +367,8 @@ packages:
       - encoding
     dev: true
 
-  /@iconify/iconify/2.2.0:
-    resolution: {integrity: sha512-dqb0Y3e7kU5a0EolmOEY7PPtLec08MfJagVmyeMFJ6sk4Dp8wyvr64aWVxBpCvMqQXtbqSN87XNgJnOfcE6trQ==}
+  /@iconify/iconify/2.2.1:
+    resolution: {integrity: sha512-WJzw+3iicrF/tbjbxxRinSgy5FHdJoz/egTqwi3xCDkNRJPq482RX1iyaWrjNuY2vMNSPkQMuqHvZDXgA+WnwQ==}
 
   /@iconify/json/2.1.22:
     resolution: {integrity: sha512-F7Z7LQeOYQTrQgnCj1KADff+yJPs92sSGdGbnfGfMKllaznZiO1UhsW+cYyEJtjke9UgDIwFygTje643vdktfA==}
@@ -438,7 +438,7 @@ packages:
   /@purge-icons/generated/0.8.1:
     resolution: {integrity: sha512-rIExGA33EGKEToqtc8WfpboaR7or1XRp+KV1Y5v/P0Rq7G5Me95DmP3ow/MpG7ql+XZ9xPzyS2naGRx5358+6Q==}
     dependencies:
-      '@iconify/iconify': 2.2.0
+      '@iconify/iconify': 2.2.1
     dev: true
 
   /@rollup/pluginutils/4.2.0:

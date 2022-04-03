@@ -2,7 +2,7 @@ import * as path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import {
   ElementPlusResolver,
-  HeadlessUiResolver
+  HeadlessUiResolver,
 } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
@@ -11,7 +11,7 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 
 import vue from '@vitejs/plugin-vue'
 
-const resolve = (p :string) => {
+const resolve = (p: string) => {
   return path.resolve(__dirname, p)
 }
 
@@ -33,9 +33,11 @@ export default defineConfig({
     }
   },
   plugins: [
-    vue(),
+    vue({
+      reactivityTransform: true
+    }),
     AutoImport({
-      imports: ['vue'],
+      imports: ['vue', 'vue/macros'],
       resolvers: [ElementPlusResolver(), HeadlessUiResolver()],
     }),
     Components({

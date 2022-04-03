@@ -74,7 +74,7 @@ const navigation = [
   { name: '首页', href: '/', path: ''},
   { name: '资源列表', href: '/dramascript', path: '/dramascript'},
   { name: '留言板', href: '/messageboard', path: '/messageboard'},
-  { name: '关于', href: '/about', path: '/about'},
+  { name: '关于', href: '/about', path: '/about'}
 ]
 
 const router = useRouter()

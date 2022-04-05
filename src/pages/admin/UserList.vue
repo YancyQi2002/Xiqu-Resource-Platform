@@ -31,6 +31,7 @@
                                             <td>{{ item.jurisdiction }}</td>
                                             <td>{{ item._id }}</td>
                                             <td>{{ item.createTime }}</td>
+                                            <td>{{ item.updateTime}}</td>
                                             <td
                                                 class="text-sm font-medium text-right whitespace-nowrap"
                                             >
@@ -77,6 +78,11 @@ const columns = [
         dataIndex: 'createTime',
         key: 'createTime'
     },
+    {
+        title: '更新时间',
+        dataIndex: 'updateTime',
+        key: 'updateTime'   
+    }
 ]
 
 let userlist :any = ref([])
@@ -90,6 +96,46 @@ async function getUserListData() {
     const res = await (await fetch(getUserlist)).json()
 
     const result = res.data
+
+    console.log(res.data)
+
+    for (let i = 0; i < result.length; i++) {
+        let id = result[i]._id
+        const before = id.substr(0, 4)
+        const after = id.substr(20, 4)
+        result[i]._id = before + '****' + after
+
+        // window.innerWidth 判断窗口中可视区域 (viewpoint) 的宽度 显示不同的格式
+        const createYear = result[i].createTime.substr(0, 4)
+        const createMonth = result[i].createTime.substr(5, 2)
+        const createDay = result[i].createTime.substr(8, 2)
+        if (window.innerWidth < 1354 && window.innerWidth > 810) {
+            result[i].createTime = createYear + "-" + createMonth + "-" + createDay
+        } else if (window.innerWidth <= 810) {
+            result[i].createTime = createYear + "." + createMonth + "." + createDay
+        } else {
+            result[i].createTime = createYear + "年" + createMonth + "月" + createDay + "日"
+        }
+        const updateYear = result[i].updateTime.substr(0, 4)
+        const updateMonth = result[i].updateTime.substr(5, 2)
+        const updateDay = result[i].updateTime.substr(8, 2)
+        if (window.innerWidth < 1354 && window.innerWidth > 810) {
+            result[i].updateTime = updateYear + "-" + updateMonth + "-" + updateDay
+        } else if (window.innerWidth <= 810) {
+            result[i].updateTime = updateYear + "." + updateMonth + "." + updateDay
+        } else {
+            result[i].updateTime = updateYear + "年" + updateMonth + "月" + updateDay + "日"
+        }
+
+        // 判断 jurisdiction 是否为 1
+        if (result[i].jurisdiction === '0') {
+            result[i].jurisdiction = '普通用户'
+        } else if (result[i].jurisdiction === '1') {
+            result[i].jurisdiction = '管理员'
+        } else {
+            result[i].jurisdiction = '未知'
+        }
+    }
 
     userlist.value = result
 }

@@ -6,7 +6,7 @@ specifiers:
   '@headlessui/vue': 1.5.0
   '@iconify/iconify': 2.2.1
   '@iconify/json': 2.1.24
-  '@popperjs/core': 2.11.4
+  '@popperjs/core': 2.11.5
   '@tailwindcss/forms': 0.5.0
   '@tauri-apps/api': 1.0.0-rc.3
   '@tauri-apps/cli': 1.0.0-rc.8
@@ -68,7 +68,7 @@ devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
   '@iconify/json': 2.1.24
-  '@popperjs/core': 2.11.4
+  '@popperjs/core': 2.11.5
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
   '@tauri-apps/cli': 1.0.0-rc.8
   '@types/lodash-es': 4.17.6
@@ -76,7 +76,7 @@ devDependencies:
   '@types/qs': 6.9.7
   '@vitejs/plugin-vue': 2.3.1_vite@2.9.1+vue@3.2.31
   autoprefixer: 10.4.4_postcss@8.4.12
-  bootstrap: 5.1.3_@popperjs+core@2.11.4
+  bootstrap: 5.1.3_@popperjs+core@2.11.5
   commitizen: 4.2.4
   cz-git: 1.2.2_commitizen@4.2.4
   eslint: 8.12.0
@@ -457,8 +457,8 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@popperjs/core/2.11.4:
-    resolution: {integrity: sha512-q/ytXxO5NKvyT37pmisQAItCFqA7FD/vNb8dgaJy3/630Fsc+Mz9/9f2SziBoIZ30TJooXyTwZmhi1zjXmObYg==}
+  /@popperjs/core/2.11.5:
+    resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
 
   /@purge-icons/core/0.8.0:
     resolution: {integrity: sha512-8L6hP1U9XQO5B7kvquVJ5N7jzFvO0LZLXhBCjUQzzJzi42i6MAUanVKROApqbBuh21o9tmPwvNUg0xPe/uftRA==}
@@ -796,8 +796,8 @@ packages:
   /@vue/shared/3.2.31:
     resolution: {integrity: sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==}
 
-  /@vueuse/core/8.2.4_vue@3.2.31:
-    resolution: {integrity: sha512-K8DbVLErlHMnEOqy67BrRbDmWCd4Z9X0a1dL6fQdhABLXBydy69Tm7uF5ZUotAqib9sskItYFsAnLhvGSue6bg==}
+  /@vueuse/core/8.2.5_vue@3.2.31:
+    resolution: {integrity: sha512-5prZAA1Ji2ltwNUnzreu6WIXYqHYP/9U2BiY5mD/650VYLpVcwVlYznJDFcLCmEWI3o3Vd34oS1FUf+6Mh68GQ==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -807,18 +807,18 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@vueuse/metadata': 8.2.4
-      '@vueuse/shared': 8.2.4_vue@3.2.31
+      '@vueuse/metadata': 8.2.5
+      '@vueuse/shared': 8.2.5_vue@3.2.31
       vue: 3.2.31
       vue-demi: 0.12.5_vue@3.2.31
     dev: false
 
-  /@vueuse/metadata/8.2.4:
-    resolution: {integrity: sha512-mn4FLULZAHd6r6vo5hLz+99xzwlVDP9qeVtZGV2Ik40m0zETe2okUr3O1Yoz6FReUoc7KAPrf0/GFpWEXVDAnQ==}
+  /@vueuse/metadata/8.2.5:
+    resolution: {integrity: sha512-Lk9plJjh9cIdiRdcj16dau+2LANxIdFCiTgdfzwYXbflxq0QnMBeOD2qHgKDE7fuVrtPcVWj8VSuZEx1HRfNQA==}
     dev: false
 
-  /@vueuse/shared/8.2.4_vue@3.2.31:
-    resolution: {integrity: sha512-sLkuZMEumsmEDYie3m6/nrk7SrLGlyUgtVn/0EJZ8Chaj1YfSmBQuLxNE0ruQ/6VZlqkx44jEZxcgbU7qPyAiw==}
+  /@vueuse/shared/8.2.5_vue@3.2.31:
+    resolution: {integrity: sha512-lNWo+7sk6JCuOj4AiYM+6HZ6fq4xAuVq1sVckMQKgfCJZpZRe4i8es+ZULO5bYTKP+VrOCtqrLR2GzEfrbr3YQ==}
     peerDependencies:
       '@vue/composition-api': ^1.1.0
       vue: ^2.6.0 || ^3.2.0
@@ -1044,12 +1044,12 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /bootstrap/5.1.3_@popperjs+core@2.11.4:
+  /bootstrap/5.1.3_@popperjs+core@2.11.5:
     resolution: {integrity: sha512-fcQztozJ8jToQWXxVuEyXWW+dSo8AiXWKwiSSrKWsRB/Qt+Ewwza+JWoLKiTuQLaEPhdNAJ7+Dosc9DOIqNy7Q==}
     peerDependencies:
       '@popperjs/core': ^2.10.2
     dependencies:
-      '@popperjs/core': 2.11.4
+      '@popperjs/core': 2.11.5
     dev: true
 
   /brace-expansion/1.1.11:
@@ -1604,8 +1604,8 @@ packages:
       '@ctrl/tinycolor': 3.4.0
       '@element-plus/icons-vue': 1.1.4_vue@3.2.31
       '@floating-ui/dom': 0.4.4
-      '@popperjs/core': 2.11.4
-      '@vueuse/core': 8.2.4_vue@3.2.31
+      '@popperjs/core': 2.11.5
+      '@vueuse/core': 8.2.5_vue@3.2.31
       async-validator: 4.0.7
       dayjs: 1.11.0
       escape-html: 1.0.3
@@ -2144,7 +2144,7 @@ packages:
   /flowbite/1.4.1:
     resolution: {integrity: sha512-65QrhBUVa7BHGDLM1t1vySgS8unlxTw8PQfJXraTj5Fez+OE17XOTBuOSVk3DCDjAicWBydD+Gkmz53S/8IJ2A==}
     dependencies:
-      '@popperjs/core': 2.11.4
+      '@popperjs/core': 2.11.5
       mini-svg-data-uri: 1.4.4
     dev: false
 

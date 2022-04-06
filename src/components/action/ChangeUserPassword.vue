@@ -128,6 +128,16 @@ const handleSubmit = (e:Event) => {
                     type: 'warning',
                 })
                 console.log(result.message)
+            } else {
+                ElMessage({
+                    message: result.message + '，即将跳转到后台登录页面',
+                    type: 'success',
+                })
+                console.log(result.message)
+                // 设置时间延迟 5 秒
+                setTimeout(() => {
+                    router.push({ name: 'Login' })
+                }, 5000)
             }
         }
     })

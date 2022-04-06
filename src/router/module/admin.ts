@@ -25,6 +25,11 @@ const routes :RouteRecordRaw[] | any = [
                 component: () => import('@/pages/admin/About.vue'),
             }
         ]
+    },
+    {
+        path: '/admin/changeUserPassword',
+        name: '修改密码',
+        component: () => import('@/components/action/ChangeUserPassword.vue'),
     }
 ]
 

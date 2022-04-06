@@ -14,7 +14,7 @@ export const KEY_USER_ID = 'user'
 const useUserStore = defineStore({
     id: KEY_USER_ID,
     state: ():UserInfo => ({
-        id: -1,
+        id: 1,
         username: '',
         jurisdiction: '',
         phone: '',

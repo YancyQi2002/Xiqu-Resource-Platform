@@ -67,7 +67,7 @@
                 </span>
                 <template #dropdown>
                   <el-dropdown-menu class="text-center">
-                    <el-dropdown-item>修改密码</el-dropdown-item>
+                    <el-dropdown-item @click="changeUserPassword">修改密码</el-dropdown-item>
                     <el-dropdown-item @click="openModal">退出登录</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
@@ -188,6 +188,12 @@ if (userInfoJSON.avatar == '') {
   userAvatar.value = userInfoJSON.avatar
 }
 
+// 修改密码
+const changeUserPassword = () => {
+  router.push({ name: '修改密码' })
+}
+
+// 退出登录
 const isOpen = ref(false)
 
 const closeModal = () => {
@@ -204,6 +210,7 @@ const logout = () => {
   router.push({ name: 'Login' })
 }
 
+// 全屏
 const isFullScreen = ref(false)
 
 const openFullScreen = () => {

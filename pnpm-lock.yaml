@@ -5,7 +5,7 @@ specifiers:
   '@commitlint/config-conventional': 16.2.1
   '@headlessui/vue': 1.5.0
   '@iconify/iconify': 2.2.1
-  '@iconify/json': 2.1.24
+  '@iconify/json': 2.1.25
   '@popperjs/core': 2.11.5
   '@tailwindcss/forms': 0.5.0
   '@tauri-apps/api': 1.0.0-rc.3
@@ -67,7 +67,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
-  '@iconify/json': 2.1.24
+  '@iconify/json': 2.1.25
   '@popperjs/core': 2.11.5
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.23
   '@tauri-apps/cli': 1.0.0-rc.8
@@ -408,8 +408,8 @@ packages:
   /@iconify/iconify/2.2.1:
     resolution: {integrity: sha512-WJzw+3iicrF/tbjbxxRinSgy5FHdJoz/egTqwi3xCDkNRJPq482RX1iyaWrjNuY2vMNSPkQMuqHvZDXgA+WnwQ==}
 
-  /@iconify/json/2.1.24:
-    resolution: {integrity: sha512-95t2iGcRXddPpijHgrODtMlu9PYi+KGZHmEWH5PzU6tyq90W1ihCOwfesaSBajgJLvwmDDNA2Bb4TGfjNceYlQ==}
+  /@iconify/json/2.1.25:
+    resolution: {integrity: sha512-yrWcRQ+nqgIZCNtDyT2kVzvkD3NplAlq64Dqix2Y0q2XbuvZx7FOYnjWWnuc9LW6IaxLB3tHuLiuZp7XkK1gJw==}
     dependencies:
       '@iconify/types': 1.1.0
       pathe: 0.2.0

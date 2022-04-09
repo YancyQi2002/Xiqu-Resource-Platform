@@ -76,7 +76,6 @@
 <script setup lang="ts">
 import { OK_CODE } from '@/utils/keys'
 import { ElMessage } from 'element-plus'
-import { useRouter } from 'vue-router'
 import axios from 'axios'
 
 const userInfo = reactive({

@@ -134,7 +134,6 @@
 <script lang="ts" setup>
 import AppIcon from '@/components/common/AppIcon.vue'
 import routes from '@/router/module/admin'
-import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 
 const router = useRouter()

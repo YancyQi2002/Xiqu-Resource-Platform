@@ -40,7 +40,6 @@
 import useUserStore from '@/store/module/useUserStore'
 import { OK_CODE } from '@/utils/keys'
 import { ElMessage } from 'element-plus'
-import { useRouter } from 'vue-router'
 import axios from 'axios'
 
 const userInfo = reactive({

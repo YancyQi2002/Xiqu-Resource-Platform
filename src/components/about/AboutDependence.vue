@@ -14,7 +14,6 @@
 <script setup lang="ts">
 import config from '../../../package.json'
 import { VxeGridProps } from 'vxe-table'
-import { ref, reactive } from 'vue'
 
 const xToolbar :any = ref({})
 

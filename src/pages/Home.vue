@@ -68,8 +68,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-
 const navigation = [
   { name: '首页', href: '/', path: ''},
   { name: '资源列表', href: '/dramascript', path: '/dramascript'},

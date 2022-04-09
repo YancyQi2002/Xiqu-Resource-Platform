@@ -37,7 +37,7 @@ export default defineConfig({
       reactivityTransform: true
     }),
     AutoImport({
-      imports: ['vue', 'vue/macros'],
+      imports: ['vue', 'vue/macros', 'vue-router'],
       resolvers: [ElementPlusResolver(), HeadlessUiResolver()],
     }),
     Components({

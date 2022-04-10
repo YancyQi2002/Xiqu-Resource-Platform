@@ -71,6 +71,6 @@
     "vite-plugin-inspect": "^0.4.3",
     "vite-plugin-purge-icons": "^0.8.1",
     "vue-global-api": "^0.4.1",
-    "vue-tsc": "^0.33.9"
+    "vue-tsc": "0.34.2"
   }
 }

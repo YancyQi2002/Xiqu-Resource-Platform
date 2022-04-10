@@ -2,7 +2,7 @@
 // We suggest you to commit this file into source control
 // Read more: https://github.com/vuejs/vue-next/pull/3399
 
-declare module 'vue' {
+declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AboutAuthor: typeof import('./src/components/about/AboutAuthor.vue')['default']
     AboutDependence: typeof import('./src/components/about/AboutDependence.vue')['default']
@@ -47,6 +47,8 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     ReplyBox: typeof import('./src/components/messageboard/ReplyBox.vue')['default']
     ReplyContainer: typeof import('./src/components/messageboard/ReplyContainer.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     TransitionChild: typeof import('@headlessui/vue')['TransitionChild']
     TransitionRoot: typeof import('@headlessui/vue')['TransitionRoot']
   }

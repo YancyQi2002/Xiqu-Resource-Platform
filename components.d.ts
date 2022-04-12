@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Action: typeof import('./src/components/action/Action.vue')['default']
     AdminCardBox: typeof import('./src/components/common/AdminCardBox.vue')['default']
     AppIcon: typeof import('./src/components/common/AppIcon.vue')['default']
+    ChangeUserInfo: typeof import('./src/components/action/ChangeUserInfo.vue')['default']
     ChangeUserPassword: typeof import('./src/components/action/ChangeUserPassword.vue')['default']
     CommentBox: typeof import('./src/components/messageboard/CommentBox.vue')['default']
     CommentItem: typeof import('./src/components/messageboard/CommentItem.vue')['default']

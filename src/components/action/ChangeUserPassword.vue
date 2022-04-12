@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import router from '@/router'
-import axios from 'axios';
+import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
 let userInfoJSON

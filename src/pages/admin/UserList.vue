@@ -36,7 +36,7 @@
                                                 class="text-sm font-medium text-right whitespace-nowrap"
                                             >
                                                 <a
-                                                    href="#"
+                                                    @click="changeUserInfo"
                                                     class="text-blue-600 dark:text-blue-500 hover:underline"
                                                 >Edit</a>
                                             </td>
@@ -56,6 +56,7 @@
 import AdminCardBoxVue from '@/components/common/AdminCardBox.vue'
 import { ElMessage } from 'element-plus'
 import { getUserlist } from '@/utils/api'
+import router from '@/router'
 
 const columns = [
     {
@@ -141,6 +142,11 @@ async function getUserListData() {
 }
 
 getUserListData()
+
+const changeUserInfo = () => {
+    console.log('====== changeUserInfo ======')
+    router.push({ path: '/admin/changeUserInfo' })
+}
 </script>
 
 <style scoped>

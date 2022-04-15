@@ -24,7 +24,7 @@ specifiers:
   eslint: ^8.13.0
   eslint-plugin-tailwindcss: ^3.5.0
   eslint-plugin-vue: ^8.6.0
-  flowbite: ^1.4.1
+  flowbite: ^1.4.2
   husky: 7.0.4
   lint-staged: 12.3.7
   pinia: 2.0.13
@@ -55,7 +55,7 @@ dependencies:
   axios: 0.26.1
   core-js: 3.21.1
   element-plus: 2.1.9_vue@3.2.33
-  flowbite: 1.4.1
+  flowbite: 1.4.2
   pinia: 2.0.13_ifhmkzsxec62ezvqv7qmanm4bq
   qs: 6.10.3
   vue: 3.2.33
@@ -1047,7 +1047,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001332
-      electron-to-chromium: 1.4.108
+      electron-to-chromium: 1.4.110
       escalade: 3.1.1
       node-releases: 2.0.3
       picocolors: 1.0.0
@@ -1556,8 +1556,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.4.108:
-    resolution: {integrity: sha512-/36KkMuL6+WTrodVlOjtHhH9Ro7BgRaQrh0bfKckwDtdRSjTBuZCOddeXxzK1PkwphoeTxGUFVT9xnmvQ7xEdw==}
+  /electron-to-chromium/1.4.110:
+    resolution: {integrity: sha512-TvHZrkj9anfWkxgblHlNr4IMQdm2N6D0o8Wu1BDpSL/RKT4DHyUt/tvDFtApgZ+LGFL3U9EO4LRZ1eSlQ8xMYA==}
     dev: true
 
   /element-plus/2.1.9_vue@3.2.33:
@@ -2105,8 +2105,8 @@ packages:
     resolution: {integrity: sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==}
     dev: true
 
-  /flowbite/1.4.1:
-    resolution: {integrity: sha512-65QrhBUVa7BHGDLM1t1vySgS8unlxTw8PQfJXraTj5Fez+OE17XOTBuOSVk3DCDjAicWBydD+Gkmz53S/8IJ2A==}
+  /flowbite/1.4.2:
+    resolution: {integrity: sha512-5UWilgT6+iuO2OYJzSa2OZHU6YPPWHfc526YV/1lSFlVVAIWQ+V0WuwtE+JIhsUJs928+vevmEOThg6PtIl2Rg==}
     dependencies:
       '@popperjs/core': 2.11.5
       mini-svg-data-uri: 1.4.4

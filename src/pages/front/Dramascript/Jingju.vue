@@ -54,7 +54,7 @@
         <el-table-column type="expand" width="300">
 
             <template v-slot:header="scope">
-                <el-input v-model="search" size="small" placeholder="输入剧目/派别/演员搜索" clearable />
+                <el-input v-model="search" size="large" placeholder="输入剧目/派别/演员搜索" clearable />
             </template>
 
             <template v-slot="props">

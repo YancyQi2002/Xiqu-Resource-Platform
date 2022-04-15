@@ -20,12 +20,19 @@
                     </el-col>
                     <el-col :span="12">
                     <el-form-item>
-                        <el-button class="w-full"  type="primary" @click="toChangeUserPasswordPage">
-                            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                <app-icon icon="heroicons-solid:lock-closed"/>
-                            </span>
-                            修改密码
-                        </el-button>
+                        <el-tooltip
+                            class="box-item"
+                            effect="dark"
+                            content="目前仅能修改当前登录用户的密码"
+                            placement="top"
+                        >
+                            <el-button class="w-full"  type="primary" @click="toChangeUserPasswordPage">
+                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                    <app-icon icon="heroicons-solid:lock-closed"/>
+                                </span>
+                                修改密码
+                            </el-button>
+                        </el-tooltip>
                     </el-form-item>
                     </el-col>
                 </el-row>

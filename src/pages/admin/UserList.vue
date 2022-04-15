@@ -37,7 +37,7 @@
                                             >
                                                 <a
                                                     @click="changeUserInfo"
-                                                    class="text-blue-600 dark:text-blue-500 hover:underline"
+                                                    class="text-blue-600 dark:text-blue-500 hover:cursor-pointer"
                                                 >Edit</a>
                                             </td>
                                         </tr>

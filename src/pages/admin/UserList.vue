@@ -36,7 +36,7 @@
                                                 class="text-sm font-medium text-right whitespace-nowrap"
                                             >
                                                 <a
-                                                    @click="changeUserInfo"
+                                                    @click="changeUserInfo(item.username)"
                                                     class="text-blue-600 dark:text-blue-500 hover:cursor-pointer"
                                                 >Edit</a>
                                             </td>
@@ -143,8 +143,9 @@ async function getUserListData() {
 
 getUserListData()
 
-const changeUserInfo = () => {
+const changeUserInfo = (username: string) => {
     console.log('====== changeUserInfo ======')
+    localStorage.setItem('changeUserInfoUsername', username)
     router.push({ path: '/admin/changeUserInfo' })
 }
 </script>

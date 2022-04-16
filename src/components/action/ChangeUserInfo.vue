@@ -93,8 +93,10 @@ if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
 
 console.log(userInfoJSON)
 
+let changeUserInfoUsername = (localStorage as any).getItem('changeUserInfoUsername')
+
 const userInfo = reactive({
-    username: userInfoJSON.username,
+    username: changeUserInfoUsername,
     phone: '',
     phonename: '',
     email: '',

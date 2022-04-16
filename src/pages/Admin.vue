@@ -206,6 +206,7 @@ const openModal = () => {
 const logout = () => {
   closeModal()
   localStorage.removeItem('user')
+  localStorage.removeItem('changeUserInfoUsername')
   router.push({ name: 'Login' })
 }
 

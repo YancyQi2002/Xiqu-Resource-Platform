@@ -48,10 +48,10 @@
                         </el-form-item>
                     </el-col>
                 </el-row>
-                <el-form-item>
+                <el-form-item prop="email">
                     <el-input class="-mt-4" placeholder="新邮箱" v-model="userInfo.email" />
                 </el-form-item>
-                <el-form-item>
+                <el-form-item prop="avatar">
                     <el-input class="mt-0" placeholder="新头像（输入头像网址链接）" v-model="userInfo.avatar" />
                 </el-form-item>
                 <el-form-item>
@@ -76,6 +76,7 @@
 import router from '@/router'
 import { ElMessage } from 'element-plus'
 import AppIcon from '@/components/common/AppIcon.vue'
+import axios from 'axios'
 
 let userInfoJSON
 
@@ -91,7 +92,7 @@ if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
   userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
 }
 
-console.log(userInfoJSON)
+// console.log(userInfoJSON)
 
 let changeUserInfoUsername = (localStorage as any).getItem('changeUserInfoUsername')
 
@@ -111,6 +112,34 @@ const rules = {
             trigger: 'blur'
         }
     ],
+    phone: [
+        {
+            required: true,
+            message: '手机号不能为空',
+            trigger: 'blur'
+        }
+    ],
+    phonename: [
+        {
+            required: true,
+            message: '联系人不能为空',
+            trigger: 'blur'
+        }
+    ],
+    email: [
+        {
+            required: true,
+            message: '邮箱不能为空',
+            trigger: 'blur'
+        }
+    ],
+    avatar: [
+        {
+            required: true,
+            message: '头像图片链接不能为空',
+            trigger: 'blur'
+        }
+    ]
 }
 
 const toChangeUserPasswordPage = () => {
@@ -118,6 +147,7 @@ const toChangeUserPasswordPage = () => {
 }
 
 const toUserListPage = () => {
+    localStorage.removeItem('changeUserInfoUsername')
     router.push({ name: '用户列表' })
 }
 
@@ -128,6 +158,39 @@ const handleSubmit = (e:Event) => {
     formEl.value!.validate().then(async (ok:boolean) => {
         if (!ok) return
         console.log(userInfo)
+        const res = await axios('/api/users/changeUserInfo', {
+            method: 'POST',
+            data: userInfo,
+            transformRequest: [(data) => {
+                let ret = ""
+                for (let i in data) {
+                    ret += encodeURIComponent(i) + "=" + encodeURIComponent(data[i]) + "&"
+                }
+                return ret
+            }],
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+
+        let result = res.data
+        if (result.code !== 200) {
+            ElMessage({
+                message: result.message,
+                type: 'warning',
+            })
+            console.log(result.message)
+        } else {
+            ElMessage({
+                message: result.message + '，即将跳转到用户列表页面',
+                type: 'success',
+            })
+            console.log(result.message)
+            setTimeout(() => {
+                localStorage.removeItem('changeUserInfoUsername')
+                router.push({ name: '用户列表' })
+            }, 3000)
+        }
     })
 }
 </script>

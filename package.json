@@ -72,5 +72,9 @@
     "vite-plugin-purge-icons": "^0.8.1",
     "vue-global-api": "^0.4.1",
     "vue-tsc": "^0.34.7"
+  },
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=6"
   }
 }

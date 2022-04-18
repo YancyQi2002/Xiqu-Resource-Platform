@@ -1,5 +1,8 @@
 lockfileVersion: 5.4
 
+overrides:
+  minimist@<1.2.6: ^1.2.6
+
 specifiers:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
@@ -1245,7 +1248,7 @@ packages:
       inquirer: 6.5.2
       is-utf8: 0.2.1
       lodash: 4.17.21
-      minimist: 1.2.5
+      minimist: 1.2.6
       strip-bom: 4.0.0
       strip-json-comments: 3.0.1
     transitivePeerDependencies:
@@ -2972,10 +2975,6 @@ packages:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
-    dev: true
-
-  /minimist/1.2.5:
-    resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
     dev: true
 
   /minimist/1.2.6:

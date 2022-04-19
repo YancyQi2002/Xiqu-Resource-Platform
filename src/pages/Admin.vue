@@ -30,6 +30,9 @@
             <el-menu-item index="2-1">
               <span>用户列表</span>
             </el-menu-item>
+            <el-menu-item index="2-2">
+              <span>用户权限</span>
+            </el-menu-item>
           </el-sub-menu>
           <el-menu-item index="3">
             <el-icon>
@@ -170,6 +173,9 @@ const handleMenuChange = (index: string) => {
       break;
     case '2-1':
       router.push({ name: '用户列表' })
+      break;
+    case '2-2':
+      router.push({ name: '用户权限' })
       break;
     case '3':
       router.push({ name: '关于后台' })

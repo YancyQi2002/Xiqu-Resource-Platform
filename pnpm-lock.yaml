@@ -6,6 +6,7 @@ overrides:
 specifiers:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
+  '@gradin/tailwindcss-scrollbar': ^2.0.2
   '@headlessui/vue': 1.5.0
   '@iconify/iconify': 2.2.1
   '@iconify/json': 2.1.28
@@ -23,7 +24,7 @@ specifiers:
   commitizen: 4.2.4
   core-js: 3.22.0
   cz-git: 1.2.3
-  element-plus: ^2.1.9
+  element-plus: ^2.1.10
   eslint: ^8.13.0
   eslint-plugin-tailwindcss: ^3.5.0
   eslint-plugin-vue: ^8.6.0
@@ -57,7 +58,7 @@ dependencies:
   '@tauri-apps/api': 1.0.0-rc.3
   axios: 0.26.1
   core-js: 3.22.0
-  element-plus: 2.1.9_vue@3.2.33
+  element-plus: 2.1.10_vue@3.2.33
   flowbite: 1.4.2
   pinia: 2.0.13_ifhmkzsxec62ezvqv7qmanm4bq
   qs: 6.10.3
@@ -70,6 +71,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
+  '@gradin/tailwindcss-scrollbar': 2.0.2_tailwindcss@3.0.24
   '@iconify/json': 2.1.28
   '@popperjs/core': 2.11.5
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.24
@@ -376,6 +378,14 @@ packages:
       '@floating-ui/core': 0.6.2
     dev: false
 
+  /@gradin/tailwindcss-scrollbar/2.0.2_tailwindcss@3.0.24:
+    resolution: {integrity: sha512-1vJO5MrD1vvr9177sqOtcgcARQ2ULpJfBQKYT1dIxNDyMUXKgogKZOy2Zc+qca7DvAMdHmcIj/ZMTrtS4uXpkQ==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0'
+    dependencies:
+      tailwindcss: 3.0.24
+    dev: true
+
   /@headlessui/vue/1.5.0_vue@3.2.33:
     resolution: {integrity: sha512-jAp6XYpqdEv32xhszaj5ejvjaX5qhu20sCbxu7lplePEfZL+4ffabivJBBTZAiPWczqAXmnZWNWG5DOyqjRa4w==}
     engines: {node: '>=10'}
@@ -622,10 +632,10 @@ packages:
   /@types/lodash-es/4.17.6:
     resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
     dependencies:
-      '@types/lodash': 4.14.181
+      '@types/lodash': 4.14.182
 
-  /@types/lodash/4.14.181:
-    resolution: {integrity: sha512-n3tyKthHJbkiWhDZs3DkhkCzt2MexYHXlX0td5iMplyfwketaOeKboEVBqzceH7juqvEg3q5oUoBFxSLu7zFag==}
+  /@types/lodash/4.14.182:
+    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
@@ -1050,7 +1060,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001332
-      electron-to-chromium: 1.4.111
+      electron-to-chromium: 1.4.113
       escalade: 3.1.1
       node-releases: 2.0.3
       picocolors: 1.0.0
@@ -1559,12 +1569,12 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.4.111:
-    resolution: {integrity: sha512-/s3+fwhKf1YK4k7btOImOzCQLpUjS6MaPf0ODTNuT4eTM1Bg4itBpLkydhOzJmpmH6Z9eXFyuuK5czsmzRzwtw==}
+  /electron-to-chromium/1.4.113:
+    resolution: {integrity: sha512-s30WKxp27F3bBH6fA07FYL2Xm/FYnYrKpMjHr3XVCTUb9anAyZn/BeZfPWgTZGAbJeT4NxNwISSbLcYZvggPMA==}
     dev: true
 
-  /element-plus/2.1.9_vue@3.2.33:
-    resolution: {integrity: sha512-6mWqS3YrmJPnouWP4otzL8+MehfOnDFqDbcIdnmC07p+Z0JkWe/CVKc4Wky8AYC8nyDMUQyiZYvooCbqGuM7pg==}
+  /element-plus/2.1.10_vue@3.2.33:
+    resolution: {integrity: sha512-sS9OMgP20dlYipmzHlEEgCJU+ID7+03YpRpoJWNQEH736C6ArmDMLnGFe8DUjPvwbUEXRA2d0Eo5d0apFgkSqg==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -1572,7 +1582,7 @@ packages:
       '@element-plus/icons-vue': 1.1.4_vue@3.2.33
       '@floating-ui/dom': 0.4.5
       '@popperjs/core': 2.11.5
-      '@types/lodash': 4.14.181
+      '@types/lodash': 4.14.182
       '@types/lodash-es': 4.17.6
       '@vueuse/core': 8.2.6_vue@3.2.33
       async-validator: 4.0.7

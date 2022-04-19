@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: [
     "@tailwindcss/forms",
+    "@gradin/tailwindcss-scrollbar",
     "flowbite/plugin"
   ],
 }

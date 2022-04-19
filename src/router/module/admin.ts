@@ -19,6 +19,11 @@ const routes :RouteRecordRaw[] | any = [
                 component: () => import('@/pages/admin/UserList.vue'),
             },
             {
+                path: 'userJurisdiction',
+                name: '用户权限',
+                component: () => import('@/pages/admin/UserJurisdiction.vue'),
+            },
+            {
                 path: 'about',
                 name: '关于后台',
                 icon: 'entypo:info',
@@ -35,6 +40,11 @@ const routes :RouteRecordRaw[] | any = [
         path: '/admin/changeUserInfo',
         name: '修改用户信息',
         component: () => import('@/components/action/ChangeUserInfo.vue'),
+    },
+    {
+        path: '/admin/changeUserJurisdiction',
+        name: '修改用户权限',
+        component: () => import('@/components/action/ChangeUserJurisdiction.vue'),
     }
 ]
 

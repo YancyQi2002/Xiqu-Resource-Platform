@@ -1,16 +1,3 @@
-<template>
-    <div>
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-            <div class="px-4 py-4 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">依赖项明细</h3>
-                <p class="pt-1 max-w-2xl text-sm text-gray-500">About the Dependence</p>
-            </div>
-            <hr />
-            <vxe-grid class="reverse-table" :loading="dloading.loading" v-bind="gridOptions1"></vxe-grid>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import config from '../../../package.json'
 import { VxeGridProps } from 'vxe-table'
@@ -117,6 +104,19 @@ const getDependencies = () => {
 
 getDependencies()
 </script>
+
+<template>
+    <div>
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-4 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">依赖项明细</h3>
+                <p class="pt-1 max-w-2xl text-sm text-gray-500">About the Dependence</p>
+            </div>
+            <hr />
+            <vxe-grid class="reverse-table" :loading="dloading.loading" v-bind="gridOptions1"></vxe-grid>
+        </div>
+    </div>
+</template>
 
 <style scoped>
 </style>

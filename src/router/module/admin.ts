@@ -24,6 +24,17 @@ const routes :RouteRecordRaw[] | any = [
                 component: () => import('@/pages/admin/UserJurisdiction.vue'),
             },
             {
+                path: 'jingjuList',
+                name: '京剧列表',
+                icon: 'ep:menu',
+                component: () => import('@/pages/admin/JingjuList.vue'),
+            },
+            {
+                path: 'showJingjuInfo',
+                name: '查询京剧详细信息',
+                component: () => import('@/components/action/ShowJingjuInfo.vue'),
+            },
+            {
                 path: 'about',
                 name: '关于后台',
                 icon: 'entypo:info',
@@ -45,7 +56,8 @@ const routes :RouteRecordRaw[] | any = [
         path: '/admin/changeUserJurisdiction',
         name: '修改用户权限',
         component: () => import('@/components/action/ChangeUserJurisdiction.vue'),
-    }
+    },
+    
 ]
 
 export default routes

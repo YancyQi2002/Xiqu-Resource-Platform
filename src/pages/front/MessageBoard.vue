@@ -1,40 +1,3 @@
-<template>
-    <main>
-        <div class="container">
-            <h2>留言</h2>
-
-            <CommentBox @submit="addNewComment" />
-
-            <!-- 分割线 -->
-            <DividerHorizontal />
-
-            <div v-for="comment in comments" :key="(comment as any).id">
-                <!-- 单个留言 -->
-                <CommentItem
-                    :user="(comment as any).user"
-                    :avatar="(comment as any).avatar"
-                    :time="(comment as any).time"
-                    :content="(comment as any).content"
-                />
-
-                <!-- 回复列表 -->
-                <ReplyContainer v-if="(comment as any).replies">
-                    <CommentItem
-                        v-for="reply in (comment as any).replies"
-                        :key="reply.id"
-                        :user="reply.user"
-                        :avatar="reply.avatar"
-                        :time="reply.time"
-                        :content="reply.content"
-                    />
-                </ReplyContainer>
-
-                <ReplyBox @submit="addNewComment($event, (comment as any).id)"/>
-            </div>
-        </div>
-    </main>
-</template>
-
 <script setup lang="ts">
 import CommentBox from '@/components/messageboard/CommentBox.vue'
 import DividerHorizontal from '@/components/messageboard/DividerHorizontal.vue'
@@ -110,6 +73,43 @@ const addNewComment = async (content :any, replyTo = "") => {
     // }, 1000)
 }
 </script>
+
+<template>
+    <main>
+        <div class="container">
+            <h2>留言</h2>
+
+            <CommentBox @submit="addNewComment" />
+
+            <!-- 分割线 -->
+            <DividerHorizontal />
+
+            <div v-for="comment in comments" :key="(comment as any).id">
+                <!-- 单个留言 -->
+                <CommentItem
+                    :user="(comment as any).user"
+                    :avatar="(comment as any).avatar"
+                    :time="(comment as any).time"
+                    :content="(comment as any).content"
+                />
+
+                <!-- 回复列表 -->
+                <ReplyContainer v-if="(comment as any).replies">
+                    <CommentItem
+                        v-for="reply in (comment as any).replies"
+                        :key="reply.id"
+                        :user="reply.user"
+                        :avatar="reply.avatar"
+                        :time="reply.time"
+                        :content="reply.content"
+                    />
+                </ReplyContainer>
+
+                <ReplyBox @submit="addNewComment($event, (comment as any).id)"/>
+            </div>
+        </div>
+    </main>
+</template>
 
 <style scoped>
 h2 {

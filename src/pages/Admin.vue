@@ -1,3 +1,130 @@
+<script lang="ts" setup>
+import AppIcon from '@/components/common/AppIcon.vue'
+import routes from '@/router/module/admin'
+import { clearlocalStorage } from '@/utils/clearlocalStorage'
+import { ElMessage } from 'element-plus'
+
+const router = useRouter()
+
+let userInfoJSON
+
+if (localStorage.getItem('user') == null) {
+  ElMessage({
+    message: 'Error Token',
+    type: 'warning',
+  })
+  router.push({ name: 'Login' })
+}
+
+if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
+  userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
+}
+
+const asideWidth = ref('210px')
+
+const handleAsideChange = () => {
+  asideWidth.value = asideWidth.value === '210px' ? '60px' : '210px'
+}
+
+const collapse = computed(() => {
+  return asideWidth.value !== '210px'
+})
+
+const handleMenuChange = (index: string) => {
+  console.log(index)
+  switch (index) {
+    case '1':
+      router.push({ name: '控制面板' })
+      break;
+    case '2-1':
+      router.push({ name: '用户列表' })
+      break;
+    case '2-2':
+      router.push({ name: '用户权限' })
+      break;
+    case '3-1':
+      router.push({ name: '京剧列表' })
+      break;
+    case '4':
+      router.push({ name: '关于后台' })
+      break;
+    default:
+      break;
+  }
+}
+
+let userAvatar = ref('')
+
+if (userInfoJSON.avatar == '') {
+  userAvatar.value = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
+} else {
+  userAvatar.value = userInfoJSON.avatar
+}
+
+// 修改密码
+const changeUserPassword = () => {
+  router.push({ name: '修改密码' })
+}
+
+// 退出登录
+const isOpen = ref(false)
+
+const closeModal = () => {
+  isOpen.value = false
+}
+
+const openModal = () => {
+  isOpen.value = true
+}
+
+const logout = () => {
+  closeModal()
+  clearlocalStorage()
+  router.push({ name: 'Login' })
+}
+
+// 全屏
+const isFullScreen = ref(false)
+
+const openFullScreen = () => {
+  const full = (document as any).getElementById('app')
+  if (full.RequestFullScreen) {
+    full.RequestFullScreen()
+    isFullScreen.value = true
+  } else if (full.mozRequestFullScreen) {
+    full.mozRequestFullScreen()
+    isFullScreen.value = true
+  } else if (full.webkitRequestFullScreen) {
+    full.webkitRequestFullScreen()
+    isFullScreen.value = true
+  } else if (full.msRequestFullScreen) {
+    full.msRequestFullScreen()
+    isFullScreen.value = true
+  } else {
+    ElMessage({
+      message: 'Error 浏览器不支持！',
+      type: 'warning',
+    })
+  }
+}
+
+const exitFullScreen = () => {
+  if ((document as any).exitFullScreen) {
+    (document as any).exitFullScreen()
+    isFullScreen.value = false
+  } else if ((document as any).mozCancelFullScreen) {
+    (document as any).mozCancelFullscreen()
+    isFullScreen.value = false
+  } else if ((document as any).webkitExitFullscreen) {
+    (document as any).webkitExitFullscreen()
+    isFullScreen.value = false
+  } else if ((document as any).msExitFullscreen) {
+    (document as any).msExitFullscreen()
+    isFullScreen.value = false
+  }
+}
+</script>
+
 <template>
   <div class="common-layout">
     <el-container class="wrapper">
@@ -34,7 +161,18 @@
               <span>用户权限</span>
             </el-menu-item>
           </el-sub-menu>
-          <el-menu-item index="3">
+          <el-sub-menu index="3">
+            <template #title>
+              <el-icon>
+                <app-icon icon="ep:notebook" />
+              </el-icon>
+              <span>戏曲管理</span>
+            </template>
+            <el-menu-item index="3-1">
+              <span>京剧列表</span>
+            </el-menu-item>
+          </el-sub-menu>
+          <el-menu-item index="4">
             <el-icon>
               <app-icon icon="entypo:info" />
             </el-icon>
@@ -133,130 +271,6 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
-<script lang="ts" setup>
-import AppIcon from '@/components/common/AppIcon.vue'
-import routes from '@/router/module/admin'
-import { ElMessage } from 'element-plus'
-
-const router = useRouter()
-
-let userInfoJSON
-
-if (localStorage.getItem('user') == null) {
-  ElMessage({
-    message: 'Error Token',
-    type: 'warning',
-  })
-  router.push({ name: 'Login' })
-}
-
-if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
-  userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
-}
-
-const asideWidth = ref('210px')
-
-const handleAsideChange = () => {
-  asideWidth.value = asideWidth.value === '210px' ? '60px' : '210px'
-}
-
-const collapse = computed(() => {
-  return asideWidth.value !== '210px'
-})
-
-const handleMenuChange = (index: string) => {
-  console.log(index)
-  switch (index) {
-    case '1':
-      router.push({ name: '控制面板' })
-      break;
-    case '2-1':
-      router.push({ name: '用户列表' })
-      break;
-    case '2-2':
-      router.push({ name: '用户权限' })
-      break;
-    case '3':
-      router.push({ name: '关于后台' })
-      break;
-    default:
-      break;
-  }
-}
-
-let userAvatar = ref('')
-
-if (userInfoJSON.avatar == '') {
-  userAvatar.value = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
-} else {
-  userAvatar.value = userInfoJSON.avatar
-}
-
-// 修改密码
-const changeUserPassword = () => {
-  router.push({ name: '修改密码' })
-}
-
-// 退出登录
-const isOpen = ref(false)
-
-const closeModal = () => {
-  isOpen.value = false
-}
-
-const openModal = () => {
-  isOpen.value = true
-}
-
-const logout = () => {
-  closeModal()
-  localStorage.removeItem('user')
-  localStorage.removeItem('changeUserInfoUsername')
-  router.push({ name: 'Login' })
-}
-
-// 全屏
-const isFullScreen = ref(false)
-
-const openFullScreen = () => {
-  const full = (document as any).getElementById('app')
-  if (full.RequestFullScreen) {
-    full.RequestFullScreen()
-    isFullScreen.value = true
-  } else if (full.mozRequestFullScreen) {
-    full.mozRequestFullScreen()
-    isFullScreen.value = true
-  } else if (full.webkitRequestFullScreen) {
-    full.webkitRequestFullScreen()
-    isFullScreen.value = true
-  } else if (full.msRequestFullScreen) {
-    full.msRequestFullScreen()
-    isFullScreen.value = true
-  } else {
-    ElMessage({
-      message: 'Error 浏览器不支持！',
-      type: 'warning',
-    })
-  }
-}
-
-const exitFullScreen = () => {
-  if ((document as any).exitFullScreen) {
-    (document as any).exitFullScreen()
-    isFullScreen.value = false
-  } else if ((document as any).mozCancelFullScreen) {
-    (document as any).mozCancelFullscreen()
-    isFullScreen.value = false
-  } else if ((document as any).webkitExitFullscreen) {
-    (document as any).webkitExitFullscreen()
-    isFullScreen.value = false
-  } else if ((document as any).msExitFullscreen) {
-    (document as any).msExitFullscreen()
-    isFullScreen.value = false
-  }
-}
-</script>
 
 <style scoped>
 .common-layout,

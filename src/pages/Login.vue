@@ -1,41 +1,3 @@
-<template>
-    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
-        <div class="max-w-md w-full space-y-8">
-            <div>
-                <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
-                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 select-none">平台登录</h2>
-            </div>
-            <el-form
-                class="mt-8 space-y-6"
-                :model="userInfo"
-                :rules="rules"
-                @submit="handleSubmit"
-                ref="formEl"
-            >
-                <el-form-item prop="username">
-                    <el-input placeholder="用户名" v-model="userInfo.username" />
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input placeholder="密码" type="password" v-model="userInfo.password" show-password />
-                </el-form-item>
-                <el-form-item>
-                    <el-button class="w-full" type="primary" native-type="submit">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <app-icon icon="heroicons-solid:lock-closed"/>
-                        </span>
-                        登录
-                    </el-button>
-                </el-form-item>
-                <el-form-item>
-                    <el-button class="w-full" @click="toHomePage">
-                        返回平台主页
-                    </el-button>
-                </el-form-item>
-            </el-form>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import useUserStore from '@/store/module/useUserStore'
 import { OK_CODE } from '@/utils/keys'
@@ -114,6 +76,44 @@ const toHomePage = () => {
     router.push({ name: '首页' })
 }
 </script>
+
+<template>
+    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-md w-full space-y-8">
+            <div>
+                <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 select-none">平台登录</h2>
+            </div>
+            <el-form
+                class="mt-8 space-y-6"
+                :model="userInfo"
+                :rules="rules"
+                @submit="handleSubmit"
+                ref="formEl"
+            >
+                <el-form-item prop="username">
+                    <el-input placeholder="用户名" v-model="userInfo.username" />
+                </el-form-item>
+                <el-form-item prop="password">
+                    <el-input placeholder="密码" type="password" v-model="userInfo.password" show-password />
+                </el-form-item>
+                <el-form-item>
+                    <el-button class="w-full" type="primary" native-type="submit">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <app-icon icon="heroicons-solid:lock-closed"/>
+                        </span>
+                        登录
+                    </el-button>
+                </el-form-item>
+                <el-form-item>
+                    <el-button class="w-full" @click="toHomePage">
+                        返回平台主页
+                    </el-button>
+                </el-form-item>
+            </el-form>
+        </div>
+    </div>
+</template>
 
 <style scoped>
 

@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const content = ref("")
+
+const emit = defineEmits(["submit"])
+
+const handleSubmit = (e :any) => {
+    e.preventDefault();
+    emit("submit", content.value)
+    content.value = ""
+}
+</script>
+
 <template>
     <form class="grid" @submit="handleSubmit">
         <el-input
@@ -14,18 +26,6 @@
         </fieldset>
     </form>
 </template>
-
-<script setup lang="ts">
-const content = ref("")
-
-const emit = defineEmits(["submit"])
-
-const handleSubmit = (e :any) => {
-    e.preventDefault();
-    emit("submit", content.value)
-    content.value = ""
-}
-</script>
 
 <style scoped>
 </style>

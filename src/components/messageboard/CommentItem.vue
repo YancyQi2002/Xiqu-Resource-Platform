@@ -1,3 +1,12 @@
+<script setup lang="ts">
+    defineProps([
+        "user",
+        "avatar",
+        "time",
+        "content"
+    ])
+</script>
+
 <template>
     <div class="flex">
         <!-- 即使在 public 文件夹下，也需要使用 / 绝对路径引用，省略 Public -->
@@ -29,15 +38,6 @@
         {{ content }}
     </p>
 </template>
-
-<script setup lang="ts">
-    defineProps([
-        "user",
-        "avatar",
-        "time",
-        "content"
-    ])
-</script>
 
 <style scoped>
 </style>

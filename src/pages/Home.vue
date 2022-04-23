@@ -1,3 +1,22 @@
+<script setup lang="ts">
+const navigation = [
+  { name: '首页', href: '/', path: ''},
+  { name: '资源列表', href: '/dramascript', path: '/dramascript'},
+  { name: '留言板', href: '/messageboard', path: '/messageboard'},
+  { name: '关于', href: '/about', path: '/about'}
+]
+
+const router = useRouter()
+
+const toLoginPage = () => {
+    router.push({ name: 'Login'})
+}
+
+const toRegisterPage = () => {
+    router.push({ name: 'Register'})
+}
+</script>
+
 <template>
     <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -66,25 +85,6 @@
         <router-view />
     </el-main>
 </template>
-
-<script setup lang="ts">
-const navigation = [
-  { name: '首页', href: '/', path: ''},
-  { name: '资源列表', href: '/dramascript', path: '/dramascript'},
-  { name: '留言板', href: '/messageboard', path: '/messageboard'},
-  { name: '关于', href: '/about', path: '/about'}
-]
-
-const router = useRouter()
-
-const toLoginPage = () => {
-    router.push({ name: 'Login'})
-}
-
-const toRegisterPage = () => {
-    router.push({ name: 'Register'})
-}
-</script>
 
 <style scoped>
 .main-wrapper {

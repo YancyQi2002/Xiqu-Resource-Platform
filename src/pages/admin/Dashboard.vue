@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
     <el-row class="flex items-center">
         <a
@@ -48,9 +51,6 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-</script>
 
 <style scoped>
 .aspect-ratio {

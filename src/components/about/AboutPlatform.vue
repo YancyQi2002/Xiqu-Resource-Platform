@@ -1,3 +1,7 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
@@ -25,10 +29,6 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-
-</script>
 
 <style scoped>
 

@@ -1,3 +1,114 @@
+<script setup lang="ts">
+import { ElMessage, ElMessageBox } from 'element-plus'
+import type { Action } from 'element-plus'
+import { getJingjuList } from '@/utils/api'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+
+const locale = zhCn
+
+let tabledata = ref([])
+
+const search = ref('')
+
+onMounted(() => {
+    loadJingjuList()
+})
+
+function filterTag(value: any, row: { tag: any; }) {
+    return row.tag === value
+}
+
+const currentPage = ref(1)
+const pageSize = ref(5)
+const small = ref(false)
+const disabled = ref(false)
+const total  = ref(0)
+
+const handleSizeChange = (val: number) => {
+  console.log(`${val} items per page`)
+}
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+}
+
+async function loadJingjuList() {
+    ElMessage({
+        message: '正在加载后端数据 。。。',
+        duration: 5000
+    })
+
+    const res = await (await fetch(getJingjuList + '?page=' + currentPage.value + '&size=' + pageSize.value)).json()
+
+    const result = res.data
+
+    for (let i = 0; i < result.length; i++) {
+
+        // 61741c2926f92016bd0695e8 ==> 6174****95e8
+        let id = result[i].jingjuId
+        const before = id.substr(0, 4)
+        const back = id.substr(20, 4)
+        result[i].jingjuId = before + "****" + back
+
+        // YYYY 年 MM 月 DD 日
+        // YYYY - MM - DD
+        // YYYY . MM . DD
+        // window.innerWidth 判断窗口中可视区域 (viewpoint) 的宽度 显示不同的格式
+        const createYear = result[i].createTime.substr(0, 4)
+        const createMonth = result[i].createTime.substr(5, 2)
+        const createDay = result[i].createTime.substr(8, 2)
+        if (window.innerWidth < 1354 && window.innerWidth > 810) {
+            result[i].createTime = createYear + "-" + createMonth + "-" + createDay
+        } else if (window.innerWidth <= 810) {
+            result[i].createTime = createYear + "." + createMonth + "." + createDay
+        } else {
+            result[i].createTime = createYear + "年" + createMonth + "月" + createDay + "日"
+        }
+        const updateYear = result[i].updateTime.substr(0, 4)
+        const updateMonth = result[i].updateTime.substr(5, 2)
+        const updateDay = result[i].updateTime.substr(8, 2)
+        if (window.innerWidth < 1354 && window.innerWidth > 810) {
+            result[i].updateTime = updateYear + "-" + updateMonth + "-" + updateDay
+        } else if (window.innerWidth <= 810) {
+            result[i].updateTime = updateYear + "." + updateMonth + "." + updateDay
+        } else {
+            result[i].updateTime = updateYear + "年" + updateMonth + "月" + updateDay + "日"
+        }
+
+        if (result[i].synopsis == "") {
+            result[i].synopsis = "暂无简介！"
+        }
+
+        if (result[i].audio == "") {
+            result[i].audio = "暂无音频资料！"
+        }
+
+        if (result[i].video == "") {
+            result[i].video = "暂无视频资料！"
+        }
+
+        if (result[i].content == "") {
+            result[i].content = "暂无唱词 / 剧本！"
+        }
+
+    }
+
+    total.value = res.total
+    tabledata.value = result
+}
+
+const showContent = () => {
+    ElMessageBox.alert('请登录查看！', '提示', {
+    confirmButtonText: '知晓',
+    callback: (action: Action) => {
+      ElMessage({
+        type: 'warning',
+        message: `action: ${action}` + ' ' + '查看剧本、唱词等信息需要登录！',
+      })
+    },
+  })
+}
+</script>
+
 <template>
     <el-card class="mb-3" shadow="never">
         <el-row class="flex items-center justify-center">
@@ -93,8 +204,7 @@
                                 v-if="props.row.content !== '暂无唱词 / 剧本！'"
                                 class="btn btn-outline-info mt-2 no-underline"
                                 role="button"
-                                :href="props.row.content"
-                                target="_blank"
+                                @click="showContent"
                             >点此查看</a>
                             <span v-else>暂无唱词 / 剧本！</span>
                         </span>
@@ -103,88 +213,25 @@
             </template>
         </el-table-column>
     </el-table>
+
+    <!-- Pagination -->
+    <div class="relative mt-4 overflow-x-auto sm:rounded-lg">
+        <el-config-provider :locale="locale">
+            <el-pagination
+                v-model:currentPage="currentPage"
+                v-model:page-size="pageSize"
+                :page-sizes="[5, 10, 15, 20]"
+                :small="small"
+                :disabled="disabled"
+                background
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="total"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+            />
+        </el-config-provider>
+    </div>
 </template>
-
-<script setup lang="ts">
-import { ElMessage } from 'element-plus'
-import { getJingjuList } from '@/utils/api'
-
-let tabledata = ref([])
-
-const search = ref('')
-
-onMounted(() => {
-    loadJingjuList()
-})
-
-function filterTag(value: any, row: { tag: any; }) {
-    return row.tag === value
-}
-
-async function loadJingjuList() {
-    ElMessage({
-        message: '正在加载后端数据 。。。',
-        duration: 5000
-    })
-
-    const res = await (await fetch(getJingjuList)).json()
-
-    const result = res.data
-
-    for (let i = 0; i < result.length; i++) {
-
-        // 61741c2926f92016bd0695e8 ==> 6174****95e8
-        let id = result[i].jingjuId
-        const before = id.substr(0, 4)
-        const back = id.substr(20, 4)
-        result[i].jingjuId = before + "****" + back
-
-        // YYYY 年 MM 月 DD 日
-        // YYYY - MM - DD
-        // YYYY . MM . DD
-        // window.innerWidth 判断窗口中可视区域 (viewpoint) 的宽度 显示不同的格式
-        const createYear = result[i].createTime.substr(0, 4)
-        const createMonth = result[i].createTime.substr(5, 2)
-        const createDay = result[i].createTime.substr(8, 2)
-        if (window.innerWidth < 1354 && window.innerWidth > 810) {
-            result[i].createTime = createYear + "-" + createMonth + "-" + createDay
-        } else if (window.innerWidth <= 810) {
-            result[i].createTime = createYear + "." + createMonth + "." + createDay
-        } else {
-            result[i].createTime = createYear + "年" + createMonth + "月" + createDay + "日"
-        }
-        const updateYear = result[i].updateTime.substr(0, 4)
-        const updateMonth = result[i].updateTime.substr(5, 2)
-        const updateDay = result[i].updateTime.substr(8, 2)
-        if (window.innerWidth < 1354 && window.innerWidth > 810) {
-            result[i].updateTime = updateYear + "-" + updateMonth + "-" + updateDay
-        } else if (window.innerWidth <= 810) {
-            result[i].updateTime = updateYear + "." + updateMonth + "." + updateDay
-        } else {
-            result[i].updateTime = updateYear + "年" + updateMonth + "月" + updateDay + "日"
-        }
-
-        if (result[i].synopsis == "") {
-            result[i].synopsis = "暂无简介！"
-        }
-
-        if (result[i].audio == "") {
-            result[i].audio = "暂无音频资料！"
-        }
-
-        if (result[i].video == "") {
-            result[i].video = "暂无视频资料！"
-        }
-
-        if (result[i].content == "") {
-            result[i].content = "暂无唱词 / 剧本！"
-        }
-
-    }
-
-    tabledata.value = result
-}
-</script>
 
 <style scoped>
 </style>

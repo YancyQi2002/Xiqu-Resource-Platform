@@ -1,3 +1,7 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
     <el-container>
       <el-aside width="100px">
@@ -14,10 +18,6 @@
       </el-main>
     </el-container>
 </template>
-
-<script setup lang="ts">
-
-</script>
 
 <style scoped>
 

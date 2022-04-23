@@ -1,3 +1,84 @@
+<script setup lang="ts">
+import { ElMessage } from 'element-plus'
+import { getPeakingOperalist } from "@/utils/api"
+
+let tabledata = ref([])
+
+const search = ref('')
+
+onMounted(() => {
+  loadPeakingOperaList()
+})
+
+async function loadPeakingOperaList() {
+  ElMessage({
+    message: '正在加载后端数据 。。。',
+    duration: 5000
+  })
+
+  const res = await (await fetch(getPeakingOperalist)).json()
+
+  const result = res.data
+  console.log(result)
+  for (let i = 0; i < result.length; i++) {
+
+    // 618a4d52fd52ea67527f3bde ==> 618a****3bde
+    let id = result[i].PeakingOperaId
+    const before = id.substr(0, 4)
+    const back = id.substr(20, 4)
+    result[i].PeakingOperaId = before + "****" + back
+
+    // YYYY 年 MM 月 DD 日
+    // YYYY - MM - DD
+    // YYYY . MM . DD
+    // window.innerWidth 判断窗口中可视区域 (viewpoint) 的宽度 显示不同的格式
+    const createYear = result[i].createTime.substr(0, 4)
+    const createMonth = result[i].createTime.substr(5, 2)
+    const createDay = result[i].createTime.substr(8, 2)
+    if (window.innerWidth < 1354 && window.innerWidth > 810) {
+      result[i].createTime = createYear + "-" + createMonth + "-" + createDay
+    } else if (window.innerWidth <= 810) {
+      result[i].createTime = createYear + "." + createMonth + "." + createDay
+    } else {
+      result[i].createTime = createYear + "年" + createMonth + "月" + createDay + "日"
+    }
+    const updateYear = result[i].updateTime.substr(0, 4)
+    const updateMonth = result[i].updateTime.substr(5, 2)
+    const updateDay = result[i].updateTime.substr(8, 2)
+    if (window.innerWidth < 1354 && window.innerWidth > 810) {
+      result[i].updateTime = updateYear + "-" + updateMonth + "-" + updateDay
+    } else if (window.innerWidth <= 810) {
+      result[i].updateTime = updateYear + "." + updateMonth + "." + updateDay
+    } else {
+      result[i].updateTime = updateYear + "年" + updateMonth + "月" + updateDay + "日"
+    }
+
+    if (result[i].synopsis == "") {
+      result[i].synopsis = "暂无简介！"
+    }
+
+    if (result[i].audio == "") {
+      result[i].audio = "暂无音频资料！"
+    }
+
+    if (result[i].video == "") {
+      result[i].video = "暂无视频资料！"
+    }
+
+    if (result[i].dramaInterpretation == "") {
+      result[i].dramaInterpretation = "暂无解说！"
+    }
+
+    if (result[i].content == "") {
+      result[i].content = "暂无唱词 / 剧本！"
+    }
+
+  }
+
+  tabledata.value = result
+}
+</script>
+
 <template>
   <el-card class="mb-3" shadow="never">
     <el-row class="flex items-center justify-center">
@@ -96,87 +177,6 @@
     </el-table-column>
   </el-table>
 </template>
-
-<script setup lang="ts">
-import { ElMessage } from 'element-plus'
-import { getPeakingOperalist } from "@/utils/api"
-
-let tabledata = ref([])
-
-const search = ref('')
-
-onMounted(() => {
-  loadPeakingOperaList()
-})
-
-async function loadPeakingOperaList() {
-  ElMessage({
-    message: '正在加载后端数据 。。。',
-    duration: 5000
-  })
-
-  const res = await (await fetch(getPeakingOperalist)).json()
-
-  const result = res.data
-  console.log(result)
-  for (let i = 0; i < result.length; i++) {
-
-    // 618a4d52fd52ea67527f3bde ==> 618a****3bde
-    let id = result[i].PeakingOperaId
-    const before = id.substr(0, 4)
-    const back = id.substr(20, 4)
-    result[i].PeakingOperaId = before + "****" + back
-
-    // YYYY 年 MM 月 DD 日
-    // YYYY - MM - DD
-    // YYYY . MM . DD
-    // window.innerWidth 判断窗口中可视区域 (viewpoint) 的宽度 显示不同的格式
-    const createYear = result[i].createTime.substr(0, 4)
-    const createMonth = result[i].createTime.substr(5, 2)
-    const createDay = result[i].createTime.substr(8, 2)
-    if (window.innerWidth < 1354 && window.innerWidth > 810) {
-      result[i].createTime = createYear + "-" + createMonth + "-" + createDay
-    } else if (window.innerWidth <= 810) {
-      result[i].createTime = createYear + "." + createMonth + "." + createDay
-    } else {
-      result[i].createTime = createYear + "年" + createMonth + "月" + createDay + "日"
-    }
-    const updateYear = result[i].updateTime.substr(0, 4)
-    const updateMonth = result[i].updateTime.substr(5, 2)
-    const updateDay = result[i].updateTime.substr(8, 2)
-    if (window.innerWidth < 1354 && window.innerWidth > 810) {
-      result[i].updateTime = updateYear + "-" + updateMonth + "-" + updateDay
-    } else if (window.innerWidth <= 810) {
-      result[i].updateTime = updateYear + "." + updateMonth + "." + updateDay
-    } else {
-      result[i].updateTime = updateYear + "年" + updateMonth + "月" + updateDay + "日"
-    }
-
-    if (result[i].synopsis == "") {
-      result[i].synopsis = "暂无简介！"
-    }
-
-    if (result[i].audio == "") {
-      result[i].audio = "暂无音频资料！"
-    }
-
-    if (result[i].video == "") {
-      result[i].video = "暂无视频资料！"
-    }
-
-    if (result[i].dramaInterpretation == "") {
-      result[i].dramaInterpretation = "暂无解说！"
-    }
-
-    if (result[i].content == "") {
-      result[i].content = "暂无唱词 / 剧本！"
-    }
-
-  }
-
-  tabledata.value = result
-}
-</script>
 
 <style scoped>
 .search {

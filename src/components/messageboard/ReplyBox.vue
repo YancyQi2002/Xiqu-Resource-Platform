@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import CommentBox from './CommentBox.vue'
+
+const showCommentBox = ref(false)
+
+const emit = defineEmits(["submit"])
+</script>
+
 <template>
     <el-button
         class="mb-4 text-blue-600"
@@ -10,14 +18,6 @@
         @submit="emit('submit', $event); showCommentBox = false;"
     />
 </template>
-
-<script setup lang="ts">
-import CommentBox from './CommentBox.vue'
-
-const showCommentBox = ref(false)
-
-const emit = defineEmits(["submit"])
-</script>
 
 <style scoped>
 </style>

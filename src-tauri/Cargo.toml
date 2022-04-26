@@ -1,9 +1,9 @@
 [package]
 name = "app"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Tauri App"
-authors = ["you"]
-license = ""
+authors = ["Yancy Qi"]
+license = "AGPL-3.0-or-later"
 repository = ""
 default-run = "app"
 edition = "2021"

@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 overrides:
   minimist@<1.2.6: ^1.2.6
@@ -12,7 +12,7 @@ specifiers:
   '@iconify/json': ^2.1.31
   '@popperjs/core': ^2.11.5
   '@tailwindcss/forms': ^0.5.0
-  '@tauri-apps/api': 1.0.0-rc.3
+  '@tauri-apps/api': 1.0.0-rc.4
   '@tauri-apps/cli': 1.0.0-rc.8
   '@types/lodash-es': ^4.17.6
   '@types/node': ^17.0.25
@@ -55,12 +55,12 @@ specifiers:
 dependencies:
   '@headlessui/vue': 1.5.0_vue@3.2.33
   '@iconify/iconify': 2.2.1
-  '@tauri-apps/api': 1.0.0-rc.3
+  '@tauri-apps/api': 1.0.0-rc.4
   axios: 0.26.1
   core-js: 3.22.2
   element-plus: 2.1.10_vue@3.2.33
   flowbite: 1.4.2
-  pinia: 2.0.13_ifhmkzsxec62ezvqv7qmanm4bq
+  pinia: 2.0.13_typescript@4.6.3+vue@3.2.33
   qs: 6.10.3
   vue: 3.2.33
   vue-axios: 3.4.1_axios@0.26.1+vue@3.2.33
@@ -220,7 +220,7 @@ packages:
       '@types/node': 17.0.25
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.9_3z6inmgn4ud4moqealnfxgbl2m
+      cosmiconfig-typescript-loader: 1.0.9_de7c86b0cde507c63a0402da5b982bd3
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.6.3
@@ -241,7 +241,7 @@ packages:
       '@types/node': 17.0.25
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.9_3z6inmgn4ud4moqealnfxgbl2m
+      cosmiconfig-typescript-loader: 1.0.9_de7c86b0cde507c63a0402da5b982bd3
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.6.3
@@ -509,11 +509,11 @@ packages:
       tailwindcss: 3.0.24
     dev: true
 
-  /@tauri-apps/api/1.0.0-rc.3:
-    resolution: {integrity: sha512-/ZbyBjuUoU6mYm8RzibIUvVuJ31ZwYA2+fTRl7FF4LVFhzCVJ1YI1BS5ohGb2GsLNmLpfeo7kDHaIhV2uaOchQ==}
+  /@tauri-apps/api/1.0.0-rc.4:
+    resolution: {integrity: sha512-1HaUsx8+TzFHDoQ+Mmd6RWaMsPyZlurQHgACDt+il5e/ui6pDkumVXaS92SnY5XOcS4gBC0BkgjVfkWgcm/Oww==}
     engines: {node: '>= 12.13.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
     dependencies:
-      type-fest: 2.12.1
+      type-fest: 2.12.2
     dev: false
 
   /@tauri-apps/cli-darwin-arm64/1.0.0-rc.8:
@@ -1340,7 +1340,7 @@ packages:
     requiresBuild: true
     dev: false
 
-  /cosmiconfig-typescript-loader/1.0.9_3z6inmgn4ud4moqealnfxgbl2m:
+  /cosmiconfig-typescript-loader/1.0.9_de7c86b0cde507c63a0402da5b982bd3:
     resolution: {integrity: sha512-tRuMRhxN4m1Y8hP9SNYfz7jRwt8lZdWxdjg/ohg5esKmsndJIn4yT96oJVcf5x0eA11taXl+sIp+ielu529k6g==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -1349,7 +1349,7 @@ packages:
     dependencies:
       '@types/node': 17.0.25
       cosmiconfig: 7.0.1
-      ts-node: 10.7.0_3z6inmgn4ud4moqealnfxgbl2m
+      ts-node: 10.7.0_de7c86b0cde507c63a0402da5b982bd3
       typescript: 4.6.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -1594,7 +1594,7 @@ packages:
       escape-html: 1.0.3
       lodash: 4.17.21
       lodash-es: 4.17.21
-      lodash-unified: 1.0.2_3ib2ivapxullxkx3xftsimdk7u
+      lodash-unified: 1.0.2_da03a4540fbd16bbaafbb96724306afd
       memoize-one: 6.0.0
       normalize-wheel-es: 1.1.2
       vue: 3.2.33
@@ -2817,7 +2817,7 @@ packages:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
-  /lodash-unified/1.0.2_3ib2ivapxullxkx3xftsimdk7u:
+  /lodash-unified/1.0.2_da03a4540fbd16bbaafbb96724306afd:
     resolution: {integrity: sha512-OGbEy+1P+UT26CYi4opY4gebD8cWRDxAT6MAObIVQMiqYdxZr1g3QHWCToVsm31x2NkLS4K3+MC2qInaRMa39g==}
     peerDependencies:
       '@types/lodash-es': '*'
@@ -3283,7 +3283,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /pinia/2.0.13_ifhmkzsxec62ezvqv7qmanm4bq:
+  /pinia/2.0.13_typescript@4.6.3+vue@3.2.33:
     resolution: {integrity: sha512-B7rSqm1xNpwcPMnqns8/gVBfbbi7lWTByzS6aPZ4JOXSJD4Y531rZHDCoYWBwLyHY/8hWnXljgiXp6rRyrofcw==}
     peerDependencies:
       '@vue/composition-api': ^1.4.0
@@ -3965,7 +3965,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-node/10.7.0_3z6inmgn4ud4moqealnfxgbl2m:
+  /ts-node/10.7.0_de7c86b0cde507c63a0402da5b982bd3:
     resolution: {integrity: sha512-TbIGS4xgJoX2i3do417KSaep1uRAW/Lu+WAL2doDHC0D6ummjirVOXU5/7aiZotbQ5p1Zp9tP7U6cYhA0O7M8A==}
     hasBin: true
     peerDependencies:
@@ -4041,8 +4041,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /type-fest/2.12.1:
-    resolution: {integrity: sha512-AiknQSEqKVGDDjtZqeKrUoTlcj7FKhupmnVUgz6KoOKtvMwRGE6hUNJ/nVear+h7fnUPO1q/htSkYKb1pyntkQ==}
+  /type-fest/2.12.2:
+    resolution: {integrity: sha512-qt6ylCGpLjZ7AaODxbpyBZSs9fCI9SkL3Z9q2oxMBQhs/uyY+VD8jHA8ULCGmWQJlBgqvO3EJeAngOHD8zQCrQ==}
     engines: {node: '>=12.20'}
     dev: false
 

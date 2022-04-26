@@ -26,7 +26,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.5.0",
     "@iconify/iconify": "^2.2.1",
-    "@tauri-apps/api": "1.0.0-rc.3",
+    "@tauri-apps/api": "1.0.0-rc.4",
     "axios": "^0.26.1",
     "core-js": "^3.22.2",
     "element-plus": "^2.1.10",

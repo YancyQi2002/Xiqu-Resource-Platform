@@ -217,6 +217,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "attohttpc"
+version = "0.19.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "262c3f7f5d61249d8c00e5546e2685cd15ebeeb1bc0f3cc5449350a1cb07319e"
+dependencies = [
+ "flate2",
+ "http",
+ "log",
+ "native-tls",
+ "openssl",
+ "url",
+ "wildmatch",
+]
+
+[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -447,7 +462,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "74f89d248799e3f15f91b70917f65381062a01bb8e222700ea0e5a7ff9785f9c"
 dependencies = [
  "byteorder",
- "uuid",
+ "uuid 0.8.2",
 ]
 
 [[package]]
@@ -3568,7 +3583,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f6d514a34b3f9a07e2002d95e1371b42a446636e3d571a59e974b21d6acf3007"
 dependencies = [
  "anyhow",
- "attohttpc",
+ "attohttpc 0.18.0",
  "bincode",
  "cfg_aliases",
  "dirs-next",
@@ -3609,7 +3624,7 @@ dependencies = [
  "thiserror",
  "tokio",
  "url",
- "uuid",
+ "uuid 0.8.2",
  "windows 0.30.0",
 ]
 
@@ -3628,13 +3643,13 @@ dependencies = [
 
 [[package]]
 name = "tauri-bundler"
-version = "1.0.0-rc.4"
+version = "1.0.0-rc.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c1790952c14071140a4e5dbb38215019a81d69f9af95c16f81a87f450d92768"
+checksum = "aaafa012ee17448a8dc22e96887749d0d0d63ea30a47f96a8c9d19c0d2d46841"
 dependencies = [
  "anyhow",
  "ar",
- "attohttpc",
+ "attohttpc 0.19.1",
  "bitness",
  "dirs-next",
  "glob",
@@ -3658,7 +3673,7 @@ dependencies = [
  "thiserror",
  "time",
  "toml",
- "uuid",
+ "uuid 1.0.0",
  "walkdir",
  "winreg",
  "zip",
@@ -3682,7 +3697,7 @@ dependencies = [
  "sha2",
  "tauri-utils",
  "thiserror",
- "uuid",
+ "uuid 0.8.2",
  "walkdir",
 ]
 
@@ -3714,7 +3729,7 @@ dependencies = [
  "serde_json",
  "tauri-utils",
  "thiserror",
- "uuid",
+ "uuid 0.8.2",
  "webview2-com",
  "windows 0.30.0",
 ]
@@ -3729,7 +3744,7 @@ dependencies = [
  "rand 0.8.5",
  "tauri-runtime",
  "tauri-utils",
- "uuid",
+ "uuid 0.8.2",
  "webview2-com",
  "windows 0.30.0",
  "wry",
@@ -3737,9 +3752,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-utils"
-version = "1.0.0-rc.4"
+version = "1.0.0-rc.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a67fcf8fdd1340de4e75c01966fceab03057a8b0e97864eb39a21e420deed503"
+checksum = "a485f9fc0f381d3da0818c4260b3a04be86dc1844a12edaff68afb07bc55d735"
 dependencies = [
  "brotli",
  "ctor",
@@ -3748,13 +3763,13 @@ dependencies = [
  "html5ever",
  "json-patch",
  "kuchiki",
+ "memchr",
  "phf 0.10.1",
  "proc-macro2",
  "quote",
  "serde",
  "serde_json",
  "serde_with",
- "serialize-to-javascript",
  "thiserror",
  "url",
  "walkdir",
@@ -4048,7 +4063,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
 dependencies = [
  "getrandom 0.2.6",
- "sha1 0.6.1",
+]
+
+[[package]]
+name = "uuid"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8cfcd319456c4d6ea10087ed423473267e1a071f3bc0aa89f80d60997843c6f0"
+dependencies = [
+ "getrandom 0.2.6",
+ "sha1_smol",
 ]
 
 [[package]]

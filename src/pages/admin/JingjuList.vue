@@ -91,8 +91,22 @@ const handleShow = (index: number, row: any) => {
     console.log(index, row)
     let showInfo = JSON.stringify(row)
     let showInfoId = JSON.parse(showInfo)._id
+    let showInfoJingjuId = JSON.parse(showInfo).jingjuId
+    let showInfoJingjuname = JSON.parse(showInfo).jingjuname
+    let showInfoCreateTime = JSON.parse(showInfo).createTime
+    let showInfoUpdateTime = JSON.parse(showInfo).updateTime
+    let showInfoContent = JSON.parse(showInfo).content
     localStorage.setItem('showInfoId', showInfoId)
-    localStorage.setItem('showJingjuInfo', showInfo)
+    console.log(showInfo)
+    let setShowInfo = {
+        _id: showInfoId,
+        jingjuId: showInfoJingjuId,
+        jingjuname: showInfoJingjuname,
+        content: showInfoContent,
+        createTime: showInfoCreateTime,
+        updateTime: showInfoUpdateTime
+    }
+    localStorage.setItem('showJingjuInfo', JSON.stringify(setShowInfo))
     router.push({ name: '查询京剧详细信息' })
 }
 </script>

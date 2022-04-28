@@ -29,12 +29,12 @@
       "longDescription": "",
       "deb": {
         "depends": [],
-        "useBootstrapper": false
+        // "useBootstrapper": false
       },
       "macOS": {
         "frameworks": [],
         "minimumSystemVersion": "",
-        "useBootstrapper": false,
+        // "useBootstrapper": false,
         "exceptionDomain": "",
         "signingIdentity": null,
         "providerShortName": null,

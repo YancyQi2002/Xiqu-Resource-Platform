@@ -11,22 +11,22 @@ a {
 body::-webkit-scrollbar-track,
 .el-main::-webkit-scrollbar-track,
 .right-main::-webkit-scrollbar-track {
+  @apply rounded-lg;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  border-radius: 10px;
   background-color: #F5F5F5;
 }
 
 body::-webkit-scrollbar,
 .el-main::-webkit-scrollbar,
 .right-main::-webkit-scrollbar {
-  width: 10px;
+  @apply  w-1.5;
   background-color: #F5F5F5;
 }
 
 body::-webkit-scrollbar-thumb,
 .el-main::-webkit-scrollbar-thumb,
 .right-main::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  @apply rounded-lg;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: #bab6b6;
 }

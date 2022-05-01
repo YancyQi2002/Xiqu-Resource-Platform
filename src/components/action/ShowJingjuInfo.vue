@@ -15,8 +15,6 @@ const showJingjuInfo: any = localStorage.getItem('showJingjuInfo')
 const showJingjuInfoData = JSON.parse(showJingjuInfo)
 console.log(showJingjuInfoData)
 
-// let jingjuInfoData: any = reactive([])
-//
 // async function getJingjuInfo() {
 //     const res = await (await fetch('/api/dramascript/jingjuinfo/' + showInfoId)).json()
 //
@@ -25,14 +23,10 @@ console.log(showJingjuInfoData)
 //     let result = res.data
 //
 //     if (res.code === 200) {
-//         console.log(result)
 //         jingjuInfoData.push(JSON.parse(JSON.stringify(result)))
 //         jingjuInfoData = JSON.parse(JSON.stringify(jingjuInfoData))
-//         console.log(jingjuInfoData)
 //     }
 // }
-//
-// getJingjuInfo()
 </script>
 
 <template>
@@ -74,7 +68,13 @@ console.log(showJingjuInfoData)
         </div>
     </div>
 
-    <iframe class="mt-4 w-full h-full" :src="showJingjuInfoData.content" frameborder="0"></iframe>
+    <!-- 唱词 / 剧本 -->
+    <div class="h-full">
+        <iframe class="mt-4 w-full h-full" v-if="showJingjuInfoData.content !== ''" :src="showJingjuInfoData.content" frameborder="0"></iframe>
+        <div class="relative mt-4 leading-[8rem] overflow-x-auto bg-white shadow-md sm:rounded-lg" v-else>
+            <div class="text-center">暂无唱词 / 剧本信息</div>
+        </div>
+    </div>
 </template>
 
 <style scoped>

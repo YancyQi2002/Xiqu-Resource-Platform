@@ -181,7 +181,8 @@ const handleShow = (index: number, row: any) => {
         <el-config-provider :locale="locale">
             <el-pagination
                 v-model:currentPage="currentPage" 
-                v-model:page-size="pageSize" :page-sizes="[5, 10, 15, 20]"
+                v-model:page-size="pageSize"
+                :page-sizes="[3, 5, 10, 15, 20]"
                 :small="small"
                 :disabled="disabled"
                 background

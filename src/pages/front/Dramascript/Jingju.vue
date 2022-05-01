@@ -220,7 +220,7 @@ const showContent = () => {
             <el-pagination
                 v-model:currentPage="currentPage"
                 v-model:page-size="pageSize"
-                :page-sizes="[5, 10, 15, 20]"
+                :page-sizes="[3, 5, 10, 15, 20]"
                 :small="small"
                 :disabled="disabled"
                 background

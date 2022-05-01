@@ -44,6 +44,9 @@ fn main() {
     .add_submenu(submenu_gear)
     .add_submenu(submenu_customer);
 
+  // Tauri Removed the `useBootstrapper` option. So use https://github.com/tauri-apps/fix-path-env-rs instead.
+  fix_path_env::fix();
+
   tauri::Builder::default()
     // 添加菜单
     .menu(menus)

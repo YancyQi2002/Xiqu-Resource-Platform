@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import router from '@/router'
+import { dataURItoBlob } from '@/utils/dataURItoBlob'
 import { ElMessage } from 'element-plus'
 
 if (localStorage.getItem('user') == null || localStorage.getItem('showInfoId') == null) {
@@ -15,18 +16,45 @@ const showJingjuInfo: any = localStorage.getItem('showJingjuInfo')
 const showJingjuInfoData = JSON.parse(showJingjuInfo)
 console.log(showJingjuInfoData)
 
-// async function getJingjuInfo() {
-//     const res = await (await fetch('/api/dramascript/jingjuinfo/' + showInfoId)).json()
-//
-//     console.log(res)
-//
-//     let result = res.data
-//
-//     if (res.code === 200) {
-//         jingjuInfoData.push(JSON.parse(JSON.stringify(result)))
-//         jingjuInfoData = JSON.parse(JSON.stringify(jingjuInfoData))
-//     }
-// }
+let jingjuInfoData: any = []
+
+let audioBlob: any
+
+async function getJingjuInfo() {
+    const res = await (await fetch('/api/dramascript/jingjuinfo/' + showInfoId)).json()
+
+    console.log(res)
+
+    let result = res.data
+
+    let el: any = document.getElementById('audioId')
+
+    if (res.code === 200) {
+        if (result.audio == "") {
+            result.audio = "暂无音频资料！"
+        }
+
+        jingjuInfoData.push(result)
+    }
+
+    if (jingjuInfoData[0].audio == "暂无音频资料！") {
+        el.style.display = 'none';
+        (document as any).getElementById('noAudioInfo').style.display = 'flex'
+    } else {
+        audioBlob = dataURItoBlob(jingjuInfoData[0].audio)
+    }
+
+    let blobUrl = window.URL.createObjectURL(audioBlob)
+
+    el.src = blobUrl
+    // el.addEventListener("canplay", () => {
+    //     window.URL.revokeObjectURL(el.src)
+    // })
+}
+
+onMounted(() => {
+    getJingjuInfo()
+})
 </script>
 
 <template>
@@ -68,11 +96,21 @@ console.log(showJingjuInfoData)
         </div>
     </div>
 
+    <!-- 音频资料 -->
+    <audio class="mt-4" controls id="audioId" src="" width="100"></audio>
+    <div id="noAudioInfo" class="hidden relative justify-center text-center mt-4 h-10 overflow-x-auto bg-white shadow-md sm:rounded-lg">
+        <div class="justify-center mt-2 text-center">
+            暂无音频资料！
+        </div>
+    </div>
+    
     <!-- 唱词 / 剧本 -->
     <div class="h-full">
         <iframe class="mt-4 w-full h-full" v-if="showJingjuInfoData.content !== ''" :src="showJingjuInfoData.content" frameborder="0"></iframe>
         <div class="relative mt-4 leading-[8rem] overflow-x-auto bg-white shadow-md sm:rounded-lg" v-else>
-            <div class="text-center">暂无唱词 / 剧本信息</div>
+            <div class="text-center">
+                暂无唱词 / 剧本信息
+            </div>
         </div>
     </div>
 </template>

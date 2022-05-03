@@ -3,6 +3,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import type { Action } from 'element-plus'
 import { getJingjuList } from '@/utils/api'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import { trimLeft } from 'xe-utils';
 
 const locale = zhCn
 
@@ -14,21 +15,23 @@ onMounted(() => {
     loadJingjuList()
 })
 
-function filterTag(value: any, row: { tag: any; }) {
+let filterTag = (value: any, row: { tag: any; }) => {
     return row.tag === value
 }
 
-const currentPage = ref(1)
-const pageSize = ref(5)
+let currentPage = $ref(1)
+let pageSize = $ref(5)
 const small = ref(false)
 const disabled = ref(false)
 const total  = ref(0)
 
 const handleSizeChange = (val: number) => {
   console.log(`${val} items per page`)
+  pageSize = val
 }
 const handleCurrentChange = (val: number) => {
   console.log(`current page: ${val}`)
+  currentPage = val
 }
 
 async function loadJingjuList() {
@@ -37,7 +40,7 @@ async function loadJingjuList() {
         duration: 5000
     })
 
-    const res = await (await fetch(getJingjuList + '?page=' + currentPage.value + '&size=' + pageSize.value)).json()
+    const res = await (await fetch(getJingjuList + '?page=' + currentPage + '&size=' + pageSize)).json()
 
     const result = res.data
 
@@ -122,7 +125,7 @@ const showContent = () => {
     </el-card>
 
     <el-table
-        :data="tabledata.filter(
+        :data="tabledata.slice((currentPage - 1) * pageSize, currentPage * pageSize).filter(
             (data :any) =>
                 !search || data.jingjuname.toLowerCase().includes(search.toLowerCase()) || data.tag.toLowerCase().includes(search.toLowerCase()) || data.actor.toLowerCase().includes(search.toLowerCase())
         )"

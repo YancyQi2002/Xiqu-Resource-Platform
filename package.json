@@ -42,8 +42,8 @@
     "xe-utils": "^3.5.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.3.0",
-    "@commitlint/config-conventional": "^16.2.4",
+    "@commitlint/cli": "17.0.1",
+    "@commitlint/config-conventional": "17.0.0",
     "@gradin/tailwindcss-scrollbar": "^2.0.2",
     "@iconify/json": "^2.1.48",
     "@popperjs/core": "^2.11.5",

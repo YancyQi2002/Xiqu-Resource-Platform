@@ -55,6 +55,7 @@ const handleSubmit = (e:Event) => {
             if (res.data.code === OK_CODE) {
                 ElMessage.success(res.data.msg)
                 userStore.login(Object.assign({}, res.data.data.info, { token: res.data.data.token }))
+                localStorage.setItem('token', res.data.data.token)
                 router.push({ name: '控制面板' })
                 return
             }

@@ -3,4 +3,5 @@ export const clearlocalStorage = () => {
     localStorage.removeItem('changeUserInfoUsername')
     localStorage.removeItem('showInfoId')
     localStorage.removeItem('showJingjuInfo')
+    localStorage.removeItem('deleteUserInfo')
 }

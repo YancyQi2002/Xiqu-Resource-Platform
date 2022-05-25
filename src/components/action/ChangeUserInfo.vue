@@ -7,20 +7,32 @@ import axios from 'axios'
 let userInfoJSON
 
 if (localStorage.getItem('user') == null) {
-  ElMessage({
-    message: 'Error Token',
-    type: 'warning',
-  })
-  router.push({ name: 'Login' })
+    ElMessage({
+        message: 'Error Token',
+        type: 'warning',
+    })
+    router.push({ name: 'Login' })
 }
 
 if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
-  userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
+    userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
 }
 
 // console.log(userInfoJSON)
 
 let changeUserInfoUsername = (localStorage as any).getItem('changeUserInfoUsername')
+
+if (userInfoJSON.username !== changeUserInfoUsername) {
+    if (userInfoJSON.jurisdiction !== "1") {
+        ElMessage({
+            message: '您没有权限修改该用户信息',
+            type: 'warning',
+        })
+
+        localStorage.removeItem('changeUserInfoUsername')
+        router.push({ name: '用户列表' })
+    }
+}
 
 const userInfo = reactive({
     username: changeUserInfoUsername,
@@ -79,9 +91,9 @@ const toUserListPage = () => {
 
 const formEl = ref<HTMLFormElement | null>(null)
 
-const handleSubmit = (e:Event) => {
+const handleSubmit = (e: Event) => {
     e.preventDefault()
-    formEl.value!.validate().then(async (ok:boolean) => {
+    formEl.value!.validate().then(async (ok: boolean) => {
         if (!ok) return
         console.log(userInfo)
         const res = await axios('/api/users/changeUserInfo', {
@@ -125,16 +137,11 @@ const handleSubmit = (e:Event) => {
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100">
         <div class="max-w-md w-full space-y-8">
             <div>
-                <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
+                <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    alt="Workflow" />
                 <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 select-none">修改用户信息</h2>
             </div>
-            <el-form
-                class="mt-8 space-y-6"
-                :model="userInfo"
-                :rules="rules"
-                @submit="handleSubmit"
-                ref="formEl"
-            >
+            <el-form class="mt-8 space-y-6" :model="userInfo" :rules="rules" @submit="handleSubmit" ref="formEl">
                 <el-row :gutter="24" class="row-wrapper">
                     <el-col :span="12">
                         <el-form-item prop="username">
@@ -142,21 +149,16 @@ const handleSubmit = (e:Event) => {
                         </el-form-item>
                     </el-col>
                     <el-col :span="12">
-                    <el-form-item>
-                        <el-tooltip
-                            class="box-item"
-                            effect="dark"
-                            content="目前仅能修改当前登录用户的密码"
-                            placement="top"
-                        >
-                            <el-button class="w-full"  type="primary" @click="toChangeUserPasswordPage">
-                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                                    <app-icon icon="heroicons-solid:lock-closed"/>
-                                </span>
-                                修改密码
-                            </el-button>
-                        </el-tooltip>
-                    </el-form-item>
+                        <el-form-item>
+                            <el-tooltip class="box-item" effect="dark" content="目前仅能修改当前登录用户的密码" placement="top">
+                                <el-button class="w-full" type="primary" @click="toChangeUserPasswordPage">
+                                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                        <app-icon icon="heroicons-solid:lock-closed" />
+                                    </span>
+                                    修改密码
+                                </el-button>
+                            </el-tooltip>
+                        </el-form-item>
                     </el-col>
                 </el-row>
                 <el-row :gutter="24" class="row-wrapper">
@@ -180,7 +182,7 @@ const handleSubmit = (e:Event) => {
                 <el-form-item>
                     <el-button class="w-full" type="primary" native-type="submit">
                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <app-icon icon="heroicons-solid:lock-closed"/>
+                            <app-icon icon="heroicons-solid:lock-closed" />
                         </span>
                         修改用户信息
                     </el-button>

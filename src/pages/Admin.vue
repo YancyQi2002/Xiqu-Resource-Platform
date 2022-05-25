@@ -16,8 +16,17 @@ if (localStorage.getItem('user') == null) {
   router.push({ name: 'Login' })
 }
 
+let userJurisdiction: string
+
 if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
   userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
+  if (userInfoJSON.jurisdiction === '1') {
+    userJurisdiction = "管理员"
+  } else if (userInfoJSON.jurisdiction === '0') {
+    userJurisdiction = "普通用户"
+  } else {
+    userJurisdiction = "未知用户"
+  }
 }
 
 const asideWidth = ref('210px')
@@ -43,6 +52,9 @@ const handleMenuChange = (index: string) => {
       router.push({ name: '用户权限' })
       break;
     case '3-1':
+      router.push({ name: '京剧唱腔板式' })
+      break;
+    case '3-2':
       router.push({ name: '京剧列表' })
       break;
     case '4':
@@ -81,6 +93,10 @@ const logout = () => {
   closeModal()
   clearlocalStorage()
   router.push({ name: 'Login' })
+}
+
+const toDeleteUserPage = () => {
+  router.push({ name: '删除用户' })
 }
 
 // 全屏
@@ -124,17 +140,12 @@ const exitFullScreen = () => {
   }
 }
 </script>
-
 <template>
   <div class="common-layout">
     <el-container class="wrapper">
       <div class="left-aside aside-menus">
-        <el-menu
-          default-active="1"
-          class="el-menu-vertical-demo h-full transition-all"
-          :collapse="collapse"
-          @select="handleMenuChange"
-        >
+        <el-menu default-active="1" class="el-menu-vertical-demo h-full transition-all" :collapse="collapse"
+          @select="handleMenuChange">
           <div class="aside-logo">
             <div class="text" v-if="asideWidth == '210px'">后台管理</div>
             <div v-else>
@@ -169,6 +180,9 @@ const exitFullScreen = () => {
               <span>戏曲管理</span>
             </template>
             <el-menu-item index="3-1">
+              <span>京剧唱腔板式</span>
+            </el-menu-item>
+            <el-menu-item index="3-2">
               <span>京剧列表</span>
             </el-menu-item>
           </el-sub-menu>
@@ -192,6 +206,9 @@ const exitFullScreen = () => {
             <div class="site-title">戏曲资源平台</div>
           </div>
           <div class="header-right">
+            <div class="mr-4 text-2xl" style="font-family: YSXK;">
+              当前用户权限：{{ userJurisdiction }}
+            </div>
             <div @click="openFullScreen" v-if="isFullScreen == false">
               <app-icon icon="icon-park:full-screen-one" class="mr-3 text-4xl cursor-pointer" />
             </div>
@@ -201,15 +218,13 @@ const exitFullScreen = () => {
             <div class="avatar cursor-pointer">
               <el-dropdown trigger="click" size="small">
                 <span class="el-dropdown-link">
-                  <img
-                    class="p-1 w-10 h-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                    :src="userAvatar"
-                  />
+                  <img class="p-1 w-10 h-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" :src="userAvatar" />
                 </span>
                 <template #dropdown>
                   <el-dropdown-menu class="text-center">
                     <el-dropdown-item @click="changeUserPassword">修改密码</el-dropdown-item>
                     <el-dropdown-item @click="openModal">退出登录</el-dropdown-item>
+                    <el-dropdown-item divided @click="toDeleteUserPage">删除账号</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
@@ -226,43 +241,27 @@ const exitFullScreen = () => {
     <Dialog as="div" @close="closeModal">
       <div class="fixed inset-0 z-10 overflow-y-auto">
         <div class="min-h-screen px-4 text-center">
-          <TransitionChild
-            as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0"
-            enter-to="opacity-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100"
-            leave-to="opacity-0"
-          >
+          <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+            leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
             <DialogOverlay class="fixed inset-0" />
           </TransitionChild>
 
           <span class="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
 
-          <TransitionChild
-            as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
-            enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
-          >
+          <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95">
             <div
-              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
-            >
+              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">提示</DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">您确定退出吗？</p>
               </div>
 
               <div class="mt-4">
-                <button
-                  type="button"
+                <button type="button"
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="logout"
-                >确定退出</button>
+                  @click="logout">确定退出</button>
               </div>
             </div>
           </TransitionChild>

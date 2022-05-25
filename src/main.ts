@@ -1,4 +1,5 @@
 import './assets/css/index.css'
+import './assets/font/font.css'
 import '@purge-icons/generated'
 import 'flowbite'
 import 'bootstrap'

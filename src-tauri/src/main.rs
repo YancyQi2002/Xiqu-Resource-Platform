@@ -79,5 +79,5 @@ fn main() {
       Ok(())
     })
     .run(tauri::generate_context!())
-    .expect("failed to run app");
+    .expect("error while running tauri application");
 }

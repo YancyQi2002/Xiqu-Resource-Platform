@@ -20,6 +20,8 @@ let jingjuInfoData: any = []
 
 let audioBlob: any
 
+let synopsis = $ref('')
+
 async function getJingjuInfo() {
     const res = await (await fetch('/api/dramascript/jingjuinfo/' + showInfoId)).json()
 
@@ -33,6 +35,9 @@ async function getJingjuInfo() {
         if (result.audio == "") {
             result.audio = "暂无音频资料！"
         }
+
+        synopsis = result.synopsis
+        console.log(synopsis)
 
         jingjuInfoData.push(result)
     }
@@ -96,9 +101,16 @@ onMounted(() => {
         </div>
     </div>
 
+    <!-- 条目简介 -->
+    <div class="relative mt-4 overflow-x-auto bg-white shadow-md sm:rounded-lg">
+        <article class="m-4 prose lg:prose-xl select-none">
+            {{ synopsis }}
+        </article>
+    </div>
+
     <!-- 音频资料 -->
     <audio class="mt-4" controls id="audioId" src="" width="100"></audio>
-    <div id="noAudioInfo" class="hidden relative justify-center text-center mt-4 h-10 overflow-x-auto bg-white shadow-md sm:rounded-lg">
+    <div id="noAudioInfo" class="hidden relative justify-center text-center mt-4 h-10 overflow-x-auto bg-white shadow-md sm:rounded-lg select-none">
         <div class="justify-center mt-2 text-center">
             暂无音频资料！
         </div>
@@ -118,5 +130,10 @@ onMounted(() => {
 <style scoped>
 .ct {
     @apply px-2 py-2 text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+}
+
+article {
+    @apply font-medium leading-10 text-2xl text-black;
+    font-family: 'YSXK';
 }
 </style>

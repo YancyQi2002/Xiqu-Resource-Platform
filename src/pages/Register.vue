@@ -174,7 +174,7 @@ const handleSubmit = (e: Event) => {
         if (!ok) return
         axios({
             method: "POST",
-            url: "/users/register",
+            url: "/api/users/register",
             data: userInfo,
             transformRequest: [(data) => {
                 let ret = ""
@@ -186,17 +186,17 @@ const handleSubmit = (e: Event) => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
-        }).then((res) => {
-            console.log(res.data)
+        }).then((res: any) => {
+            console.log(res)
             if (res.data.code === OK_CODE) {
-                ElMessage.success(res.data.msg)
+                ElMessage.success(res.data.message)
                 router.push({ name: 'Login' })
-                return
+            } else {
+                ElMessage({
+                    message: 'Error ' + res.data.message,
+                    type: 'warning',
+                })
             }
-            ElMessage({
-                message: 'Error ' + res.data.message,
-                type: 'warning',
-            })
         }).catch((err) => {
             console.log(err)
             ElMessage({

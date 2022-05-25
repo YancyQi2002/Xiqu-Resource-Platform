@@ -28,11 +28,11 @@ const columns = [
     {
         title: '更新时间',
         dataIndex: 'updateTime',
-        key: 'updateTime'   
+        key: 'updateTime'
     }
 ]
 
-let userlist :any = ref([])
+let userlist: any = ref([])
 
 async function getUserListData() {
     ElMessage({
@@ -110,33 +110,25 @@ const changeUserInfo = (username: string) => {
                                 <table class="min-w-full">
                                     <thead class="bg-gray-100 dark:bg-gray-700">
                                         <tr>
-                                            <th
-                                                v-for="item in columns"
-                                                scope="col"
-                                                class="py-3 px-6 text-base text-center font-bold tracking-wider text-gray-700 uppercase dark:text-gray-400"
-                                            >{{ item.title }}</th>
+                                            <th v-for="item in columns" scope="col"
+                                                class="py-3 px-6 text-base text-center font-bold tracking-wider text-gray-700 uppercase dark:text-gray-400">
+                                                {{ item.title }}</th>
                                             <th scope="col" class="relative py-3 px-6">
                                                 <span class="sr-only">Edit</span>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr
-                                            v-for="item in userlist"
-                                            class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 dark:border-gray-600"
-                                        >
+                                        <tr v-for="item in userlist"
+                                            class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 dark:border-gray-600">
                                             <td>{{ item.username }}</td>
                                             <td>{{ item.jurisdiction }}</td>
                                             <td>{{ item._id }}</td>
                                             <td>{{ item.createTime }}</td>
-                                            <td>{{ item.updateTime}}</td>
-                                            <td
-                                                class="text-sm font-medium text-right whitespace-nowrap"
-                                            >
-                                                <a
-                                                    @click="changeUserInfo(item.username)"
-                                                    class="text-blue-600 dark:text-blue-500 hover:cursor-pointer"
-                                                >Edit</a>
+                                            <td>{{ item.updateTime }}</td>
+                                            <td class="text-sm font-medium text-right whitespace-nowrap">
+                                                <a @click="changeUserInfo(item.username)"
+                                                    class="text-blue-600 dark:text-blue-500 hover:cursor-pointer">Edit</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -152,6 +144,6 @@ const changeUserInfo = (username: string) => {
 
 <style scoped>
 td {
-    @apply py-4 px-6 text-lg text-center text-gray-500 whitespace-nowrap dark:text-gray-400;
+    @apply py-4 px-6 text-lg text-center text-gray-500 whitespace-nowrap;
 }
 </style>

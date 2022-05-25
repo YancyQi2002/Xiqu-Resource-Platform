@@ -4,19 +4,22 @@ import AppIcon from '@/components/common/AppIcon.vue'
 import router from '@/router'
 import { getUserlist } from '@/utils/api'
 import { ElMessage } from 'element-plus'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+
+const locale = zhCn
 
 if (localStorage.getItem('user') == null) {
-  ElMessage({
-    message: 'Error Token',
-    type: 'warning',
-  })
-  router.push({ name: 'Login' })
+    ElMessage({
+        message: 'Error Token',
+        type: 'warning',
+    })
+    router.push({ name: 'Login' })
 }
 
 let userInfoJSON
 
 if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
-  userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
+    userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
 }
 
 let userInfoJurisdiction = userInfoJSON.jurisdiction
@@ -27,13 +30,28 @@ let userlist = ref([])
 
 const search = ref('')
 
+let currentPage = $ref(1)
+let pageSize = $ref(5)
+const small = ref(false)
+const disabled = ref(false)
+const total = ref(0)
+
+const handleSizeChange = (val: number) => {
+    console.log(`${val} items per page`)
+    pageSize = val
+}
+const handleCurrentChange = (val: number) => {
+    console.log(`current page: ${val}`)
+    currentPage = val
+}
+
 async function getUserListData() {
     ElMessage({
         message: '正在加载后端数据 。。。',
         duration: 5000
     })
 
-    const res = await (await fetch(getUserlist)).json()
+    const res = await (await fetch(getUserlist + '?page=' + currentPage + '&size=' + pageSize)).json()
 
     const result = res.data
 
@@ -53,29 +71,52 @@ async function getUserListData() {
         }
     }
 
+    total.value = res.total
     userlist.value = result
 }
 
 getUserListData()
 
+let dialogFormVisible: any = ref(false)
+const formLabelWidth = '140px'
+
+const form = reactive({
+    username: '',
+    password: '',
+    phone: '',
+    phonename: '',
+    email: ""
+})
+
 const handleEdit = (index: number, row: any) => {
     console.log('====== changeUserJurisdiction ======')
     console.log(index, row)
-    let editEl = (document as any).getElementById('edit-jurisdiction')
     if (userInfoJurisdiction !== '1') {
         ElMessage({
-            message: '您的权限不足，无法对用户权限进行修改',
+            message: '您的权限不足，无法对用户进行修改与删除',
             type: 'warning',
             duration: 3000
         })
-        editEl.disabled = true
-        editEl.classList.add('is-disabled')
     } else {
-        editEl.disabled = false
-        editEl.classList.remove('is-disabled')
         let changeUserJurisdictionInfo = JSON.stringify(row)
         localStorage.setItem('changeUserJurisdictionInfo', changeUserJurisdictionInfo)
         router.push({ path: '/admin/changeUserJurisdiction' })
+    }
+}
+
+const handleDelete = (index: number, row: any) => {
+    console.log('====== deleteUser ======')
+    console.log(index, row)
+    if (userInfoJurisdiction !== '1') {
+        ElMessage({
+            message: '您的权限不足，无法对用户进行修改与删除',
+            type: 'warning',
+            duration: 3000
+        })
+    } else {
+        let deleteUserInfo = JSON.stringify(row)
+        localStorage.setItem('deleteUserInfo', deleteUserInfo)
+        router.push({ path: '/admin/deleteUser' })
     }
 }
 </script>
@@ -90,20 +131,48 @@ const handleEdit = (index: number, row: any) => {
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden shadow-md sm:rounded-lg">
+                            <div class="flex overflow-hidden sm:rounded-lg">
                                 <el-input v-model="search" size="large" placeholder="输入需要查找的用户名">
                                     <template #prepend>
-                                        <el-button type="text" size="large">
+                                        <el-button size="large">
                                             <app-icon icon="icon-park:search" class="cursor-default"></app-icon>
                                         </el-button>
                                     </template>
                                 </el-input>
+                                <el-button size="large" class="mx-2" @click="dialogFormVisible = true">
+                                    添加用户
+                                </el-button>
                             </div>
+                            <el-dialog v-model="dialogFormVisible" title="添加条目">
+                                <el-form :model="form">
+                                    <el-form-item label="用户名" :label-width="formLabelWidth">
+                                        <el-input v-model="form.username" autocomplete="off" />
+                                    </el-form-item>
+                                    <el-form-item label="密码" :label-width="formLabelWidth">
+                                        <el-input v-model="form.password" type="password" show-password autocomplete="off" />
+                                    </el-form-item>
+                                    <el-form-item label="手机号" :label-width="formLabelWidth">
+                                        <el-input v-model="form.phone" autocomplete="off" />
+                                    </el-form-item>
+                                    <el-form-item label="联系人" :label-width="formLabelWidth">
+                                        <el-input v-model="form.phonename" autocomplete="off" />
+                                    </el-form-item>
+                                    <el-form-item label="E-mail" :label-width="formLabelWidth">
+                                        <el-input v-model="form.email"  autocomplete="off" />
+                                    </el-form-item>
+                                </el-form>
+                                <template #footer>
+                                    <span class="dialog-footer">
+                                        <el-button @click="dialogFormVisible = false">取消</el-button>
+                                        <el-button type="primary" @click="dialogFormVisible = false">添加</el-button>
+                                    </span>
+                                </template>
+                            </el-dialog>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col">
-                    <el-table :data="userlist.filter(
+                    <el-table :data="userlist.slice((currentPage - 1) * pageSize, currentPage * pageSize).filter(
                         (data: any) =>
                             !search || data.username.toLowerCase().includes(search.toLowerCase()
                             )
@@ -114,8 +183,12 @@ const handleEdit = (index: number, row: any) => {
                         <el-table-column prop="jurisdiction" label="权限" align="center" />
                         <el-table-column label="Operations" align="center">
                             <template #default="scope">
-                                <el-button id="edit-jurisdiction" type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">
+                                <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">
                                     Edit
+                                </el-button>
+
+                                <el-button type="danger" size="small" @click="handleDelete(scope.$index, scope.row)">
+                                    Delete
                                 </el-button>
                             </template>
                         </el-table-column>
@@ -123,6 +196,16 @@ const handleEdit = (index: number, row: any) => {
                 </div>
             </template>
         </AdminCardBoxVue>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-4">
+            <el-config-provider :locale="locale">
+                <el-pagination v-model:currentPage="currentPage" v-model:page-size="pageSize"
+                    :page-sizes="[3, 5, 10, 15, 20]" :small="small" :disabled="disabled" background
+                    layout="total, sizes, prev, pager, next, jumper" :total="total" @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange" />
+            </el-config-provider>
+        </div>
     </div>
 </template>
 

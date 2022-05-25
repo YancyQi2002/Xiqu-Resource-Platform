@@ -6,11 +6,13 @@ export let getUrl = baseURL + '/notion/comments'
 export let addUrl = baseURL + '/notion/comments'
 export let getUserlist = baseURL + '/users/list'
 export let getJingjuList = baseURL + '/dramascript/jingjulist'
+export let addJingjuItem = baseURL + '/dramascript/addJingjuItem'
+export let deleteJingjuItem = baseURL + '/dramascript/deleteJingjuItem'
 export let getPeakingOperalist = baseURL + '/dramascript/peakingoperalist'
 
 // 添加请求拦截器
 axios.interceptors.request.use(
-  (config) => {
+  (config: any) => {
     return config
   },
   (error) => {

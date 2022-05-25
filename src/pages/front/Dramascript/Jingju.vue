@@ -48,9 +48,10 @@ async function loadJingjuList() {
 
         // 61741c2926f92016bd0695e8 ==> 6174****95e8
         let id = result[i].jingjuId
-        const before = id.substr(0, 4)
-        const back = id.substr(20, 4)
-        result[i].jingjuId = before + "****" + back
+        console.log(id)
+        // const before = id.substr(0, 4)
+        // const back = id.substr(20, 4)
+        // result[i].jingjuId = before + "****" + back
 
         // YYYY 年 MM 月 DD 日
         // YYYY - MM - DD

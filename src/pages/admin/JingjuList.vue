@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import AppIcon from '@/components/common/AppIcon.vue'
 import BreadcrumbVue from '@/components/common/Breadcrumb.vue'
+import axios from 'axios'
 import router from '@/router'
-import { getJingjuList } from '@/utils/api'
-import { ElMessage } from 'element-plus'
+import { getJingjuList, addJingjuItem, deleteJingjuItem } from '@/utils/api'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import type { FormInstance, FormRules } from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 const locale = zhCn
+
+const ruleFormRef = ref<FormInstance>()
+
+let userInfoJSON: any
 
 if (localStorage.getItem('user') == null) {
     ElMessage({
@@ -14,6 +20,10 @@ if (localStorage.getItem('user') == null) {
         type: 'warning',
     })
     router.push({ name: 'Login' })
+}
+
+if (JSON.parse((localStorage as any).getItem('user')).token !== '') {
+  userInfoJSON = JSON.parse((localStorage as any).getItem('user'))
 }
 
 let tabledata = ref([])
@@ -52,9 +62,9 @@ async function getJingjuListData() {
 
         // 61741c2926f92016bd0695e8 ==> 6174****95e8
         let id = result[i].jingjuId
-        const before = id.substr(0, 4)
-        const back = id.substr(20, 4)
-        result[i].jingjuId = before + "****" + back
+        // const before = id.substr(0, 4)
+        // const back = id.substr(20, 4)
+        // result[i].jingjuId = before + "****" + back
 
         // YYYY 年 MM 月 DD 日
         // YYYY - MM - DD
@@ -91,6 +101,43 @@ onMounted(() => {
     getJingjuListData()
 })
 
+const changeJingjuInfo = () => {
+    router.push({ name: '修改京剧详细信息' })
+}
+
+let dialogFormVisible: any = ref(false)
+const formLabelWidth = '140px'
+
+const form = reactive({
+    jingjuname: '',
+    tag: '',
+    faction: '',
+    actor: ''
+})
+
+const rules = reactive<FormRules>({
+  jingjuname: [
+    { required: true, message: '请输入京剧剧目', trigger: 'blur' },
+  ],
+  tag: [
+    { required: true, message: '请选择京剧派别', trigger: 'blur' },
+  ]
+})
+
+const handleAddJingjuItem = async (formEl : FormInstance |any) => {
+    // TODO 添加京剧条目 —— 正在寻找新解决方案来取代原方案
+    // 新方案正在考虑审核可行性中，暂时关闭此功能
+    let formData = toRaw(form)
+    console.log(formData)
+
+    /**************** NEED TO DO ****************/
+    /*********** Coding After This Line ***********/
+    ElMessageBox.alert('正在寻找新解决方案来取代原方案，新方案正在考虑审核可行性中，暂时关闭此功能', '提示', {
+        confirmButtonText: '知晓',
+    })
+    /*********** Coding Before This Line ***********/
+}
+
 const handleShow = (index: number, row: any) => {
     console.log(index, row)
     let showInfo = JSON.stringify(row)
@@ -113,6 +160,66 @@ const handleShow = (index: number, row: any) => {
     localStorage.setItem('showJingjuInfo', JSON.stringify(setShowInfo))
     router.push({ name: '查询京剧详细信息' })
 }
+
+const handleDelete = (index: number, row: any) => {
+    let deleteInfo = JSON.stringify(row)
+    let deleteInfoId = JSON.parse(deleteInfo)._id
+    ElMessageBox.confirm(
+        '您确定要删除此京剧条目吗?',
+        'Warning',
+        {
+            confirmButtonText: '删除',
+            cancelButtonText: '取消',
+            type: 'warning',
+        }
+    ).then(() => {
+        if (userInfoJSON.jurisdiction !== '1') {
+            ElMessage({
+                type: 'warning',
+                message: '您没有权限',
+            })
+            return
+        }
+        axios({
+            method: 'DELETE',
+            url: deleteJingjuItem,
+            data: {
+                _id: deleteInfoId
+            },
+            transformRequest: [(data) => {
+                let ret = ""
+                for (let i in data) {
+                    ret += encodeURIComponent(i) + "=" + encodeURIComponent(data[i]) + "&"
+                }
+                return ret
+            }],
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).then(res => {
+            console.log(res)
+            if (res.data.code === 200) {
+                ElMessage({
+                    type: 'success',
+                    message: '删除成功',
+                })
+                location.reload()
+            } else {
+                ElMessage({
+                    type: 'error',
+                    message: '删除失败',
+                })
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+    }).catch(() => {
+        ElMessage({
+            type: 'info',
+            message: 'Delete canceled',
+        })
+    })
+}
 </script>
 
 <template>
@@ -120,44 +227,66 @@ const handleShow = (index: number, row: any) => {
     <BreadcrumbVue title="京剧列表" href="/admin/jingjuList" />
 
     <!-- Table -->
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <el-input v-model="search" size="large" placeholder="输入需要查找的京剧剧目/派别/演员">
-            <template #prepend>
-                <el-button type="text" size="large">
-                    <app-icon icon="icon-park:search" class="cursor-default"></app-icon>
-                </el-button>
-            </template>
-        </el-input>
+    <div class="relative overflow-x-auto sm:rounded-lg">
+        <div class="flex">
+            <el-input v-model="search" size="large" placeholder="输入需要查找的京剧剧目/派别/演员">
+                <template #prepend>
+                    <el-button size="large">
+                        <app-icon icon="icon-park:search" class="cursor-default"></app-icon>
+                    </el-button>
+                </template>
+            </el-input>
+
+            <el-button size="large" class="ml-4" @click="dialogFormVisible = true">
+                <app-icon icon="icon-park:add-one" class="mr-4 cursor-default"></app-icon>
+                <span>添加京剧</span>
+            </el-button>
+
+            <el-button size="large" class="ml-4" @click="changeJingjuInfo">
+                <app-icon icon="icon-park:edit-two" class="mr-4 cursor-default"></app-icon>
+                <span>修改条目</span>
+            </el-button>
+        </div>
     </div>
+    <el-dialog v-model="dialogFormVisible" title="添加条目">
+        <el-form :model="form">
+            <el-form-item label="京剧剧目" :label-width="formLabelWidth">
+                <el-input v-model="form.jingjuname" autocomplete="off" />
+            </el-form-item>
+            <el-form-item label="京剧派别" :label-width="formLabelWidth">
+                <el-select v-model="form.tag" placeholder="Please select a tag">
+                    <el-option label="北派" value="北派" />
+                    <el-option label="南派" value="南派" />
+                </el-select>
+            </el-form-item>
+            <el-form-item label="行当派别" :label-width="formLabelWidth">
+                <el-input v-model="form.faction" autocomplete="off" />
+            </el-form-item>
+            <el-form-item label="演员" :label-width="formLabelWidth">
+                <el-input v-model="form.actor" autocomplete="off" />
+            </el-form-item>
+            <el-row class="justify-center items-center">
+                <el-button @click="dialogFormVisible = false">取消</el-button>
+                <el-button type="primary" @click="handleAddJingjuItem(ruleFormRef)">添加</el-button>
+            </el-row>
+        </el-form>
+    </el-dialog>
     <br />
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <el-table
-            :data="tabledata.slice((currentPage - 1) * pageSize, currentPage * pageSize).filter(
+        <el-table :data="tabledata.slice((currentPage - 1) * pageSize, currentPage * pageSize).filter(
             (data: any) =>
                 !search || data.jingjuname.toLowerCase().includes(search.toLowerCase()) || data.tag.toLowerCase().includes(search.toLowerCase()) || data.actor.toLowerCase().includes(search.toLowerCase())
-            )"
-            border
-            highlight-current-row
-            style="width: 100%"
-        >
+        )" border highlight-current-row style="width: 100%">
             <el-table-column type="index" sortable width="60" align="center" label="索引"></el-table-column>
 
             <el-table-column prop="jingjuId" align="center" label="序号"></el-table-column>
 
             <el-table-column prop="jingjuname" align="center" label="剧目"></el-table-column>
 
-            <el-table-column
-                prop="tag"
-                align="center"
-                label="派别"
-                width="100"
-                :filters="[
-                    { text: '北派', value: '北派' },
-                    { text: '南派', value: '南派' },
-                ]"
-                :filter-method="filterTag"
-                filter-placement="bottom-end"
-            >
+            <el-table-column prop="tag" align="center" label="派别" width="100" :filters="[
+                { text: '北派', value: '北派' },
+                { text: '南派', value: '南派' },
+            ]" :filter-method="filterTag" filter-placement="bottom-end">
                 <template #default="scope">
                     <el-tag :type="scope.row.tag === '北派' ? '' : 'success'" disable-transitions>{{ scope.row.tag }}
                     </el-tag>
@@ -174,7 +303,12 @@ const handleShow = (index: number, row: any) => {
 
             <el-table-column label="Operations" align="center">
                 <template #default="scope">
-                    <el-button size="small" type="primary" @click="handleShow(scope.$index, scope.row)">查看</el-button>
+                    <div class="flex items-center justify-center">
+                        <el-button size="small" type="primary" @click="handleShow(scope.$index, scope.row)">查看
+                        </el-button>
+                        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
+                        </el-button>
+                    </div>
                 </template>
             </el-table-column>
         </el-table>
@@ -183,18 +317,10 @@ const handleShow = (index: number, row: any) => {
     <!-- Pagination -->
     <div class="relative mt-4 overflow-x-auto sm:rounded-lg">
         <el-config-provider :locale="locale">
-            <el-pagination
-                v-model:currentPage="currentPage" 
-                v-model:page-size="pageSize"
-                :page-sizes="[3, 5, 10, 15, 20]"
-                :small="small"
-                :disabled="disabled"
-                background
-                layout="total, sizes, prev, pager, next, jumper"
-                :total="total"
-                @size-change="handleSizeChange" 
-                @current-change="handleCurrentChange"
-            />
+            <el-pagination v-model:currentPage="currentPage" v-model:page-size="pageSize"
+                :page-sizes="[3, 5, 10, 15, 20]" :small="small" :disabled="disabled" background
+                layout="total, sizes, prev, pager, next, jumper" :total="total" @size-change="handleSizeChange"
+                @current-change="handleCurrentChange" />
         </el-config-provider>
     </div>
 </template>

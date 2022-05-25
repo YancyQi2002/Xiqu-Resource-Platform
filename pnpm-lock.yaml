@@ -28,7 +28,7 @@ specifiers:
   element-plus: ^2.2.2
   eslint: ^8.16.0
   eslint-plugin-tailwindcss: ^3.5.0
-  eslint-plugin-vue: ^8.7.1
+  eslint-plugin-vue: 9.0.1
   flowbite: ^1.4.7
   husky: ^8.0.1
   lint-staged: ^12.4.2
@@ -89,7 +89,7 @@ devDependencies:
   cz-git: 1.2.8_commitizen@4.2.4
   eslint: 8.16.0
   eslint-plugin-tailwindcss: 3.5.0
-  eslint-plugin-vue: 8.7.1_eslint@8.16.0
+  eslint-plugin-vue: 9.0.1_eslint@8.16.0
   husky: 8.0.1
   lint-staged: 12.4.2
   postcss: 8.4.14
@@ -644,6 +644,15 @@ packages:
     dev: true
     optional: true
 
+  /@tauri-apps/cli-linux-arm64-gnu/1.0.0-rc.12:
+    resolution: {integrity: sha512-ZJLCQ+0US+CeGX11Tf/t96+eJn1pUHhRKe3SFIE5592q1GeV6EuCwcRoirOR/oSbadZyIy25uZU9hiccO0Q6fA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@tauri-apps/cli-linux-arm64-musl/1.0.0-rc.12:
     resolution: {integrity: sha512-5kSz0MnYTtGRW/vbu0NryMIlLTGQaGuei4mZPej4PaS1hyqK0NpgMyiOCqu/A3VJSg0QNi55ioEbooScfCobrw==}
     engines: {node: '>= 10'}
@@ -697,6 +706,7 @@ packages:
       '@tauri-apps/cli-darwin-arm64': 1.0.0-rc.12
       '@tauri-apps/cli-darwin-x64': 1.0.0-rc.12
       '@tauri-apps/cli-linux-arm-gnueabihf': 1.0.0-rc.12
+      '@tauri-apps/cli-linux-arm64-gnu': 1.0.0-rc.12
       '@tauri-apps/cli-linux-arm64-musl': 1.0.0-rc.12
       '@tauri-apps/cli-linux-x64-gnu': 1.0.0-rc.12
       '@tauri-apps/cli-linux-x64-musl': 1.0.0-rc.12
@@ -2081,9 +2091,9 @@ packages:
       - ts-node
     dev: true
 
-  /eslint-plugin-vue/8.7.1_eslint@8.16.0:
-    resolution: {integrity: sha512-28sbtm4l4cOzoO1LtzQPxfxhQABararUb1JtqusQqObJpWX2e/gmVyeYVfepizPFne0Q5cILkYGiBoV36L12Wg==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+  /eslint-plugin-vue/9.0.1_eslint@8.16.0:
+    resolution: {integrity: sha512-/w/9/vzz+4bSYtp5UqXgJ0CfycXTMtpp6lkz7/fMp0CcJxPWyRP6Pr88ihhrsNEcVt2ZweMupWRNYa+5Md41LQ==}
+    engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
     dependencies:
@@ -2093,7 +2103,8 @@ packages:
       nth-check: 2.1.1
       postcss-selector-parser: 6.0.10
       semver: 7.3.7
-      vue-eslint-parser: 8.3.0_eslint@8.16.0
+      vue-eslint-parser: 9.0.2_eslint@8.16.0
+      xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3275,7 +3286,7 @@ packages:
     hasBin: true
 
   /natural-compare/1.4.0:
-    resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
 
   /negotiator/0.6.3:
@@ -4530,9 +4541,9 @@ packages:
     dependencies:
       vue: 3.2.33
 
-  /vue-eslint-parser/8.3.0_eslint@8.16.0:
-    resolution: {integrity: sha512-dzHGG3+sYwSf6zFBa0Gi9ZDshD7+ad14DGOdTLjruRVgZXe2J+DcZ9iUhyR48z5g1PqRa20yt3Njna/veLJL/g==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+  /vue-eslint-parser/9.0.2_eslint@8.16.0:
+    resolution: {integrity: sha512-uCPQwTGjOtAYrwnU+76pYxalhjsh7iFBsHwBqDHiOPTxtICDaraO4Szw54WFTNZTAEsgHHzqFOu1mmnBOBRzDA==}
+    engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
     dependencies:
@@ -4667,6 +4678,11 @@ packages:
   /xe-utils/3.5.4:
     resolution: {integrity: sha512-oH7VOgvHv34pn198dhKPVKnuEHV22Q06YpCTVnAS3JuutylmZj/rtJGvn0BxxWQ37w2LgCknoebLA4uIGXwFtw==}
     dev: false
+
+  /xml-name-validator/4.0.0:
+    resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
+    engines: {node: '>=12'}
+    dev: true
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}

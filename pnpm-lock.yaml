@@ -50,7 +50,7 @@ specifiers:
   vue-axios: ^3.4.1
   vue-global-api: ^0.4.1
   vue-router: ^4.0.15
-  vue-tsc: ^0.34.16
+  vue-tsc: 0.35.0
   vxe-table: ^4.2.3
   xe-utils: ^3.5.4
 
@@ -105,7 +105,7 @@ devDependencies:
   vite-plugin-purge-icons: 0.8.1_vite@2.9.9
   vite-plugin-tauri: 1.1.3_xmx3hdymiych6bm3ghi66lovxi
   vue-global-api: 0.4.1_vue@3.2.33
-  vue-tsc: 0.34.16_typescript@4.7.2
+  vue-tsc: 0.35.0_typescript@4.7.2
 
 packages:
 
@@ -644,6 +644,15 @@ packages:
     dev: true
     optional: true
 
+  /@tauri-apps/cli-linux-arm64-gnu/1.0.0-rc.12:
+    resolution: {integrity: sha512-ZJLCQ+0US+CeGX11Tf/t96+eJn1pUHhRKe3SFIE5592q1GeV6EuCwcRoirOR/oSbadZyIy25uZU9hiccO0Q6fA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@tauri-apps/cli-linux-arm64-musl/1.0.0-rc.12:
     resolution: {integrity: sha512-5kSz0MnYTtGRW/vbu0NryMIlLTGQaGuei4mZPej4PaS1hyqK0NpgMyiOCqu/A3VJSg0QNi55ioEbooScfCobrw==}
     engines: {node: '>= 10'}
@@ -697,6 +706,7 @@ packages:
       '@tauri-apps/cli-darwin-arm64': 1.0.0-rc.12
       '@tauri-apps/cli-darwin-x64': 1.0.0-rc.12
       '@tauri-apps/cli-linux-arm-gnueabihf': 1.0.0-rc.12
+      '@tauri-apps/cli-linux-arm64-gnu': 1.0.0-rc.12
       '@tauri-apps/cli-linux-arm64-musl': 1.0.0-rc.12
       '@tauri-apps/cli-linux-x64-gnu': 1.0.0-rc.12
       '@tauri-apps/cli-linux-x64-musl': 1.0.0-rc.12
@@ -759,32 +769,32 @@ packages:
       vue: 3.2.33
     dev: true
 
-  /@volar/code-gen/0.34.16:
-    resolution: {integrity: sha512-ep5us1iF66WlwzCFjTHMIdULIHzu6661228NknkSBGEAh878GPO+AgUqyQn9tY+al0KrsLuDRQVt6pwmeLoqwQ==}
+  /@volar/code-gen/0.35.0:
+    resolution: {integrity: sha512-MUKPjE6VL97R2Dg3MwUexjKsdHRhX2cEQUWDtl7Zgn7fe60mULQOHcZZ+IU49eTgyOjAj0Z2hm7hub/nBxduxw==}
     dependencies:
-      '@volar/source-map': 0.34.16
+      '@volar/source-map': 0.35.0
     dev: true
 
-  /@volar/source-map/0.34.16:
-    resolution: {integrity: sha512-50F1XWcVRzKVXqwO7J39hZ4qd/htzHj62dsywz7FfhZZSOaQ43XT3uEy7cBAVgw7gs+qChFaUJAhM1iHb0FyOQ==}
+  /@volar/source-map/0.35.0:
+    resolution: {integrity: sha512-VvVyCW8SEQ297zoeZNi4HOSLU8H7/xbGg4WpcpVOy080y/MXTxjIZshSlMHx45EB91U2vk0gbgd2R/d9uyY+3A==}
     dev: true
 
-  /@volar/vue-code-gen/0.34.16:
-    resolution: {integrity: sha512-R8OGn26pCQsctXLa6mZi3BIkyXemcrhibTRGrVh1z2TqWMtnCIT/NiAYXR7kAH4UzFEpglOJAIxrjwnodJ7x6w==}
+  /@volar/vue-code-gen/0.35.0:
+    resolution: {integrity: sha512-IqIkzs3eRlJjABVXXBf5ik4/a8lQ3wqKemWMR33+KzOmj5xtXS+lgMMLNXJpj0Mw2nOLVl0I2KuIaTHFy485DQ==}
     dependencies:
-      '@volar/code-gen': 0.34.16
-      '@volar/source-map': 0.34.16
+      '@volar/code-gen': 0.35.0
+      '@volar/source-map': 0.35.0
       '@vue/compiler-core': 3.2.36
       '@vue/compiler-dom': 3.2.36
       '@vue/shared': 3.2.36
     dev: true
 
-  /@volar/vue-typescript/0.34.16:
-    resolution: {integrity: sha512-Jmo19pKRJAIhbAmr/1974knqKws9FZlnYWuCDvvg9wimKHTFosjDhDysORIMVHZ97og/0idK70iIKbcsyDadvw==}
+  /@volar/vue-typescript/0.35.0:
+    resolution: {integrity: sha512-Ojn98P888wWbk1qeR5f6spgtJZMwUos+OkJfZpzyafN5S21LxF58o7DhhNG8rMm1zMNUQHb+evlp5AXI5zHOmA==}
     dependencies:
-      '@volar/code-gen': 0.34.16
-      '@volar/source-map': 0.34.16
-      '@volar/vue-code-gen': 0.34.16
+      '@volar/code-gen': 0.35.0
+      '@volar/source-map': 0.35.0
+      '@volar/vue-code-gen': 0.35.0
       '@vue/compiler-sfc': 3.2.36
       '@vue/reactivity': 3.2.36
     dev: true
@@ -4193,7 +4203,7 @@ packages:
     dev: true
 
   /to-fast-properties/2.0.0:
-    resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
+    resolution: {integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=}
     engines: {node: '>=4'}
 
   /to-regex-range/5.0.1:
@@ -4567,13 +4577,13 @@ packages:
       vue: 3.2.33
     dev: false
 
-  /vue-tsc/0.34.16_typescript@4.7.2:
-    resolution: {integrity: sha512-9tYBQIOyl3Tz8ZrlYUKtftu5m/wXHfxCalyjR22QzSaUJoBJmZeNOoVs/QEllc0z4ideEZxvvU+pBFdoY3O16A==}
+  /vue-tsc/0.35.0_typescript@4.7.2:
+    resolution: {integrity: sha512-RcL7PM3M1nSaVQU84mRPOXk1t/mAZ25QCx4L0rNQzozJYhz1wSVQWYqq9UfhE2lW8nMAQzQtLZgvjaPR4Q29ZA==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
-      '@volar/vue-typescript': 0.34.16
+      '@volar/vue-typescript': 0.35.0
       typescript: 4.7.2
     dev: true
 

@@ -24,7 +24,7 @@ specifiers:
   bootstrap: ^5.1.3
   commitizen: ^4.2.4
   core-js: ^3.22.7
-  cz-git: 1.3.2
+  cz-git: 1.3.4
   element-plus: ^2.2.2
   eslint: ^8.16.0
   eslint-plugin-tailwindcss: ^3.5.0
@@ -86,7 +86,7 @@ devDependencies:
   autoprefixer: 10.4.7_postcss@8.4.14
   bootstrap: 5.1.3_@popperjs+core@2.11.5
   commitizen: 4.2.4
-  cz-git: 1.3.2
+  cz-git: 1.3.4
   eslint: 8.16.0
   eslint-plugin-tailwindcss: 3.5.0
   eslint-plugin-vue: 9.0.1_eslint@8.16.0
@@ -797,7 +797,7 @@ packages:
       '@vueuse/metadata': 8.5.0
       '@vueuse/shared': 8.5.0_vue@3.2.36
       vue: 3.2.36
-      vue-demi: 0.12.5_vue@3.2.36
+      vue-demi: 0.13.1_vue@3.2.36
     dev: false
 
   /@vueuse/metadata/8.5.0:
@@ -816,7 +816,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.36
-      vue-demi: 0.12.5_vue@3.2.36
+      vue-demi: 0.13.1_vue@3.2.36
     dev: false
 
   /JSONStream/1.3.5:
@@ -1426,8 +1426,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /cz-git/1.3.2:
-    resolution: {integrity: sha512-XELDxdGxOGZ+4WmTKb3sZsVKutrsxxd2flNMoBeqjavJOwFgiVKPSksd3pvBOgbJbV1MMqkhg8/u2GPnXEu7Ig==}
+  /cz-git/1.3.4:
+    resolution: {integrity: sha512-px5btT/cux7LYD4v7jB7wXtVV2l5txTnO1R9rBeevsBhgJv+kHkIPcWzRx+Fr5HR/45l/jf1sIVIYRrhPKWo6A==}
     dev: true
 
   /dargs/7.0.0:
@@ -4289,6 +4289,21 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.36
+    dev: false
+
+  /vue-demi/0.13.1_vue@3.2.36:
+    resolution: {integrity: sha512-xmkJ56koG3ptpLnpgmIzk9/4nFf4CqduSJbUM0OdPoU87NwRuZ6x49OLhjSa/fC15fV+5CbEnrxU4oyE022svg==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.36
 
   /vue-eslint-parser/9.0.2_eslint@8.16.0:
     resolution: {integrity: sha512-uCPQwTGjOtAYrwnU+76pYxalhjsh7iFBsHwBqDHiOPTxtICDaraO4Szw54WFTNZTAEsgHHzqFOu1mmnBOBRzDA==}
@@ -4312,7 +4327,7 @@ packages:
     resolution: {integrity: sha512-283vpYOhVHJCpMkjNVEwZdgaAb+Y93zFaXGAWTI378MLoNuwQydjD/BAy1e81QYEmyA+JbxqcmMZVWcM9rbriw==}
     dependencies:
       eslint-config-vue-global-api: 0.4.1
-      vue-demi: 0.12.5_vue@3.2.36
+      vue-demi: 0.13.1_vue@3.2.36
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue

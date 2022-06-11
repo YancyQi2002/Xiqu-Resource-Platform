@@ -16,6 +16,14 @@ const getTauriInfo = async (): Promise<void> => {
 }
 
 getTauriInfo()
+
+if (tauriVersion === '') {
+	tauriVersion = '当前平台版本未使用 Tauri 进行构建'
+}
+if (platform === '') {
+	platform = navigator.platform
+}
+const browser = navigator.userAgent
 </script>
 
 <template>
@@ -27,13 +35,17 @@ getTauriInfo()
 		<div class="border-t border-gray-200">
 			<dl>
 				<div class="bg-gray-50 px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-					<dt class="text-sm font-medium text-gray-500">Tauri version:</dt>
+					<dt class="text-sm font-medium text-gray-500">Tauri version</dt>
 					<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ tauriVersion }}</dd>
 				</div>
 				<div class="bg-gray-50 px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-					<dt class="text-sm font-medium text-gray-500">OS:</dt>
+					<dt class="text-sm font-medium text-gray-500">OS</dt>
 					<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ platform }} {{ arch }} {{ osVersion
-					}}</dd>
+						}}</dd>
+				</div>
+				<div class="bg-gray-50 px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+					<dt class="text-sm font-medium text-gray-500">Browser</dt>
+					<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ browser }}</dd>
 				</div>
 
 				<div class="bg-gray-50 px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

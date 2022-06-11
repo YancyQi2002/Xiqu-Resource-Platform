@@ -844,9 +844,9 @@ dependencies = [
 
 [[package]]
 name = "flume"
-version = "0.10.12"
+version = "0.10.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "843c03199d0c0ca54bc1ea90ac0d507274c28abcc4f691ae8b4eaa375087c76a"
+checksum = "1ceeb589a3157cac0ab8cc585feb749bd2cea5cb55a6ee802ad72d9fd38303da"
 dependencies = [
  "futures-core",
  "futures-sink",
@@ -1230,9 +1230,9 @@ checksum = "9b919933a397b79c37e33b77bb2aa3dc8eb6e165ad809e58ff75bc7db2e34574"
 
 [[package]]
 name = "globset"
-version = "0.4.8"
+version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10463d9ff00a2a068db14231982f5132edebad0d7660cd956a1c30292dbcbfbd"
+checksum = "0a1e17342619edbc21a964c2afbeb6c820c6a2560032872f397bb97ea127bd0a"
 dependencies = [
  "aho-corasick",
  "bstr",
@@ -3314,7 +3314,7 @@ dependencies = [
  "thiserror",
  "tokio",
  "url",
- "uuid 1.1.1",
+ "uuid 1.1.2",
  "webkit2gtk",
  "webview2-com",
  "windows 0.37.0",
@@ -3366,7 +3366,7 @@ dependencies = [
  "thiserror",
  "time",
  "toml",
- "uuid 1.1.1",
+ "uuid 1.1.2",
  "walkdir",
  "winreg",
  "zip",
@@ -3391,7 +3391,7 @@ dependencies = [
  "sha2",
  "tauri-utils",
  "thiserror",
- "uuid 1.1.1",
+ "uuid 1.1.2",
  "walkdir",
 ]
 
@@ -3423,7 +3423,7 @@ dependencies = [
  "serde_json",
  "tauri-utils",
  "thiserror",
- "uuid 1.1.1",
+ "uuid 1.1.2",
  "webview2-com",
  "windows 0.37.0",
 ]
@@ -3440,7 +3440,7 @@ dependencies = [
  "rand 0.8.5",
  "tauri-runtime",
  "tauri-utils",
- "uuid 1.1.1",
+ "uuid 1.1.2",
  "webkit2gtk",
  "webview2-com",
  "windows 0.37.0",
@@ -3760,9 +3760,9 @@ checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
 
 [[package]]
 name = "uuid"
-version = "1.1.1"
+version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c6d5d669b51467dcf7b2f1a796ce0f955f05f01cafda6c19d6e95f730df29238"
+checksum = "dd6469f4314d5f1ffec476e05f17cc9a78bc7a27a6a857842170bdf8d6f98d2f"
 dependencies = [
  "getrandom 0.2.6",
  "sha1_smol",

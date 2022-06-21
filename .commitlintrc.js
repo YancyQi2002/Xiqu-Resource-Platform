@@ -26,7 +26,7 @@ module.exports = {
       {value: 'perf',     name: 'perf:     ⚡️ 性能提升 | A code change that improves performance', emoji: ":zap:"},
       {value: 'test',     name: 'test:     ✅ 测试相关 | Adding missing tests or correcting existing tests', emoji: ":white_check_mark:"},
       {value: 'build',    name: 'build:    🏗️ 构建相关 | Changes that affect the build system or external dependencies', emoji: ":building_construction:"},
-      {value: 'ci',       name: 'ci:       💚 持续集成 | Changes to our CI configuration files and scripts', emoji: ":green_heart:"},
+      {value: 'ci',       name: 'ci:       🎡 持续集成 | Changes to our CI configuration files and scripts', emoji: ":green_heart:"},
       {value: 'revert',   name: 'revert:   ⏪️ 回退代码 | Revert to a commit', emoji: ":rewind:"},
       {value: 'chore',    name: 'chore:    🔨 其他修改 | Other changes that do not modify src or test files', emoji: ":hammer:"},
     ],

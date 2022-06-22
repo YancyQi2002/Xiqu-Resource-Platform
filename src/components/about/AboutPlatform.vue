@@ -24,6 +24,11 @@ if (platform === '') {
 	platform = navigator.platform
 }
 const browser = navigator.userAgent
+if (arch === '') {
+	arch = browser.match(/x86_64|Win64|WOW64/) || navigator.cpuClass === 'x64'
+		? 'x64'
+		: 'x86'
+}
 </script>
 
 <template>

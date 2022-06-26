@@ -17,6 +17,7 @@ const resolve = (p: string) => {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  clearScreen: false,
   resolve: {
     alias: {
       '@': resolve('./src')
@@ -32,6 +33,7 @@ export default defineConfig({
       }
     }
   },
+  envPrefix: ['VITE_', 'TAURI_'],
   plugins: [
     vue({
       reactivityTransform: true

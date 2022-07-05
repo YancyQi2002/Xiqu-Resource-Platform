@@ -58,6 +58,9 @@ import AppIcon from '@/components/common/AppIcon.vue'
                     西皮娃娃调
                 </li>
                 <li>
+                    南梆子
+                </li>
+                <li>
                     反西皮
                 </li>
             </ul>
@@ -119,9 +122,6 @@ import AppIcon from '@/components/common/AppIcon.vue'
                 </li>
                 <li>
                     二黄平板（四平调）
-                </li>
-                <li>
-                    南梆子
                 </li>
                 <li>
                     反二黄
@@ -230,6 +230,9 @@ import AppIcon from '@/components/common/AppIcon.vue'
                 </li>
                 <li>
                     唢呐二黄
+                </li>
+                <li>
+                    唢呐高拨子
                 </li>
             </ul>
         </DisclosurePanel>

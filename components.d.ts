@@ -3,6 +3,8 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
+export {}
+
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AboutAuthor: typeof import('./src/components/about/AboutAuthor.vue')['default']
@@ -67,6 +69,5 @@ declare module '@vue/runtime-core' {
     TransitionChild: typeof import('@headlessui/vue')['TransitionChild']
     TransitionRoot: typeof import('@headlessui/vue')['TransitionRoot']
   }
-}
 
-export {}
+}

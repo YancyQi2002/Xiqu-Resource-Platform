@@ -69,5 +69,4 @@ declare module '@vue/runtime-core' {
     TransitionChild: typeof import('@headlessui/vue')['TransitionChild']
     TransitionRoot: typeof import('@headlessui/vue')['TransitionRoot']
   }
-
 }

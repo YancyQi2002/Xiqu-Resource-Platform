@@ -85,7 +85,7 @@
     "vite-plugin-purge-icons": "^0.8.1",
     "vite-plugin-tauri": "^2.1.0",
     "vue-global-api": "^0.4.1",
-    "vue-tsc": "^0.38.7"
+    "vue-tsc": "0.39.0"
   },
   "engines": {
     "node": ">=16",

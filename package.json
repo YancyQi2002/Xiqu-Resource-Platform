@@ -82,7 +82,7 @@
     "unplugin-vue-components": "^0.21.1",
     "vite": "^3.0.2",
     "vite-plugin-inspect": "^0.6.0",
-    "vite-plugin-purge-icons": "^0.8.2",
+    "vite-plugin-purge-icons": "0.9.0",
     "vite-plugin-tauri": "^2.2.0",
     "vue-global-api": "^0.4.1",
     "vue-tsc": "^0.39.0"

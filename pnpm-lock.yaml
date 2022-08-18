@@ -40,7 +40,7 @@ specifiers:
   tailwind-config-viewer: ^1.7.1
   tailwindcss: ^3.1.6
   typescript: ^4.7.4
-  unplugin-auto-import: ^0.10.1
+  unplugin-auto-import: 0.11.2
   unplugin-vue-components: ^0.21.1
   vite: ^3.0.2
   vite-plugin-inspect: ^0.6.0
@@ -96,9 +96,9 @@ devDependencies:
   postcss-import: 14.1.0_postcss@8.4.14
   prettier: 2.7.1
   tailwind-config-viewer: 1.7.1_tailwindcss@3.1.6
-  tailwindcss: 3.1.6
+  tailwindcss: 3.1.6_postcss@8.4.14
   typescript: 4.7.4
-  unplugin-auto-import: 0.10.1_vite@3.0.2
+  unplugin-auto-import: 0.11.2_vite@3.0.2
   unplugin-vue-components: 0.21.1_vite@3.0.2+vue@3.2.37
   vite: 3.0.2
   vite-plugin-inspect: 0.6.0_vite@3.0.2
@@ -359,7 +359,7 @@ packages:
     peerDependencies:
       tailwindcss: '>=2.0.0'
     dependencies:
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.14
     dev: true
 
   /@headlessui/vue/1.6.7_vue@3.2.37:
@@ -502,7 +502,7 @@ packages:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.14
     dev: true
 
   /@tailwindcss/typography/0.5.4_tailwindcss@3.1.6:
@@ -513,7 +513,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.14
     dev: true
 
   /@tauri-apps/api/1.0.2:
@@ -813,7 +813,7 @@ packages:
       '@vueuse/metadata': 8.9.4
       '@vueuse/shared': 8.9.4_vue@3.2.37
       vue: 3.2.37
-      vue-demi: 0.13.5_vue@3.2.37
+      vue-demi: 0.13.8_vue@3.2.37
     dev: false
 
   /@vueuse/metadata/8.9.4:
@@ -832,7 +832,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.37
-      vue-demi: 0.13.5_vue@3.2.37
+      vue-demi: 0.13.8_vue@3.2.37
     dev: false
 
   /JSONStream/1.3.5:
@@ -1363,8 +1363,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      is-text-path: 1.0.1
       JSONStream: 1.3.5
+      is-text-path: 1.0.1
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
@@ -1897,7 +1897,7 @@ packages:
     dependencies:
       fast-glob: 3.2.11
       postcss: 8.4.14
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.14
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -3033,11 +3033,13 @@ packages:
       minimist: 1.2.6
     dev: true
 
-  /mlly/0.5.5:
-    resolution: {integrity: sha512-2R4JT/SxRDPexomw4rmHYY/gWAGmL9Kkq1OR76Ua6w+P340a1aBDTWzKo2kAlxzrG82OdXs5VB9Lmcmyit0Obg==}
+  /mlly/0.5.13:
+    resolution: {integrity: sha512-0SK2fqoan+PMjADs4I2egAtrtNtpjqRez6PDTCeAdGjUQNJCvO5o9v2NEq52WA1jFmMU97qBr/JgdvCquehDbA==}
     dependencies:
-      pathe: 0.3.2
+      acorn: 8.8.0
+      pathe: 0.3.5
       pkg-types: 0.3.3
+      ufo: 0.8.5
     dev: true
 
   /mrmime/1.0.1:
@@ -3323,6 +3325,10 @@ packages:
     resolution: {integrity: sha512-qhnmX0TOqlCvdWWTkoM83wh5J8fZ2yhbDEc9MlsnAEtEc+JCwxUKEwmd6pkY9hRe6JR1Uecbc14VcAKX2yFSTA==}
     dev: true
 
+  /pathe/0.3.5:
+    resolution: {integrity: sha512-grU/QeYP0ChuE5kjU2/k8VtAeODzbernHlue0gTa27+ayGIu3wqYBIPGfP9r5xSqgCgDd4nWrjKXEfxMillByg==}
+    dev: true
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -3364,8 +3370,8 @@ packages:
     resolution: {integrity: sha512-6AJcCMnjUQPQv/Wk960w0TOmjhdjbeaQJoSKWRQv9N3rgkessCu6J0Ydsog/nw1MbpnxHuPzYbfOn2KmlZO1FA==}
     dependencies:
       jsonc-parser: 3.1.0
-      mlly: 0.5.5
-      pathe: 0.3.2
+      mlly: 0.5.13
+      pathe: 0.3.5
     dev: true
 
   /portfinder/1.0.28:
@@ -3674,8 +3680,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /scule/0.2.1:
-    resolution: {integrity: sha512-M9gnWtn3J0W+UhJOHmBxBTwv8mZCan5i1Himp60t6vvZcor0wr+IM0URKmIglsWJ7bRujNAVVN77fp+uZaWoKg==}
+  /scule/0.3.2:
+    resolution: {integrity: sha512-zIvPdjOH8fv8CgrPT5eqtxHQXmPNnV/vHJYffZhE43KZkvULvpCTvOt1HPlFaCZx287INL9qaqrZg34e8NgI4g==}
     dev: true
 
   /semver/5.7.1:
@@ -3912,15 +3918,17 @@ packages:
       open: 7.4.2
       portfinder: 1.0.28
       replace-in-file: 6.3.5
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.14
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /tailwindcss/3.1.6:
+  /tailwindcss/3.1.6_postcss@8.4.14:
     resolution: {integrity: sha512-7skAOY56erZAFQssT1xkpk+kWt2NrO45kORlxFPXUt3CiGsVPhH1smuH5XoDH6sGPXLyBv+zgCKA2HWBsgCytg==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -4093,19 +4101,19 @@ packages:
     resolution: {integrity: sha512-e4+UtA5IRO+ha6hYklwj6r7BjiGMxS0O+UaSg9HbaTefg4kMkzj4tXzEBajRR+wkxf+golgAWKzLbytCUDMJAA==}
     dev: true
 
-  /unimport/0.6.3_vite@3.0.2:
-    resolution: {integrity: sha512-+DVHqCoOoJcmYRLUrKbKDs/Iq/is6m0K7rTdFJAV7/MfyvWCKeSuSOrLeONgLBd6yC6iZFEzdc8di7S27PQyoA==}
+  /unimport/0.6.7_vite@3.0.2:
+    resolution: {integrity: sha512-EMoVqDjswHkU+nD098QYHXH7Mkw7KwGDQAyeRF2lgairJnuO+wpkhIcmCqrD1OPJmsjkTbJ2tW6Ap8St0PuWZA==}
     dependencies:
       '@rollup/pluginutils': 4.2.1
       escape-string-regexp: 5.0.0
       fast-glob: 3.2.11
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      mlly: 0.5.5
-      pathe: 0.3.2
-      scule: 0.2.1
+      mlly: 0.5.13
+      pathe: 0.3.5
+      scule: 0.3.2
       strip-literal: 0.4.0
-      unplugin: 0.7.2_vite@3.0.2
+      unplugin: 0.9.3_vite@3.0.2
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -4118,8 +4126,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unplugin-auto-import/0.10.1_vite@3.0.2:
-    resolution: {integrity: sha512-aBvlCOvkgZRceYDEIEpduD86XYCS1wV4atNeUtAZsNK7FSKRb0Nu073SYYAeU46IitK3GPeGd5BETtqz6It5Ng==}
+  /unplugin-auto-import/0.11.2_vite@3.0.2:
+    resolution: {integrity: sha512-1+VwBfn9dtiYv9SQLKP1AvZolUbK9xTVeAT+iOcEk4EHSFUlmIqBVLEKI76cifSQTLOJ3rZyPrEgptf3SZNLlQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@vueuse/core': '*'
@@ -4131,8 +4139,8 @@ packages:
       '@rollup/pluginutils': 4.2.1
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      unimport: 0.6.3_vite@3.0.2
-      unplugin: 0.7.2_vite@3.0.2
+      unimport: 0.6.7_vite@3.0.2
+      unplugin: 0.9.3_vite@3.0.2
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -4171,6 +4179,30 @@ packages:
 
   /unplugin/0.7.2_vite@3.0.2:
     resolution: {integrity: sha512-m7thX4jP8l5sETpLdUASoDOGOcHaOVtgNyrYlToyQUvILUtEzEnngRBrHnAX3IKqooJVmXpoa/CwQ/QqzvGaHQ==}
+    peerDependencies:
+      esbuild: '>=0.13'
+      rollup: ^2.50.0
+      vite: ^2.3.0 || ^3.0.0-0
+      webpack: 4 || 5
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      rollup:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
+    dependencies:
+      acorn: 8.8.0
+      chokidar: 3.5.3
+      vite: 3.0.2
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.4.4
+    dev: true
+
+  /unplugin/0.9.3_vite@3.0.2:
+    resolution: {integrity: sha512-GWXxizZG+tobNs8fuGTCeilerkkfZTZax2iivuE4pxLaF9wTnPJHOq8tbLKDb5ohVb+2BXNjrU9xx59yWTUnuw==}
     peerDependencies:
       esbuild: '>=0.13'
       rollup: ^2.50.0
@@ -4329,6 +4361,21 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.37
+    dev: false
+
+  /vue-demi/0.13.8_vue@3.2.37:
+    resolution: {integrity: sha512-Vy1zbZhCOdsmvGR6tJhAvO5vhP7eiS8xkbYQSoVa7o6KlIy3W8Rc53ED4qI4qpeRDjv3mLfXSEpYU6Yq4pgXRg==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.37
 
   /vue-eslint-parser/9.0.3_eslint@8.20.0:
     resolution: {integrity: sha512-yL+ZDb+9T0ELG4VIFo/2anAOz8SvBdlqEnQnvJ3M7Scq56DvtjY0VY88bByRZB0D4J0u8olBcfrXTVONXsh4og==}
@@ -4352,7 +4399,7 @@ packages:
     resolution: {integrity: sha512-283vpYOhVHJCpMkjNVEwZdgaAb+Y93zFaXGAWTI378MLoNuwQydjD/BAy1e81QYEmyA+JbxqcmMZVWcM9rbriw==}
     dependencies:
       eslint-config-vue-global-api: 0.4.1
-      vue-demi: 0.13.5_vue@3.2.37
+      vue-demi: 0.13.8_vue@3.2.37
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue

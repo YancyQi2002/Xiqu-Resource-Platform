@@ -39,7 +39,7 @@
     "@vueuse/components": "^9.1.1",
     "@vueuse/core": "^9.1.1",
     "@vueuse/integrations": "^9.1.1",
-    "axios": "^0.27.2",
+    "axios": "1.0.0-alpha.1",
     "core-js": "^3.25.0",
     "element-plus": "^2.2.15",
     "flowbite": "^1.5.3",

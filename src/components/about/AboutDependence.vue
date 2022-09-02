@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import config from '../../../package.json'
+import { dependencies, devDependencies } from '../../../package.json'
 import { VxeGridProps } from 'vxe-table'
-
-const xToolbar :any = ref({})
 
 const dloading = reactive({
     loading: false
@@ -10,7 +8,6 @@ const dloading = reactive({
 
 const gridOptions1 = reactive<VxeGridProps>({
     border: true,
-    // resizable: true,
     columnConfig: {
         resizable: true
     },
@@ -20,12 +17,10 @@ const gridOptions1 = reactive<VxeGridProps>({
     printConfig: {},
     height: 600,
     toolbarConfig: {
-        print: {
-            icon: 'vxe-icon--print'
-        },
-        export: {
-            icon: 'vxe-icon--download'
-        }
+        export: true,
+        print: true,
+        zoom: true,
+        custom: true
     },
     columns: [
         {
@@ -47,13 +42,10 @@ const gridOptions1 = reactive<VxeGridProps>({
 const getDependencies = () => {
     dloading.loading = true
 
-    let dependencies = config.dependencies
-    let devDependencies = config.devDependencies
-
-    let dependenciesInfoArr: Array<any>[] = []
-    let dependenciesVerArr: Array<any>[] = []
-    let devDependenciesInfoArr: Array<any>[] = []
-    let devDependenciesVerArr: Array<any>[] = []
+    let dependenciesInfoArr :Array<any>[] = []
+    let dependenciesVerArr :Array<any>[] = []
+    let devDependenciesInfoArr :Array<any>[] = []
+    let devDependenciesVerArr :Array<any>[] = []
 
     let dependenciesLength = 0
     let devDependenciesLength = 0
@@ -112,7 +104,7 @@ getDependencies()
                 <h3 class="text-lg leading-6 font-medium text-gray-900">依赖项明细</h3>
                 <p class="pt-1 max-w-2xl text-sm text-gray-500">About the Dependence</p>
             </div>
-            <hr />
+            <hr class="-mt-2" />
             <vxe-grid class="reverse-table" :loading="dloading.loading" v-bind="gridOptions1"></vxe-grid>
         </div>
     </div>

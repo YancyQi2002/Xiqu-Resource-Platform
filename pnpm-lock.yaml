@@ -23,7 +23,7 @@ specifiers:
   '@vueuse/core': ^9.1.1
   '@vueuse/integrations': ^9.1.1
   autoprefixer: ^10.4.8
-  axios: ^0.27.2
+  axios: 1.0.0-alpha.1
   bootstrap: ^5.2.0
   commitizen: ^4.2.5
   core-js: ^3.25.0
@@ -63,8 +63,8 @@ dependencies:
   '@tauri-apps/api': 1.0.2
   '@vueuse/components': 9.1.1_vue@3.2.38
   '@vueuse/core': 9.1.1_vue@3.2.38
-  '@vueuse/integrations': 9.1.1_axios@0.27.2+vue@3.2.38
-  axios: 0.27.2
+  '@vueuse/integrations': 9.1.1_vzf3x4i264xclknse3jlpe2co4
+  axios: 1.0.0-alpha.1
   core-js: 3.25.0
   element-plus: 2.2.15_vue@3.2.38
   flowbite: 1.5.3
@@ -72,7 +72,7 @@ dependencies:
   pinia: 2.0.21_pj7ch6rmow6odq73xb5hfvge3q
   qs: 6.11.0
   vue: 3.2.38
-  vue-axios: 3.4.1_axios@0.27.2+vue@3.2.38
+  vue-axios: 3.4.1_vzf3x4i264xclknse3jlpe2co4
   vue-router: 4.1.5_vue@3.2.38
   vxe-table: 4.3.2_vue@3.2.38+xe-utils@3.5.6
   xe-utils: 3.5.6
@@ -1024,7 +1024,7 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@vueuse/integrations/9.1.1_axios@0.27.2+vue@3.2.38:
+  /@vueuse/integrations/9.1.1_vzf3x4i264xclknse3jlpe2co4:
     resolution: {integrity: sha512-RVRio67rogVIV8e1Uov93JuxrE7UXhRm2B1pzdTAd+/oBxo4E3WaoXo/naI3kW1quvlOUv+g1/6goyGQoIGSow==}
     peerDependencies:
       async-validator: '*'
@@ -1061,7 +1061,7 @@ packages:
     dependencies:
       '@vueuse/core': 9.1.1_vue@3.2.38
       '@vueuse/shared': 9.1.1_vue@3.2.38
-      axios: 0.27.2
+      axios: 1.0.0-alpha.1
       vue-demi: 0.13.11_vue@3.2.38
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -1310,11 +1310,12 @@ packages:
       - debug
     dev: true
 
-  /axios/0.27.2:
-    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+  /axios/1.0.0-alpha.1:
+    resolution: {integrity: sha512-p+meG161943WT+K7sJYquHR46xxi/z0tk7vnSmEf/LrfEAyiP+0uTMMYk1OEo1IRF18oGRhnFxN1y8fLcXaTMw==}
     dependencies:
       follow-redirects: 1.15.1
       form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -3754,6 +3755,10 @@ packages:
     hasBin: true
     dev: true
 
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+    dev: false
+
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
@@ -4619,13 +4624,13 @@ packages:
     resolution: {integrity: sha512-gu73tuZfJgu+mvCSy4UZwd2JXykjK9zAZsfmDeut5dx/1a7FeTk0XwJsSuqQn+cuMCGVbIBfl+s53X4T19DnzQ==}
     dev: false
 
-  /vue-axios/3.4.1_axios@0.27.2+vue@3.2.38:
+  /vue-axios/3.4.1_vzf3x4i264xclknse3jlpe2co4:
     resolution: {integrity: sha512-8YZYUOQrBEJktxoQtrM4rr2LfVcDaWfJqv8MqtLlgLlkuBvCYKFSZSo6AXQ4YcCzdgccDqstmuaEh68lcH9xWA==}
     peerDependencies:
       axios: '>= 0.20.0'
       vue: ^3.0.0 || ^2.0.0
     dependencies:
-      axios: 0.27.2
+      axios: 1.0.0-alpha.1
       vue: 3.2.38
     dev: false
 

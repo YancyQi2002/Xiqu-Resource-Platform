@@ -3,6 +3,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import {
   ElementPlusResolver,
   HeadlessUiResolver,
+  VueUseComponentsResolver,
 } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
@@ -39,12 +40,16 @@ export default defineConfig({
       reactivityTransform: true
     }),
     AutoImport({
-      imports: ['vue', 'vue/macros', 'vue-router'],
+      imports: ['vue', 'vue/macros', 'vue-router', '@vueuse/core'],
       resolvers: [ElementPlusResolver(), HeadlessUiResolver()],
     }),
     Components({
       extensions: ['vue'],
-      resolvers: [ElementPlusResolver(), HeadlessUiResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        HeadlessUiResolver(),
+        VueUseComponentsResolver()
+      ],
     }),
     PurgeIcons({
       content: [

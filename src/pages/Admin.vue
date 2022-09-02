@@ -100,45 +100,7 @@ const toDeleteUserPage = () => {
 }
 
 // 全屏
-const isFullScreen = ref(false)
-
-const openFullScreen = () => {
-  const full = (document as any).getElementById('app')
-  if (full.RequestFullScreen) {
-    full.RequestFullScreen()
-    isFullScreen.value = true
-  } else if (full.mozRequestFullScreen) {
-    full.mozRequestFullScreen()
-    isFullScreen.value = true
-  } else if (full.webkitRequestFullScreen) {
-    full.webkitRequestFullScreen()
-    isFullScreen.value = true
-  } else if (full.msRequestFullScreen) {
-    full.msRequestFullScreen()
-    isFullScreen.value = true
-  } else {
-    ElMessage({
-      message: 'Error 浏览器不支持！',
-      type: 'warning',
-    })
-  }
-}
-
-const exitFullScreen = () => {
-  if ((document as any).exitFullScreen) {
-    (document as any).exitFullScreen()
-    isFullScreen.value = false
-  } else if ((document as any).mozCancelFullScreen) {
-    (document as any).mozCancelFullscreen()
-    isFullScreen.value = false
-  } else if ((document as any).webkitExitFullscreen) {
-    (document as any).webkitExitFullscreen()
-    isFullScreen.value = false
-  } else if ((document as any).msExitFullscreen) {
-    (document as any).msExitFullscreen()
-    isFullScreen.value = false
-  }
-}
+const { isFullscreen, toggle } = useFullscreen()
 </script>
 <template>
   <div class="common-layout">
@@ -209,10 +171,10 @@ const exitFullScreen = () => {
             <div class="mr-4 text-2xl" style="font-family: YSXK;">
               当前用户权限：{{ userJurisdiction }}
             </div>
-            <div @click="openFullScreen" v-if="isFullScreen == false">
+            <div @click="toggle" v-if="isFullscreen == false">
               <app-icon icon="icon-park:full-screen-one" class="mr-3 text-4xl cursor-pointer" />
             </div>
-            <div @click="exitFullScreen" v-else>
+            <div @click="toggle" v-else>
               <app-icon icon="icon-park:full-screen-play" class="mr-3 text-4xl cursor-pointer" />
             </div>
             <div class="avatar cursor-pointer">

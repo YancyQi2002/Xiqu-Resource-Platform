@@ -1,5 +1,7 @@
 # Vue 3 + Typescript + Vite
 
+[![OSCS Status](https://www.oscs1024.com/platform/badge/YancyQi2002/Xiqu-Resource-Platform.svg?size=small)](https://www.oscs1024.com/project/YancyQi2002/Xiqu-Resource-Platform?ref=badge_small)
+
 This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
 ## Recommended IDE Setup
@@ -15,3 +17,7 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 AGPL-3.0-or-later 
 
 ![AGPL-3.0-or-later](https://www.gnu.org/graphics/agplv3-with-text-162x68.png)
+
+# OSCS 社区安全徽章
+
+[![OSCS Status](https://www.oscs1024.com/platform/badge/YancyQi2002/Xiqu-Resource-Platform.svg?size=large)](https://www.oscs1024.com/project/YancyQi2002/Xiqu-Resource-Platform?ref=badge_large)

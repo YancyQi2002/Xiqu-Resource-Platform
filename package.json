@@ -83,7 +83,7 @@
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.4",
     "vite": "^3.0.9",
-    "vite-plugin-inspect": "^0.6.1",
+    "vite-plugin-inspect": "^0.7.0",
     "vite-plugin-purge-icons": "^0.9.0",
     "vue-global-api": "^0.4.1",
     "vue-tsc": "^0.40.5"

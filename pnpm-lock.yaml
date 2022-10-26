@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.1.0
   '@gradin/tailwindcss-scrollbar': ^2.0.4
   '@headlessui/vue': ^1.6.7
-  '@iconify/iconify': ^2.2.1
+  '@iconify/iconify': ^3.0.0
   '@iconify/json': ^2.1.101
   '@popperjs/core': ^2.11.6
   '@tailwindcss/forms': ^0.5.2
@@ -59,7 +59,7 @@ specifiers:
 
 dependencies:
   '@headlessui/vue': 1.6.7_vue@3.2.38
-  '@iconify/iconify': 2.2.1
+  '@iconify/iconify': 3.0.0
   '@tauri-apps/api': 1.0.2
   '@vueuse/components': 9.1.1_vue@3.2.38
   '@vueuse/core': 9.1.1_vue@3.2.38
@@ -572,8 +572,10 @@ packages:
       - encoding
     dev: true
 
-  /@iconify/iconify/2.2.1:
-    resolution: {integrity: sha512-WJzw+3iicrF/tbjbxxRinSgy5FHdJoz/egTqwi3xCDkNRJPq482RX1iyaWrjNuY2vMNSPkQMuqHvZDXgA+WnwQ==}
+  /@iconify/iconify/3.0.0:
+    resolution: {integrity: sha512-wgCSv4GwVLzwGqfUkYEDT9XOfetGZV67D5CmMYp74IdaPMnyOWb/3XxUPvGmuTt8Yw9xekMqzvdQp/p+a/abNw==}
+    dependencies:
+      '@iconify/types': 2.0.0
 
   /@iconify/json/2.1.101:
     resolution: {integrity: sha512-IZ7+DDY9OdVcV0TEI/Dd6KZirX+8JlUUtty75OgqbN+Hnj9T2fkD1MiLQT6HEqCcU8PzZUq0DSvwcIKaN/H/Xw==}
@@ -585,6 +587,9 @@ packages:
   /@iconify/types/1.1.0:
     resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
     dev: true
+
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
   /@jridgewell/resolve-uri/3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
@@ -656,7 +661,7 @@ packages:
   /@purge-icons/generated/0.9.0:
     resolution: {integrity: sha512-s2t+1oVtGDV6KtqfCXtUOhxfeYvOdDF90IVm+nMs/6bUP0HeGZLslguuL/AibpwtfL4FA/oCsIu/RhwapgAdJw==}
     dependencies:
-      '@iconify/iconify': 2.2.1
+      '@iconify/iconify': 3.0.0
     dev: true
 
   /@rollup/pluginutils/4.2.1:

@@ -4,11 +4,11 @@ import AboutPlatformVue from '@/components/about/AboutPlatform.vue'
 </script>
 
 <template>
-    <div>
-        <AboutPlatformVue />
-        <br />
-        <AboutDependenceVue />
-    </div>
+  <div>
+    <AboutPlatformVue />
+    <br>
+    <AboutDependenceVue />
+  </div>
 </template>
 
 <style scoped>

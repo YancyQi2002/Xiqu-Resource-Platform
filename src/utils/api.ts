@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 
 const baseURL = '/api'
 
@@ -12,7 +12,7 @@ export let getPeakingOperalist = baseURL + '/dramascript/peakingoperalist'
 
 // 添加请求拦截器
 axios.interceptors.request.use(
-  (config: any) => {
+  (config :AxiosRequestConfig<any>) => {
     return config
   },
   (error) => {

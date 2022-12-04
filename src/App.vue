@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <template>
   <!-- AGPL-3.0-or-later 许可证说明 -->
-  <!-- 
+  <!--
     <one line to give the program's name and a brief idea of what it does.>
     Copyright (C) 2022  Yancy Qi
 

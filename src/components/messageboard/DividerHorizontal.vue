@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <el-divider class="my-2 mb-4 border-b border-gray-300"></el-divider>
+  <el-divider class="my-2 mb-4 border-b border-gray-300" />
 </template>
 
 <style scoped>

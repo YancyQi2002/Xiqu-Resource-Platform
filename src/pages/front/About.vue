@@ -4,9 +4,9 @@ import AboutPlatformVue from '@/components/about/AboutPlatform.vue'
 </script>
 
 <template>
-    <AboutPlatformVue />
-    <br />
-    <AboutAuthorVue />
+  <AboutPlatformVue />
+  <br>
+  <AboutAuthorVue />
 </template>
 
 <style scoped>

@@ -18,7 +18,7 @@ import router from './router/index'
 
 const pinia = createPinia()
 
-const app: any = createApp(App)
+const app = createApp(App)
 app.config.globalProperties.$axios = axios // 注入 axios
 app.use(router).use(pinia).use(VueAxios, axios).use(VXETable)
 app.provide('axios', app.config.globalProperties.axios)

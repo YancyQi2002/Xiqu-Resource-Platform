@@ -1,11 +1,11 @@
 html,
 body,
 #app {
-    @apply w-full h-full antialiased;
+  @apply w-full h-full antialiased;
 }
 
 a {
-    @apply no-underline;
+  @apply no-underline;
 }
 
 body::-webkit-scrollbar-track,
@@ -32,5 +32,19 @@ body::-webkit-scrollbar-thumb,
 }
 
 .el-sub-menu {
-    width: 220px;
+  width: 220px;
+}
+
+@keyframes throttle {
+  from {
+    @apply pointer-events-none;
+  }
+  to {
+    @apply pointer-events-auto;
+  }
+}
+
+button {
+  @apply active:animate-none;
+  animation: throttle 2s step-end forwards;
 }

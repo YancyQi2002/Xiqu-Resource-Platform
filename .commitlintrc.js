@@ -1,3 +1,15 @@
+const { execSync } = require('child_process')
+
+const gitStatus = execSync('git status --porcelain || true')
+  .toString()
+  .trim()
+  .split('\n')
+
+const subjectComplete = gitStatus
+  .find((r) => ~r.indexOf('M  packages/components'))
+  ?.replace(/\//g, '%%')
+  ?.match(/packages%%components%%((\w|-)*)/)?.[1]
+
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
   rules: {
@@ -31,24 +43,26 @@ module.exports = {
       {value: 'chore',    name: 'chore:    🔨 其他修改 | Other changes that do not modify src or test files', emoji: ":hammer:"},
     ],
     useEmoji: true,
+    emojiAlign: "center",
+    themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: "bottom",
     customScopesAlias: "custom",
     emptyScopesAlias: "empty",
-    allowBreakingChanges: ['feat', 'fix'],
     upperCaseSubject: false,
+    markBreakingChangeMode: false,
+    allowBreakingChanges: ['feat', 'fix'],
+    breaklineNumber: 100,
     breaklineChar: "|",
     skipQuestions: [],
-    issuePrefixs: [
-      // 如果使用 gitee 作为开发管理
-      { value: "link", name: "link:     将任务状态更改为进行中"},
-      { value: "closed", name: "closed:   ISSUES 已经解决" }
-    ],
+    issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
     customIssuePrefixsAlign: "top",
     emptyIssuePrefixsAlias: "skip",
     customIssuePrefixsAlias: "custom",
+    allowCustomIssuePrefixs: true,
+    allowEmptyIssuePrefixs: true,
     confirmColorize: true,
     maxHeaderLength: Infinity,
     maxSubjectLength: Infinity,
@@ -57,6 +71,6 @@ module.exports = {
     defaultBody: "",
     defaultIssues: "",
     defaultScope: "",
-    defaultSubject: ""
+    defaultSubject: subjectComplete && `[${subjectComplete}] `
   }
 }

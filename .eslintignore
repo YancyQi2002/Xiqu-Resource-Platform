@@ -1,0 +1,6 @@
+.vscode/*
+node_modules/*
+src-tauri/*
+build/*
+package.json
+renovate.json

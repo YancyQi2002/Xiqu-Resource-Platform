@@ -31,7 +31,11 @@ export default defineConfig({
         target: 'http://localhost:3000/api',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
-      }
+      },
+      '/imgApi1': {
+        target: 'https://api.ixiaowai.cn/api',
+        changeOrigin: true,
+      } 
     }
   },
   envPrefix: ['VITE_', 'TAURI_'],

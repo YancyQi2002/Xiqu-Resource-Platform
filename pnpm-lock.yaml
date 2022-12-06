@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/cli': ^17.3.0
   '@commitlint/config-conventional': ^17.3.0
   '@gradin/tailwindcss-scrollbar': ^3.0.1
-  '@headlessui/tailwindcss': 0.0.0-insiders.4da0b3a
+  '@headlessui/tailwindcss': 0.1.2
   '@headlessui/vue': ^1.7.4
   '@iconify/iconify': ^3.0.1
   '@iconify/json': ^2.1.147
@@ -60,7 +60,7 @@ specifiers:
   xe-utils: ^3.5.7
 
 dependencies:
-  '@headlessui/tailwindcss': 0.0.0-insiders.4da0b3a_tailwindcss@3.2.4
+  '@headlessui/tailwindcss': 0.1.2_tailwindcss@3.2.4
   '@headlessui/vue': 1.7.4_vue@3.2.45
   '@iconify/iconify': 3.0.1
   '@tauri-apps/api': 1.2.0
@@ -648,8 +648,8 @@ packages:
       tailwindcss: 3.2.4_postcss@8.4.19
     dev: true
 
-  /@headlessui/tailwindcss/0.0.0-insiders.4da0b3a_tailwindcss@3.2.4:
-    resolution: {integrity: sha512-UaLTeCxNjGoAFAWrZf4mQlpleX8gZqJKni7063LWllrqtnYkAQwm1eB1Q/vUfMMQUnWIFCDW6O5BtQAOQowCoQ==}
+  /@headlessui/tailwindcss/0.1.2_tailwindcss@3.2.4:
+    resolution: {integrity: sha512-AQNESz+f1grCxifrocOE6hDMDFqhqY0g3xrSGOS0ocGkmVkssaBzXaAPAPNSs/nHmr4ZUhfl5THQpYrvaouWlQ==}
     engines: {node: '>=10'}
     peerDependencies:
       tailwindcss: ^3.0

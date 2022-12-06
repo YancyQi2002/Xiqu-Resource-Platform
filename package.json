@@ -35,7 +35,7 @@
     }
   },
   "dependencies": {
-    "@headlessui/tailwindcss": "0.0.0-insiders.4da0b3a",
+    "@headlessui/tailwindcss": "0.1.2",
     "@headlessui/vue": "^1.7.4",
     "@iconify/iconify": "^3.0.1",
     "@tauri-apps/api": "^1.2.0",

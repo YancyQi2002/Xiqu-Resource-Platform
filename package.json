@@ -46,7 +46,7 @@
     "core-js": "^3.26.1",
     "element-plus": "^2.2.26",
     "flowbite": "^1.5.4",
-    "flowbite-vue": "^0.0.6",
+    "flowbite-vue": "^0.0.10",
     "pinia": "^2.0.27",
     "qs": "^6.11.0",
     "vue": "^3.2.45",

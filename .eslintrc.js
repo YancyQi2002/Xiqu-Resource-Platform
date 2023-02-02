@@ -19,6 +19,7 @@ module.exports = {
     'no-invalid-regexp': 2,
     'no-trailing-spaces': 1,
     'tailwindcss/no-custom-classname': 'off',
+    'unused-imports/no-unused-vars': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/no-multiple-template-root': 'off',
     'vue/no-unused-vars': 'off',

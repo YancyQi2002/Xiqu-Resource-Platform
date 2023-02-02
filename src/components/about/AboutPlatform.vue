@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { os } from '@tauri-apps/api'
 // @ts-nocheck
 import { getTauriVersion } from '@tauri-apps/api/app'
-import { os } from '@tauri-apps/api'
 
 let tauriVersion = $ref('')
 let platform = $ref('')
@@ -21,11 +21,11 @@ if (tauriVersion === '')
   tauriVersion = '当前平台版本未使用 Tauri 进行构建'
 
 if (platform === '')
-  platform = navigator.platform
+  platform = (navigator.platform || navigator?.userAgentData.platform)
 
 const browser = navigator.userAgent
 if (arch === '') {
-  arch = browser.match(/x86_64|Win64|WOW64/) || navigator.cpuClass === 'x64'
+  arch = (browser.match(/x86_64|Win64|WOW64/) || navigator.oscpu === 'x64')
     ? 'x64'
     : 'x86'
 }

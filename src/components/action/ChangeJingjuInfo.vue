@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import axios from 'axios'
+import type {
+  FormInstance,
+  FormRules,
+} from 'element-plus'
 import { ElMessage } from 'element-plus'
-import type { FormInstance, FormRules } from 'element-plus'
+
 import router from '@/router'
 
 let checkData: any = $ref([])
@@ -193,7 +197,7 @@ const back = () => {
         >
         <button
           type="button"
-          class="m-2 mr-2 mb-2 w-24 rounded-full border border-gray-300 bg-white text-sm font-medium leading-9 text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+          class="m-2 w-24 rounded-full border border-gray-300 bg-white text-sm font-medium leading-9 text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
           @click="check"
         >
           查询

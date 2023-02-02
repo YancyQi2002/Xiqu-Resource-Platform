@@ -1,5 +1,5 @@
-import type { RouteRecordRaw } from 'vue-router'
 import {
+  RouteRecordRaw,
   createRouter,
   createWebHistory,
 } from 'vue-router'

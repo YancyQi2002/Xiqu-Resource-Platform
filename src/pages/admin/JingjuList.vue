@@ -6,7 +6,7 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import AppIcon from '@/components/common/AppIcon.vue'
 import BreadcrumbVue from '@/components/common/Breadcrumb.vue'
 import router from '@/router'
-import { addJingjuItem, deleteJingjuItem, getJingjuList } from '@/utils/api'
+import { deleteJingjuItem, getJingjuList } from '@/utils/api'
 
 const locale = zhCn
 

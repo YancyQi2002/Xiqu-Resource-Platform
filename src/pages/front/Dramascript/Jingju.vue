@@ -2,7 +2,6 @@
 import { ElMessage, ElMessageBox } from 'element-plus'
 import type { Action } from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
-import { trimLeft } from 'xe-utils'
 import { getJingjuList } from '@/utils/api'
 
 const locale = zhCn

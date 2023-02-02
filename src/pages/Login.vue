@@ -83,21 +83,42 @@ const toHomePage = () => {
   <div class="flex min-h-full items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md space-y-8">
       <div>
-        <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-          alt="Workflow">
+        <img
+          class="mx-auto h-12 w-auto"
+          src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+          alt="Workflow"
+        >
         <h2 class="mt-6 select-none text-center text-3xl font-extrabold text-gray-900">
           平台登录
         </h2>
       </div>
-      <el-form ref="formEl" class="mt-8 space-y-6" :model="userInfo" :rules="rules" @submit="handleSubmit">
+      <el-form
+        ref="formEl"
+        class="mt-8 space-y-6"
+        :model="userInfo"
+        :rules="rules"
+        @submit="handleSubmit"
+      >
         <el-form-item prop="username">
-          <el-input v-model="userInfo.username" placeholder="用户名" />
+          <el-input
+            v-model="userInfo.username"
+            placeholder="用户名"
+          />
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="userInfo.password" placeholder="密码" type="password" show-password />
+          <el-input
+            v-model="userInfo.password"
+            placeholder="密码"
+            type="password"
+            show-password
+          />
         </el-form-item>
         <el-form-item>
-          <el-button class="w-full" type="primary" native-type="submit">
+          <el-button
+            class="w-full"
+            type="primary"
+            native-type="submit"
+          >
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
               <app-icon icon="heroicons-solid:lock-closed" />
             </span>
@@ -105,7 +126,10 @@ const toHomePage = () => {
           </el-button>
         </el-form-item>
         <el-form-item>
-          <el-button class="w-full" @click="toHomePage">
+          <el-button
+            class="w-full"
+            @click="toHomePage"
+          >
             返回平台主页
           </el-button>
         </el-form-item>

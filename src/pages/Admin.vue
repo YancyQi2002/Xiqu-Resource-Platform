@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ElMessage } from 'element-plus'
 import AppIcon from '@/components/common/AppIcon.vue'
-import routes from '@/router/module/admin'
 import { clearlocalStorage } from '@/utils/clearlocalStorage'
 
 const router = useRouter()

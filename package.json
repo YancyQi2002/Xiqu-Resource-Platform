@@ -39,7 +39,7 @@
     "@headlessui/vue": "^1.7.8",
     "@iconify/iconify": "^3.1.0",
     "@tauri-apps/api": "1.2.0",
-    "@vueuse/components": "^9.12.0",
+    "@vueuse/components": "^10.0.0",
     "@vueuse/core": "^9.12.0",
     "@vueuse/integrations": "^9.12.0",
     "axios": "^1.3.1",

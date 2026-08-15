@@ -64,7 +64,7 @@
     "@popperjs/core": "^2.11.6",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
-    "@tauri-apps/cli": "1.2.3",
+    "@tauri-apps/cli": "1.5.6",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.18",
     "@types/qs": "^6.9.7",
